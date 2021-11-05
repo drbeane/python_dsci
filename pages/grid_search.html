@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>20. Grid Search &#8212; Python for Data Science</title>
+    <title>21. Grid Search &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="21. Titanic Dataset" href="titanic.html" />
-    <link rel="prev" title="19. Cross-Validation" href="cross_validation.html" />
+    <link rel="next" title="22. Titanic Dataset" href="titanic.html" />
+    <link rel="prev" title="20. Cross-Validation" href="cross_validation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -150,6 +150,11 @@
    7. Matplotlib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="subplots.html">
+   8. Seaborn
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -159,7 +164,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   8. Seaborn
+   9. Seaborn
   </a>
  </li>
 </ul>
@@ -171,7 +176,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   9. Plotly
+   10. Plotly
   </a>
  </li>
 </ul>
@@ -183,67 +188,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   10. Introduction to Machine Learning
+   11. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   11. Introduction to Scikit-Learn
+   12. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   12. Classification Metrics
+   13. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="loss_functions.html">
-   13. Loss Functions
+   14. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   14. Linear Regression
+   15. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   15. Logistic Regression
+   16. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="decision_trees.html">
-   16. Decision Tree Classifiers
+   17. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="random_forests.html">
-   17. Random Forests
+   18. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   18. One-Hot Encoding
+   19. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cross_validation.html">
-   19. Cross-Validation
+   20. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   20. Grid Search
+   21. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   21. Titanic Dataset
+   22. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="breast_cancer.html">
-   22. Diagnosing Breast Cancer
+   23. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -363,49 +368,49 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   20.1. Grid Search
+   21.1. Grid Search
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#import-packages">
-   20.2. Import Packages
+   21.2. Import Packages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generate-data">
-   20.3. Generate Data
+   21.3. Generate Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grid-search-in-scikit-learn">
-   20.4. Grid Search in Scikit-Learn
+   21.4. Grid Search in Scikit-Learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grid-search-with-logistic-regression">
-   20.5. Grid Search with Logistic Regression
+   21.5. Grid Search with Logistic Regression
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#obtaining-the-best-model">
-     20.5.1. Obtaining the Best Model
+     21.5.1. Obtaining the Best Model
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grid-search-with-decision-trees">
-   20.6. Grid Search with Decision Trees
+   21.6. Grid Search with Decision Trees
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grid-search-with-random-forests">
-   20.7. Grid Search with Random Forests
+   21.7. Grid Search with Random Forests
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exploring-grid-search-results">
-   20.8. Exploring Grid Search Results
+   21.8. Exploring Grid Search Results
   </a>
  </li>
 </ul>
@@ -420,13 +425,13 @@
               <div>
                 
   <div class="section" id="grid-search">
-<h1><span class="section-number">20. </span>Grid Search<a class="headerlink" href="#grid-search" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">21. </span>Grid Search<a class="headerlink" href="#grid-search" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2><span class="section-number">20.1. </span>Grid Search<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.1. </span>Grid Search<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Grid search is a method for performing hyperparameter tuning for a model. This technique involves identifying one or more hyperparameters that you would like to tune, and then selecting some number of values to consider for each hyperparameter. We then evaluate each possible set of hyperparameters by performing some type of validation. Typically, this will involve performing cross-validation to generate an out-of-sample performance estimate for each set of hyperparameters. We then typically select the model that has the highest cross-validation score.</p>
 </div>
 <div class="section" id="import-packages">
-<h2><span class="section-number">20.2. </span>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.2. </span>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
 <p>We will illustrate how to perform grid search in Scikit-Learn in this lesson. We begin by importing a few packages and tools that are not directly related to grid search.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,7 +464,7 @@
 </div>
 </div>
 <div class="section" id="generate-data">
-<h2><span class="section-number">20.3. </span>Generate Data<a class="headerlink" href="#generate-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.3. </span>Generate Data<a class="headerlink" href="#generate-data" title="Permalink to this headline">¶</a></h2>
 <p>In this lesson, we will work with a synthetic dataset created for a classification problem. The dataset contains 400 observations, each of which will have 6 features, and will be assigned one of 10 possible classes. The features are stored in an array named <code class="docutils literal notranslate"><span class="pre">X</span></code>, while the labels are stored in an array named <code class="docutils literal notranslate"><span class="pre">y</span></code>. We start by viewing the contents of <code class="docutils literal notranslate"><span class="pre">X</span></code> in a DataFrame format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -482,7 +487,7 @@
 </div>
 </div>
 <div class="section" id="grid-search-in-scikit-learn">
-<h2><span class="section-number">20.4. </span>Grid Search in Scikit-Learn<a class="headerlink" href="#grid-search-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.4. </span>Grid Search in Scikit-Learn<a class="headerlink" href="#grid-search-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p>GridSearch is performed in Scikit-Learn using the <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> class. We will import this class in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -493,7 +498,7 @@
 </div>
 </div>
 <div class="section" id="grid-search-with-logistic-regression">
-<h2><span class="section-number">20.5. </span>Grid Search with Logistic Regression<a class="headerlink" href="#grid-search-with-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.5. </span>Grid Search with Logistic Regression<a class="headerlink" href="#grid-search-with-logistic-regression" title="Permalink to this headline">¶</a></h2>
 <p>We will illustrate the usage of <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> by first performing hyperparameter tuning to select the optimal value of the regularization parameter <code class="docutils literal notranslate"><span class="pre">C</span></code> in a logistic regression model.</p>
 <p>We start by defining a parameter grid. This is a dictionary containing keys for any hyperparameters we wish to tune over. The values associated with each key should be a list or array of values to consider for that hyperparameter.</p>
 <div class="cell docutils container">
@@ -530,7 +535,7 @@
 </div>
 <p>We see that the highest cross-validation score obtain for any of the values of <code class="docutils literal notranslate"><span class="pre">C</span></code> considered was 62.7%. This was obtained by using <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">0.16237767</span></code>.</p>
 <div class="section" id="obtaining-the-best-model">
-<h3><span class="section-number">20.5.1. </span>Obtaining the Best Model<a class="headerlink" href="#obtaining-the-best-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">21.5.1. </span>Obtaining the Best Model<a class="headerlink" href="#obtaining-the-best-model" title="Permalink to this headline">¶</a></h3>
 <p>When trained, <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> class will automatically refit a final model to the full training set using the optimal hyperparameter values found. This model is stored in the attribute <code class="docutils literal notranslate"><span class="pre">best_estimator_</span></code>.</p>
 <p>In the cell below, we extract the best model from our <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> object and use it to calculate the training accuracy for this model.</p>
 <div class="cell docutils container">
@@ -544,7 +549,7 @@
 </div>
 </div>
 <div class="section" id="grid-search-with-decision-trees">
-<h2><span class="section-number">20.6. </span>Grid Search with Decision Trees<a class="headerlink" href="#grid-search-with-decision-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.6. </span>Grid Search with Decision Trees<a class="headerlink" href="#grid-search-with-decision-trees" title="Permalink to this headline">¶</a></h2>
 <p>We will now illustrate how to use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> to perform hyperparameter tuning for a decision tree. We will tune over two hyperparameters: <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,7 +582,7 @@
 </div>
 </div>
 <div class="section" id="grid-search-with-random-forests">
-<h2><span class="section-number">20.7. </span>Grid Search with Random Forests<a class="headerlink" href="#grid-search-with-random-forests" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.7. </span>Grid Search with Random Forests<a class="headerlink" href="#grid-search-with-random-forests" title="Permalink to this headline">¶</a></h2>
 <p>We will now illustrate how to use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> to perform hyperparameter tuning for a random forest. We will tune over two hyperparameters: <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>. We will set the <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> hyperparameter to 200.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,7 +615,7 @@
 </div>
 </div>
 <div class="section" id="exploring-grid-search-results">
-<h2><span class="section-number">20.8. </span>Exploring Grid Search Results<a class="headerlink" href="#exploring-grid-search-results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.8. </span>Exploring Grid Search Results<a class="headerlink" href="#exploring-grid-search-results" title="Permalink to this headline">¶</a></h2>
 <p>If we would like to see more detailed results pertaining to the results of the grid seach process, more information can be found in the <code class="docutils literal notranslate"><span class="pre">cv_results</span></code> attribute of a trained instance of the <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> class. This attribute contains a dictionary with several pieces of information pertaining to the results of the cross-validation steps. We will start by looking at the keys of the items stored in this dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,8 +674,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="cross_validation.html" title="previous page"><span class="section-number">19. </span>Cross-Validation</a>
-    <a class='right-next' id="next-link" href="titanic.html" title="next page"><span class="section-number">21. </span>Titanic Dataset</a>
+    <a class='left-prev' id="prev-link" href="cross_validation.html" title="previous page"><span class="section-number">20. </span>Cross-Validation</a>
+    <a class='right-next' id="next-link" href="titanic.html" title="next page"><span class="section-number">22. </span>Titanic Dataset</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

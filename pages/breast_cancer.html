@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>22. Diagnosing Breast Cancer &#8212; Python for Data Science</title>
+    <title>23. Diagnosing Breast Cancer &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Glossary" href="glossary.html" />
-    <link rel="prev" title="21. Titanic Dataset" href="titanic.html" />
+    <link rel="prev" title="22. Titanic Dataset" href="titanic.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -150,6 +150,11 @@
    7. Matplotlib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="subplots.html">
+   8. Seaborn
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -159,7 +164,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   8. Seaborn
+   9. Seaborn
   </a>
  </li>
 </ul>
@@ -171,7 +176,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   9. Plotly
+   10. Plotly
   </a>
  </li>
 </ul>
@@ -183,67 +188,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   10. Introduction to Machine Learning
+   11. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   11. Introduction to Scikit-Learn
+   12. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   12. Classification Metrics
+   13. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="loss_functions.html">
-   13. Loss Functions
+   14. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   14. Linear Regression
+   15. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   15. Logistic Regression
+   16. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="decision_trees.html">
-   16. Decision Tree Classifiers
+   17. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="random_forests.html">
-   17. Random Forests
+   18. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   18. One-Hot Encoding
+   19. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cross_validation.html">
-   19. Cross-Validation
+   20. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="grid_search.html">
-   20. Grid Search
+   21. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   21. Titanic Dataset
+   22. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   22. Diagnosing Breast Cancer
+   23. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -363,42 +368,42 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wisconsion-breast-cancer-dataset">
-   22.1. Wisconsion Breast Cancer Dataset
+   23.1. Wisconsion Breast Cancer Dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#import-packages-and-tools">
-   22.2. Import Packages and Tools
+   23.2. Import Packages and Tools
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-the-data">
-   22.3. Load the Data
+   23.3. Load the Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prepare-the-data">
-   22.4. Prepare the Data
+   23.4. Prepare the Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-logistic-regression-model">
-   22.5. Create Logistic Regression Model
+   23.5. Create Logistic Regression Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-decision-tree-model">
-   22.6. Create Decision Tree Model
+   23.6. Create Decision Tree Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-random-forest-model">
-   22.7. Create Random Forest Model
+   23.7. Create Random Forest Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#scoring-final-model">
-   22.8. Scoring Final Model
+   23.8. Scoring Final Model
   </a>
  </li>
 </ul>
@@ -413,14 +418,14 @@
               <div>
                 
   <div class="section" id="diagnosing-breast-cancer">
-<h1><span class="section-number">22. </span>Diagnosing Breast Cancer<a class="headerlink" href="#diagnosing-breast-cancer" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">23. </span>Diagnosing Breast Cancer<a class="headerlink" href="#diagnosing-breast-cancer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="wisconsion-breast-cancer-dataset">
-<h2><span class="section-number">22.1. </span>Wisconsion Breast Cancer Dataset<a class="headerlink" href="#wisconsion-breast-cancer-dataset" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.1. </span>Wisconsion Breast Cancer Dataset<a class="headerlink" href="#wisconsion-breast-cancer-dataset" title="Permalink to this headline">¶</a></h2>
 <p>In this example, we will be working with the Wisconsin Breast Cancer Dataset. Each of the 569 observations in this dataset contains 30 measurements taken from images of cell nuclei drawn from a potentially cancerous breast mass. Each observation is labeled as being benign (B) or malignant (M).</p>
 <p>Our goal will be to build a model for the purposes of predicting the diagnosis of the tutor using the 30 measurements as features.</p>
 </div>
 <div class="section" id="import-packages-and-tools">
-<h2><span class="section-number">22.2. </span>Import Packages and Tools<a class="headerlink" href="#import-packages-and-tools" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.2. </span>Import Packages and Tools<a class="headerlink" href="#import-packages-and-tools" title="Permalink to this headline">¶</a></h2>
 <p>We will begin by importing the packages and tools that we will use in this example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,7 +459,7 @@
 </div>
 </div>
 <div class="section" id="load-the-data">
-<h2><span class="section-number">22.3. </span>Load the Data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.3. </span>Load the Data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
 <p>The data is stored in the coma-delimited file <code class="docutils literal notranslate"><span class="pre">breast_cancer.csv</span></code>. We will load that now.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -466,7 +471,7 @@
 </div>
 </div>
 <div class="section" id="prepare-the-data">
-<h2><span class="section-number">22.4. </span>Prepare the Data<a class="headerlink" href="#prepare-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.4. </span>Prepare the Data<a class="headerlink" href="#prepare-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We will extract the feature and label arrays, and split the dataset into training, validation and testing sets using a 60/20/20 split.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,7 +490,7 @@
 </div>
 </div>
 <div class="section" id="create-logistic-regression-model">
-<h2><span class="section-number">22.5. </span>Create Logistic Regression Model<a class="headerlink" href="#create-logistic-regression-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.5. </span>Create Logistic Regression Model<a class="headerlink" href="#create-logistic-regression-model" title="Permalink to this headline">¶</a></h2>
 <p>In the cell below, we create a logistic regression model, and then calculate its training and validation accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,7 +505,7 @@
 </div>
 </div>
 <div class="section" id="create-decision-tree-model">
-<h2><span class="section-number">22.6. </span>Create Decision Tree Model<a class="headerlink" href="#create-decision-tree-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.6. </span>Create Decision Tree Model<a class="headerlink" href="#create-decision-tree-model" title="Permalink to this headline">¶</a></h2>
 <p>We will now perform hyperparameter tuning to select the optimal value for the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> parameter for a decision tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,7 +555,7 @@
 </div>
 </div>
 <div class="section" id="create-random-forest-model">
-<h2><span class="section-number">22.7. </span>Create Random Forest Model<a class="headerlink" href="#create-random-forest-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.7. </span>Create Random Forest Model<a class="headerlink" href="#create-random-forest-model" title="Permalink to this headline">¶</a></h2>
 <p>We will now create a random forest model consisting of 500 trees, each with a <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> of 32.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,7 +570,7 @@
 </div>
 </div>
 <div class="section" id="scoring-final-model">
-<h2><span class="section-number">22.8. </span>Scoring Final Model<a class="headerlink" href="#scoring-final-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.8. </span>Scoring Final Model<a class="headerlink" href="#scoring-final-model" title="Permalink to this headline">¶</a></h2>
 <p>The logistic regression model had the highest validation accuracy of any of our models, so we will select it to be our final model. We will now calculate this model’s accuracy on the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -605,7 +610,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="titanic.html" title="previous page"><span class="section-number">21. </span>Titanic Dataset</a>
+    <a class='left-prev' id="prev-link" href="titanic.html" title="previous page"><span class="section-number">22. </span>Titanic Dataset</a>
     <a class='right-next' id="next-link" href="glossary.html" title="next page">Glossary</a>
 
     </div>

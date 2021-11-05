@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16. Decision Tree Classifiers &#8212; Python for Data Science</title>
+    <title>17. Decision Tree Classifiers &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="17. Random Forests" href="random_forests.html" />
-    <link rel="prev" title="15. Logistic Regression" href="logistic_regression.html" />
+    <link rel="next" title="18. Random Forests" href="random_forests.html" />
+    <link rel="prev" title="16. Logistic Regression" href="logistic_regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -150,6 +150,11 @@
    7. Matplotlib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="subplots.html">
+   8. Seaborn
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -159,7 +164,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   8. Seaborn
+   9. Seaborn
   </a>
  </li>
 </ul>
@@ -171,7 +176,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   9. Plotly
+   10. Plotly
   </a>
  </li>
 </ul>
@@ -183,67 +188,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   10. Introduction to Machine Learning
+   11. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   11. Introduction to Scikit-Learn
+   12. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   12. Classification Metrics
+   13. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="loss_functions.html">
-   13. Loss Functions
+   14. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   14. Linear Regression
+   15. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   15. Logistic Regression
+   16. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   16. Decision Tree Classifiers
+   17. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="random_forests.html">
-   17. Random Forests
+   18. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   18. One-Hot Encoding
+   19. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cross_validation.html">
-   19. Cross-Validation
+   20. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="grid_search.html">
-   20. Grid Search
+   21. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   21. Titanic Dataset
+   22. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="breast_cancer.html">
-   22. Diagnosing Breast Cancer
+   23. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -363,42 +368,42 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-decision-trees">
-   16.1. Introduction to Decision Trees
+   17.1. Introduction to Decision Trees
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decision-tree-classifiers-in-scikit-learn">
-   16.2. Decision Tree Classifiers in Scikit-Learn
+   17.2. Decision Tree Classifiers in Scikit-Learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-synthetic-dataset-with-three-classes">
-   16.3. Example 1: Synthetic Dataset with Three Classes
+   17.3. Example 1: Synthetic Dataset with Three Classes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizing-decision-trees">
-   16.4. Visualizing Decision Trees
+   17.4. Visualizing Decision Trees
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#effects-of-maximum-depth">
-   16.5. Effects of Maximum Depth
+   17.5. Effects of Maximum Depth
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-synthetic-dataset-with-four-classes">
-   16.6. Example 2: Synthetic Dataset with Four Classes
+   17.6. Example 2: Synthetic Dataset with Four Classes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hyperparameter-tuning">
-   16.7. Hyperparameter Tuning
+   17.7. Hyperparameter Tuning
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-3-iris-dataset">
-   16.8. Example 3: Iris Dataset
+   17.8. Example 3: Iris Dataset
   </a>
  </li>
 </ul>
@@ -413,15 +418,15 @@
               <div>
                 
   <div class="section" id="decision-tree-classifiers">
-<h1><span class="section-number">16. </span>Decision Tree Classifiers<a class="headerlink" href="#decision-tree-classifiers" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">17. </span>Decision Tree Classifiers<a class="headerlink" href="#decision-tree-classifiers" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-decision-trees">
-<h2><span class="section-number">16.1. </span>Introduction to Decision Trees<a class="headerlink" href="#introduction-to-decision-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.1. </span>Introduction to Decision Trees<a class="headerlink" href="#introduction-to-decision-trees" title="Permalink to this headline">¶</a></h2>
 <p><strong>Decision tree</strong> algorithms apply a divide-and-conquer strategy to split the feature space into small rectangular regions. A single label value is then assigned to each of the regions for the purposes of making predictions.</p>
 <p>A decision tree model generates a prediction for an observation by applying a sequence of logical if-else tests. Each test checks to see if one particular feature is above or below a particular threshold value. The results of each test determine the next test to be applied, and ultimately, the label value to be predicted for the observations. We will explain this process in more detail as we consider examples.</p>
 <p>Decision trees can be used for either classification or regression tasks. In this lesson, we will focus on using decision trees for classification.</p>
 </div>
 <div class="section" id="decision-tree-classifiers-in-scikit-learn">
-<h2><span class="section-number">16.2. </span>Decision Tree Classifiers in Scikit-Learn<a class="headerlink" href="#decision-tree-classifiers-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2. </span>Decision Tree Classifiers in Scikit-Learn<a class="headerlink" href="#decision-tree-classifiers-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p>Decision tree classification models are created in Scikit-Learn as instances of the <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> class, which is found in the <code class="docutils literal notranslate"><span class="pre">sklearn.tree</span></code> module. We will import that now, along with some other Scikit-Learn tools that we will need in this lesson.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -453,7 +458,7 @@
 </div>
 </div>
 <div class="section" id="example-1-synthetic-dataset-with-three-classes">
-<h2><span class="section-number">16.3. </span>Example 1: Synthetic Dataset with Three Classes<a class="headerlink" href="#example-1-synthetic-dataset-with-three-classes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.3. </span>Example 1: Synthetic Dataset with Three Classes<a class="headerlink" href="#example-1-synthetic-dataset-with-three-classes" title="Permalink to this headline">¶</a></h2>
 <p>We will provide some details about how decision tree classifiers work by considering a simple synthetic example with 3 classes and 2 features. The dataset is stored in a text file, which we will now read into a DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,7 +505,7 @@
 </div>
 </div>
 <div class="section" id="visualizing-decision-trees">
-<h2><span class="section-number">16.4. </span>Visualizing Decision Trees<a class="headerlink" href="#visualizing-decision-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.4. </span>Visualizing Decision Trees<a class="headerlink" href="#visualizing-decision-trees" title="Permalink to this headline">¶</a></h2>
 <p>The figure below display the decision boundaries determined by the decision tree model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -545,7 +550,7 @@ else:
 </div>
 </div>
 <div class="section" id="effects-of-maximum-depth">
-<h2><span class="section-number">16.5. </span>Effects of Maximum Depth<a class="headerlink" href="#effects-of-maximum-depth" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.5. </span>Effects of Maximum Depth<a class="headerlink" href="#effects-of-maximum-depth" title="Permalink to this headline">¶</a></h2>
 <p>As mentioned above, selecting a larger value for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> will typically result in a larger, more complicated tree. In the figure below, we display the decision regions for two decision trees trained on our dataset. The first tree used <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code>, while the second tree used <code class="docutils literal notranslate"><span class="pre">max_depth=9</span></code>. The training accuracies for each tree are displayed in the titles of the plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -583,7 +588,7 @@ else:
 <p>Setting <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> higher will increase the complexity of our model, allowing it to detect more complex patterns, but this comes at an increased risk of overfitting. In the next example, we will present one method for selecting an appropriate value for this parameter.</p>
 </div>
 <div class="section" id="example-2-synthetic-dataset-with-four-classes">
-<h2><span class="section-number">16.6. </span>Example 2: Synthetic Dataset with Four Classes<a class="headerlink" href="#example-2-synthetic-dataset-with-four-classes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.6. </span>Example 2: Synthetic Dataset with Four Classes<a class="headerlink" href="#example-2-synthetic-dataset-with-four-classes" title="Permalink to this headline">¶</a></h2>
 <p>To illustrate the process of selecting a value for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>, we will work with the synthetic dataset generated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,7 +622,7 @@ else:
 </div>
 </div>
 <div class="section" id="hyperparameter-tuning">
-<h2><span class="section-number">16.7. </span>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.7. </span>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this headline">¶</a></h2>
 <p>A typical approach for selecting an appropriate value for a hyperparameter in a supervised learning problem is to train several models, each with a different value for the hyperparameter. These models are then compared based on their performance on a validation set. Under this approach, we would select the hyperparameter value that resulted in the model with the best validation performance. The process of selecting a hyperparameter value is referred to as <strong>hyperparameter tuning</strong>.</p>
 <p>In the cell below, we will create a decision tree model for each value of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> from 1 to 20. We will calculate the training and validation accuracies for each model, storing the results in lists. When we are done, we will display a plot showing how the training and validation accuracy are effected by our choice of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>.</p>
 <div class="cell docutils container">
@@ -692,7 +697,7 @@ else:
 </div>
 </div>
 <div class="section" id="example-3-iris-dataset">
-<h2><span class="section-number">16.8. </span>Example 3: Iris Dataset<a class="headerlink" href="#example-3-iris-dataset" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.8. </span>Example 3: Iris Dataset<a class="headerlink" href="#example-3-iris-dataset" title="Permalink to this headline">¶</a></h2>
 <p>We will now apply a decision tree classifier to the iris dataset. As before, we will work with a modified version of the original iris dataset that contains 600 observations, 450 of which have been synthetically generated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -837,8 +842,8 @@ else:
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="logistic_regression.html" title="previous page"><span class="section-number">15. </span>Logistic Regression</a>
-    <a class='right-next' id="next-link" href="random_forests.html" title="next page"><span class="section-number">17. </span>Random Forests</a>
+    <a class='left-prev' id="prev-link" href="logistic_regression.html" title="previous page"><span class="section-number">16. </span>Logistic Regression</a>
+    <a class='right-next' id="next-link" href="random_forests.html" title="next page"><span class="section-number">18. </span>Random Forests</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
