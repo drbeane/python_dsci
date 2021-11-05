@@ -1,0 +1,1530 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 19 - Plotting with Matplotlib &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html">
+   Arithmetic Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#addition-and-subtraction">
+   Addition and Subtraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#multiplication-and-division">
+   Multiplication and Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#exponentiation-and-roots">
+   Exponentiation and Roots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#order-of-operations">
+   Order of Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#modulus-and-floor-division">
+   Modulus and Floor Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#id1">
+   Modulus and Floor Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#floating-point-representation">
+   Floating-Point Representation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/variables.html">
+   5. Variables
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/numeric_data_types.html">
+   6. Numeric Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/integers.html">
+     Integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/floats.html">
+     Floats
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/strings.html">
+   7. Strings
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/quotes.html">
+     Single and Double Quotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/escape_seq.html">
+     Escape Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_ops.html">
+     String Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion_strings.html">
+     Coercion with Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/f-strings.html">
+     f-Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/text_files.html">
+     Working with Text Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/booleans.html">
+   8. Boolean Values
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparisons.html">
+     Comparison Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/boolean_arithmetic.html">
+     Boolean Arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/logical_operators.html">
+     Logical Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparison_examples.html">
+     Additional Comparison Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/addl_type_topics.html">
+   9. Additional Data Type Topics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion.html">
+     Coercion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/dynamic_typing.html">
+     Dynamic Typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/none_type.html">
+     None Type
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Collections
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/lists.html">
+   10. Lists
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/slicing.html">
+     List Slicing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/modifying_lists.html">
+     Modifying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_operations.html">
+     List Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_functions.html">
+     List Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/sorting_lists.html">
+     Sorting Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/index_method.html">
+     The index Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/copying_lists.html">
+     Copying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/parallel_lists.html">
+     Parallel Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/nested_lists.html">
+     Nested Lists
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/tuples.html">
+   11. Tuples
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/dictionaries.html">
+   12. Dictionaries
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/dict_methods.html">
+     Dictionary Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/lookup_tables.html">
+     Lookup Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/structured_data.html">
+     Structured Data
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/sets.html">
+   13. Sets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Control Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/for.html">
+   14. For Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/for_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html">
+     Nested Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html#example-matrix-addition">
+     Example: Matrix Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/enumerate.html">
+     The enumerate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/zip.html">
+     The zip Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/break_cont_for.html">
+     Break and Continue
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/while.html">
+   15. While Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_v_for.html">
+     While Loops vs For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/approximation.html">
+     While Loops and Approximation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/conditionals.html">
+   16. Conditional Statements
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html">
+     Examples of Conditional Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/if_comprehensions.html">
+     Conditionals in Comprehensions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/error_handling.html">
+   17. Error Handling
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page1.html">
+     Page 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Functions and Classes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../functions/functions.html">
+   18. Functions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/parameters.html">
+     Parameters and Arguments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/return_values.html">
+     Return Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/return_values.html#multiple-return-statements">
+     Multiple Return Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/default_params.html">
+     Default Parameter Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/returning_multiple.html">
+     Returning Multiple Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/function_examples.html">
+     Function Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/scope.html">
+     Variable Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/global_variables.html">
+     Global Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/recursion.html">
+     Recurion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/recursion_examples.html">
+     Recurion Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Packages
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Time
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   OS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   ZipFile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   To Do
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/packages/19 - Plotting with Matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/packages/19 - Plotting with Matplotlib.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/packages/19 - Plotting with Matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-gapminder-data">
+   Import Gapminder Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatter-plots">
+   Scatter Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#axis-labels-and-title">
+   Axis Labels and Title
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changing-the-figure-size">
+   Changing the Figure Size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-point-properties">
+   Setting Point Properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results-by-continent">
+   Results by Continent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-multiple-sets-of-points">
+   Plotting Multiple Sets of Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subplots">
+   Subplots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#line-plots">
+   Line Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#line-plot-parameters">
+   Line Plot Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bar-charts">
+   Bar Charts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proportional-bar-charts">
+   Proportional Bar Charts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stacked-bar-charts">
+   Stacked Bar Charts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograms">
+   Histograms
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-19-plotting-with-matplotlib">
+<h1>Lesson 19 - Plotting with Matplotlib<a class="headerlink" href="#lesson-19-plotting-with-matplotlib" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Scatter plots</p></li>
+<li><p>Line plots</p></li>
+<li><p>Bar charts</p></li>
+<li><p>Histograms</p></li>
+</ul>
+</div>
+<div class="section" id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>Matplotlib is a package for creating data visualizations. It provides tools for creating a wide range of plots, and allows for a high level of customization.</p>
+<p>Python has two distint interfaces than can be used to generate plots. We will primarily by working with the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> API (Application Programming Interface). By convention, this is typically imported under the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>, as in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a0d2faabd9e9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-gapminder-data">
+<h2>Import Gapminder Data<a class="headerlink" href="#import-gapminder-data" title="Permalink to this headline">¶</a></h2>
+<p>For some of the examples in this lesson, we will be working with the gapminder dataset. This dataset contains socioeconomic data for 184 countries over a period of 219 years, from 1800 to 2018. The data you will be working with is contained in the file <code class="docutils literal notranslate"><span class="pre">gapminder_data.txt</span></code>. Please download this file into the same folder that contains this notebook.</p>
+<p>In the cell below, we use a package called Pandas to import the data. The data is stored in a pandas data type called a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. DataFrames are used to contain tabular data arranged in rows and columns.</p>
+<p>After importinng the data, we select only the records from 2018. Then to get a sense as to what this dataset looks like, we display the first 10 rows of the filtered dataframe. Don’t worry about figuring out how this code works just yet. We will cover pandas in detail in a later lesson.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gapminder_data.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">,:]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_exp</th>
+      <th>gdp_per_cap</th>
+      <th>gini</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>2018</td>
+      <td>asia</td>
+      <td>36400000</td>
+      <td>58.7</td>
+      <td>1870</td>
+      <td>36.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>2018</td>
+      <td>europe</td>
+      <td>2930000</td>
+      <td>78.0</td>
+      <td>12400</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>2018</td>
+      <td>africa</td>
+      <td>42000000</td>
+      <td>77.9</td>
+      <td>13700</td>
+      <td>27.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Angola</td>
+      <td>2018</td>
+      <td>africa</td>
+      <td>30800000</td>
+      <td>65.2</td>
+      <td>5850</td>
+      <td>42.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Antigua and Barbuda</td>
+      <td>2018</td>
+      <td>americas</td>
+      <td>103000</td>
+      <td>77.6</td>
+      <td>21000</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Argentina</td>
+      <td>2018</td>
+      <td>americas</td>
+      <td>44700000</td>
+      <td>77.0</td>
+      <td>18900</td>
+      <td>42.4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Armenia</td>
+      <td>2018</td>
+      <td>europe</td>
+      <td>2930000</td>
+      <td>76.0</td>
+      <td>8660</td>
+      <td>32.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Australia</td>
+      <td>2018</td>
+      <td>asia</td>
+      <td>24800000</td>
+      <td>82.9</td>
+      <td>45800</td>
+      <td>32.3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Austria</td>
+      <td>2018</td>
+      <td>europe</td>
+      <td>8750000</td>
+      <td>81.8</td>
+      <td>44600</td>
+      <td>30.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Azerbaijan</td>
+      <td>2018</td>
+      <td>europe</td>
+      <td>9920000</td>
+      <td>72.3</td>
+      <td>16600</td>
+      <td>32.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Since we do not yet know how to work with DataFrames, we will convert each column of the DataFrame into its own list. In the cell below, we create the following lists: <code class="docutils literal notranslate"><span class="pre">country</span></code>, <code class="docutils literal notranslate"><span class="pre">continent</span></code>, <code class="docutils literal notranslate"><span class="pre">population</span></code>, <code class="docutils literal notranslate"><span class="pre">life_exp</span></code>, <code class="docutils literal notranslate"><span class="pre">pcgdp</span></code>, and <code class="docutils literal notranslate"><span class="pre">gini</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
+<span class="n">continent</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">continent</span><span class="p">)</span>
+<span class="n">population</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
+<span class="n">life_exp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">life_exp</span><span class="p">)</span>
+<span class="n">pcgdp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gdp_per_cap</span><span class="p">)</span>
+<span class="n">gini</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gini</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The numbers on the left of the displayed DataFrame above are row numbers. Data that was originally stored in row <code class="docutils literal notranslate"><span class="pre">N</span></code> of the DataFrame will now be split across the lists we created, but each value will be stored at index <code class="docutils literal notranslate"><span class="pre">N</span></code> of the relevant list. Let’s confirm this by printing the element at index 7 in each list. We can see from the DataFrame above that these values will be for Australia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Country:         &#39;</span><span class="p">,</span> <span class="n">country</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Continent:       &#39;</span><span class="p">,</span> <span class="n">continent</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Population:      &#39;</span><span class="p">,</span> <span class="n">population</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Life Expectancy: &#39;</span><span class="p">,</span> <span class="n">life_exp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP:  &#39;</span><span class="p">,</span> <span class="n">pcgdp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gini Index:      &#39;</span><span class="p">,</span> <span class="n">gini</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country:          Australia
+Continent:        asia
+Population:       24800000
+Life Expectancy:  82.9
+Per Capita GDP:   45800
+Gini Index:       32.3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we understand how our data is stored in the lists, let’s move on to see how to visually represent aspects of this data set.</p>
+</div>
+<div class="section" id="scatter-plots">
+<h2>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
+<p>Matplotlib contains a function called <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> that can be used to generate scatter plots. This function has two required parameters named <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. These parameters are expected to be lists containing the x and y coordinates of the plots to be pointed.</p>
+<p>Plots in Matplotlib are built up as a series of layers. We create a base plot, and then we can add additional plots on top of that, or add things like titles or axis labels. When we are done creating our plot, we can display it using <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p>
+<p>The cell below creates a simple scatter plot of life expectancy against per capita GDP.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_11_0.png" src="../../_images/19 - Plotting with Matplotlib_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="axis-labels-and-title">
+<h2>Axis Labels and Title<a class="headerlink" href="#axis-labels-and-title" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">ylabel()</span></code>, and <code class="docutils literal notranslate"><span class="pre">title()</span></code> functions to add labels to the axes, or a title to the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy vs Per Capita GDP (2018)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_13_0.png" src="../../_images/19 - Plotting with Matplotlib_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="changing-the-figure-size">
+<h2>Changing the Figure Size<a class="headerlink" href="#changing-the-figure-size" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">figure()</span></code> function to change the size of our plot. We do this by passing in a list of two numbers for the <code class="docutils literal notranslate"><span class="pre">figsize</span></code> parameter. The first number controls the width of the figure while the second number controls the height.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy vs Per Capita GDP (2018)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_15_0.png" src="../../_images/19 - Plotting with Matplotlib_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="setting-point-properties">
+<h2>Setting Point Properties<a class="headerlink" href="#setting-point-properties" title="Permalink to this headline">¶</a></h2>
+<p>There are several optional parameters that we can provide to <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> to control how points are displayed. A few common examples are:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">s</span></code></strong> - Controls the size of the points.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">color</span></code></strong> - Sets the fill color of the points.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">edgecolor</span></code></strong> - Sets the border color of the points.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">alpha</span></code></strong> - Controls the opacity of the points.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> 
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orchid&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy vs Per Capita GDP (2018)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_17_0.png" src="../../_images/19 - Plotting with Matplotlib_17_0.png" />
+</div>
+</div>
+<p>Notice that in the cell above, we set the fill color of the points to <code class="docutils literal notranslate"><span class="pre">'orchid'</span></code> and the border color to <code class="docutils literal notranslate"><span class="pre">'black'</span></code>. These are examples of “named colors”, or strings that <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> recognizes as specific colors. You can find a partial list of named colors recognized by <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> on the following page: <a class="reference external" href="https://matplotlib.org/3.1.0/gallery/color/named_colors.html">Matplotlib Named Colors</a></p>
+</div>
+<div class="section" id="results-by-continent">
+<h2>Results by Continent<a class="headerlink" href="#results-by-continent" title="Permalink to this headline">¶</a></h2>
+<p>In the next few example, we will group together countries by their continents. So that we can work with each continent separately, we will create 10 new lists. For each continent, we will create a list containing the per capita GDP for countries in that continent, as well as a list containing the life expectancies for countries in that continent.</p>
+<p>We will use list comprehensions for this task, but the same results could have been obtained with loops.</p>
+<p><strong>Note:</strong> In the next lesson, we will cover a package called NumPy. As we will see, NumPy provides more convenient tools for the type of list filtering that we are doing in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">life_exp_by_cont</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;africa&#39;</span><span class="p">:[],</span> <span class="s1">&#39;americas&#39;</span><span class="p">:[],</span> <span class="s1">&#39;asia&#39;</span><span class="p">:[],</span> <span class="s1">&#39;europe&#39;</span><span class="p">:[]}</span>
+<span class="n">pcgdp_by_cont</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;africa&#39;</span><span class="p">:[],</span> <span class="s1">&#39;americas&#39;</span><span class="p">:[],</span> <span class="s1">&#39;asia&#39;</span><span class="p">:[],</span><span class="s1">&#39;europe&#39;</span><span class="p">:[]}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country</span><span class="p">)):</span>
+    <span class="n">cont</span> <span class="o">=</span> <span class="n">continent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">life_exp_by_cont</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">life_exp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">pcgdp_by_cont</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pcgdp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-multiple-sets-of-points">
+<h2>Plotting Multiple Sets of Points<a class="headerlink" href="#plotting-multiple-sets-of-points" title="Permalink to this headline">¶</a></h2>
+<p>We can used multiple <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> functions to plot several different point sets within the same plot. In the plot below, we add the countries to the plot one continent at a time, and will color the points based on the continents. We also add a legend to the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continent_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span> <span class="s1">&#39;asia&#39;</span><span class="p">,</span> <span class="s1">&#39;americas&#39;</span><span class="p">,</span> <span class="s1">&#39;europe&#39;</span><span class="p">]</span>
+<span class="n">color_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">continent_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp_by_cont</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp_by_cont</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">color_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy vs Per Capita GDP (2018)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_22_0.png" src="../../_images/19 - Plotting with Matplotlib_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="subplots">
+<h2>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">subplot()</span></code> function from Matplotlib to create a grid of plots. The <code class="docutils literal notranslate"><span class="pre">subplot</span></code> function requires three arguments. The first is the number of rows in the grid, and the second is the number of columns. The third argument is the number of plot that we are currently creating, with the first plot being numbered as 1 (as opposed to 0).</p>
+<p>In the cell below, we use a loop to create a figure containing six subplots arranged in a 2x3 grid. We add a scatterplot of <code class="docutils literal notranslate"><span class="pre">life_exp</span></code> against <code class="docutils literal notranslate"><span class="pre">pcgdp</span></code> in each subplot, although you will generally be displaying different plots in each subplot. To help you understand how the plots are numbered, we have also used <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code> to add a number to each plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">60000</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_24_0.png" src="../../_images/19 - Plotting with Matplotlib_24_0.png" />
+</div>
+</div>
+<p>In the figure below, we create a grid of four scatter plots with each subplot displaying the points corresponding to countries in one of the four continental regions. You should compare this code with the code we used to create the previous scatter plot in which we assigned a different color to each of the continental regions. The changes we have made are as follows:</p>
+<ul class="simple">
+<li><p>We have added a call to <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> as the first line of the loop. Note that the third argument is <code class="docutils literal notranslate"><span class="pre">i+1</span></code> so that the values for this argument range from 1 to 4.</p></li>
+<li><p>We changed the figure so that individual plots would not be cramped.</p></li>
+<li><p>The calls to <code class="docutils literal notranslate"><span class="pre">xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">ylabel()</span></code>, and <code class="docutils literal notranslate"><span class="pre">title()</span></code> have been moved into loop so that each subplot will get these elements.</p></li>
+<li><p>We have removed the legend and are instead using the titles of the subplots to indicate which continental region is represented in each plot.</p></li>
+<li><p>By default, matplotlib will automatically select axis limits for us. However, this would result in each subplot having different limits, which could make it difficult to compare subplots. We use the functions <code class="docutils literal notranslate"><span class="pre">xlim()</span></code> and <code class="docutils literal notranslate"><span class="pre">ylim()</span></code> to set the axis limits to the same ranges for each of the subplots.</p></li>
+<li><p>We have included a call to <code class="docutils literal notranslate"><span class="pre">tight_layout()</span></code> just before calling <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. This is often necessary to keep subplot elements from overlapping.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continent_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span> <span class="s1">&#39;asia&#39;</span><span class="p">,</span> <span class="s1">&#39;americas&#39;</span><span class="p">,</span> <span class="s1">&#39;europe&#39;</span><span class="p">]</span>
+<span class="n">color_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">continent_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pcgdp_by_cont</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">life_exp_by_cont</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">color_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">135000</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">45</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy vs Per Capita GDP (&#39;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;, 2018)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/19 - Plotting with Matplotlib_26_0.png" src="../../_images/19 - Plotting with Matplotlib_26_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="line-plots">
+<h2>Line Plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function in Matplotlib to create simple line plots. We will illustrate the use of this function by creating plots illustration the percentage growth in the populations of several countries over the last decade. The cell below creates lists containing our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_range</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">2019</span><span class="p">))</span>
+<span class="n">China</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">]</span>
+<span class="n">Germany</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.24</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.53</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.24</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">,</span> <span class="mf">1.21</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
+<span class="n">Greece</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.81</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.74</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.09</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28</span><span class="p">]</span>
+<span class="n">India</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.39</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">2.07</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.22</span><span class="p">,</span> <span class="mf">1.19</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.12</span><span class="p">]</span>
+<span class="n">Japan</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.43</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.22</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.36</span><span class="p">]</span>
+<span class="n">United_States</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, we plot the data for China.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">China</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">China</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="line-plot-parameters">
+<h2>Line Plot Parameters<a class="headerlink" href="#line-plot-parameters" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> parameter to specify a linestyle for the plot. We can use <code class="docutils literal notranslate"><span class="pre">lw</span></code> to specify the line width. As with <code class="docutils literal notranslate"><span class="pre">scatter()</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">color</span></code> can be used to select a color.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">China</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we are adding multiple plots to a figure and don’t specify the colors, Matplotlib will select colors for us.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">China</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;China&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">Germany</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Germany&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">Greece</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Greece&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">India</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;India&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">Japan</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Japan&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_range</span><span class="p">,</span> <span class="n">United_States</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;United States&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">2018</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Population Growth (in %)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Population Growth by Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bar-charts">
+<h2>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">bar()</span></code> function to create bar charts in Matplotlib. When creating a bar chart, we must provide values for two pararamtes: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. The parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> should be a list (or list-like object) that contains the labels to be displayed under each bar. The <code class="docutils literal notranslate"><span class="pre">height</span></code> parameter should be a list-like object that contains the desired heights for the bars. We can use the optional <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> parameters to set the fill and border colors of the bars.</p>
+<p>A simple example of a bar chart is provided below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">heights</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Categories&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bar Chart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="proportional-bar-charts">
+<h2>Proportional Bar Charts<a class="headerlink" href="#proportional-bar-charts" title="Permalink to this headline">¶</a></h2>
+<p>The heights of the bars in a bar chart can be floats as well as ints. In the example below, we divide each of the heights by the sum of the heights. We then use this to crate a bar chart that represents proprotions, rather than counts. The heights of the bars in this chart will sum to 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+<span class="n">props</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heights</span><span class="p">:</span>
+    <span class="n">props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">props</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Categories&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bar Chart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stacked-bar-charts">
+<h2>Stacked Bar Charts<a class="headerlink" href="#stacked-bar-charts" title="Permalink to this headline">¶</a></h2>
+<p>Assume that we have a dataset in which the observations can be grouped together into categories according to two (or more) different categorical variables. Suppose we would like to know the distributions of one of these categorical variables within the groups defined by a seperate categorical variable. A <strong>stacked bar chart</strong> is a convenient visualization for representing this type of information. A stocked bar chart can be created by setting the <code class="docutils literal notranslate"><span class="pre">bottom</span></code> argument of any bars in the chart that you do not want to be based at 0.</p>
+<p>The example below shows an example of creating a stacked bar chart. Notice that we have also set the <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. This allows us to reposition the legened, and even to move it outside of the bounding box for the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+
+<span class="n">prop_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+<span class="n">prop_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">prop_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 1&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">prop_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 2&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Salmon&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">prop_1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Stacked Bar Chart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now work on creating a stacked bar chart displaying the proportion of countries in each continential region that have a life expectancy less than, or greater than, 70 years. We start by creating lists containing the desired proportions. This is accomplished in the following cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continent_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span> <span class="s1">&#39;americas&#39;</span><span class="p">,</span> <span class="s1">&#39;asia&#39;</span><span class="p">,</span> <span class="s1">&#39;europe&#39;</span><span class="p">]</span>
+
+<span class="n">prop_life_exp_under_70</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">prop_life_exp_over_70</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">cont</span> <span class="ow">in</span> <span class="n">continent_list</span><span class="p">:</span>
+       
+    <span class="n">count_total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count_low_life_exp</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">continent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">cont</span><span class="p">:</span>
+            <span class="n">count_total</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">life_exp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">:</span>
+                <span class="n">count_low_life_exp</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+    <span class="n">prop</span> <span class="o">=</span> <span class="n">count_low_life_exp</span> <span class="o">/</span> <span class="n">count_total</span>
+
+    <span class="n">prop_life_exp_under_70</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+    <span class="n">prop_life_exp_over_70</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prop</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">prop_life_exp_under_70</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prop_life_exp_over_70</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now create a stack bar chart to visually represent the information contained in the lists above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continent_list_cap</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">continent_list</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">continent_list_cap</span><span class="p">,</span> <span class="n">prop_life_exp_over_70</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Life Exp Over 70&#39;</span><span class="p">,</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">continent_list_cap</span><span class="p">,</span> <span class="n">prop_life_exp_under_70</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Life Exp Under 70&#39;</span><span class="p">,</span> 
+        <span class="n">bottom</span><span class="o">=</span><span class="n">prop_life_exp_over_70</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Salmon&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Continent&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Proportion of Countries with Life Expectancy Greater than 70&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>histogram</strong> is similar to a bar chart, but is use to represent continuous data rather than categorical data. A histogram is created from a sample by dividing the range occupied by values within that sample into smaller subintervals, or <strong>bins</strong>. Each bin has a bar associated with it. The height of a particular bar is determined by the number of observations that fall within that bin.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> to create histograms. The only required parameter for <code class="docutils literal notranslate"><span class="pre">hist()</span></code> is <code class="docutils literal notranslate"><span class="pre">x</span></code>, which should be a list-like object containing values representing a sample. Matplotlib will attempt to automatically determined a reasonable number of bins to use, but we will typically want to set this ourselves using the optional <code class="docutils literal notranslate"><span class="pre">bins</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">hist()</span></code> function also has optional <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> parameters that perform the same functions as in <code class="docutils literal notranslate"><span class="pre">bar</span></code>.</p>
+<p>In the example below, we create a histogram with 15 bins to display the distribution of values in <code class="docutils literal notranslate"><span class="pre">life_exp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">life_exp</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown above, we can set the <code class="docutils literal notranslate"><span class="pre">bins</span></code> parameter to an integer to specify the number of bins that we would like to use. Alternately, we can provide this parameter with a list of numbers identifying the values use to define the bins. We show an example of this in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">life_exp</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> 
+         <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example below, we use <code class="docutils literal notranslate"><span class="pre">subplot()</span></code> to display a two histograms. One shows the distribution for life expectancy in 2018, while the other shows the distribution of per capita GDP in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">life_exp</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> 
+         <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pcgdp</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;salmon&#39;</span><span class="p">,</span> 
+         <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Per Capita GDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\packages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 15 - Variable Scope &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../basics/arithmetic.html">
+   4. Arithmetic
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/addition.html">
+     Addition and Subtraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/multiplication.html">
+     Multiplication and Divison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/exponentiation.html">
+     Exponentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/order_of_operations.html">
+     Order of Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/modulus.html">
+     Modulus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/floor_division.html">
+     Floor Division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/rounding_issues.html">
+     Rounding Issues
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../basics/variables.html">
+   5. Variables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_values.html">
+     Variable Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_names.html">
+     Variable Names
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_types.html">
+     Variable Types
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/numeric_data_types.html">
+   6. Numeric Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/integers.html">
+     Integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/floats.html">
+     Floats
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/strings.html">
+   7. Strings
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/quotes.html">
+     Single and Double Quotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/escape_seq.html">
+     Escape Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_ops.html">
+     String Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion_strings.html">
+     Coercion with Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/f-strings.html">
+     f-Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/text_files.html">
+     Working with Text Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/booleans.html">
+   8. Boolean Values
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparisons.html">
+     Comparison Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/boolean_arithmetic.html">
+     Boolean Arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/logical_operators.html">
+     Logical Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparison_examples.html">
+     Additional Comparison Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/addl_type_topics.html">
+   9. Additional Data Type Topics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion.html">
+     Coercion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/dynamic_typing.html">
+     Dynamic Typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/none_type.html">
+     None Type
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Collections
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/lists.html">
+   10. Lists
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/slicing.html">
+     List Slicing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/modifying_lists.html">
+     Modifying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_operations.html">
+     List Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_functions.html">
+     List Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/sorting_lists.html">
+     Sorting Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/index_method.html">
+     The index Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/copying_lists.html">
+     Copying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/parallel_lists.html">
+     Parallel Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/nested_lists.html">
+     Nested Lists
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/tuples.html">
+   11. Tuples
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/dictionaries.html">
+   12. Dictionaries
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/dict_methods.html">
+     Dictionary Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/lookup_tables.html">
+     Lookup Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/structured_data.html">
+     Structured Data
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/sets.html">
+   13. Sets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Control Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/for.html">
+   14. For Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/for_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html">
+     Nested Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html#example-matrix-addition">
+     Example: Matrix Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/enumerate.html">
+     The enumerate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/zip.html">
+     The zip Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/break_cont_for.html">
+     Break and Continue
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/while.html">
+   15. While Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_v_for.html">
+     While Loops vs For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/approximation.html">
+     While Loops and Approximation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/conditionals.html">
+   16. Conditional Statements
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html">
+     Conditional Statements and Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html#example-determining-if-elements-of-a-list-are-odd-or-even">
+     Example: Determining if Elements of a List are Odd or Even
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html#example-determining-if-elements-of-a-list-are-positive-negative-or-neither">
+     Example: Determining if Elements of a List are Positive, Negative, or Neither
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html#example-classifying-credit-scores">
+     Example: Classifying Credit Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html#example-exam-results">
+     Example: Exam Results
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/if_comprehensions.html">
+     Conditionals in Comprehensions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/error_handling.html">
+   17. Error Handling
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page1.html">
+     Page 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Functions and Classes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page4.html">
+   Page 4
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Packages
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Time
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   OS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   ZipFile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/functions/15 - Variable Scope.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/functions/15 - Variable Scope.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/functions/15 - Variable Scope.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-scope">
+   Variable Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#masking">
+   Masking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-global-variables-from-within-local-scopes">
+   Accessing Global Variables from within Local Scopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#altering-global-variables-from-within-a-local-scope">
+   Altering Global Variables from Within a Local Scope
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-15-variable-scope">
+<h1>Lesson 15 - Variable Scope<a class="headerlink" href="#lesson-15-variable-scope" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Variable scope</p></li>
+<li><p>Masking</p></li>
+</ul>
+</div>
+<div class="section" id="variable-scope">
+<h2>Variable Scope<a class="headerlink" href="#variable-scope" title="Permalink to this headline">¶</a></h2>
+<p>When a function or variable is created in Python, it is placed into a particular scope. A <strong>scope</strong> is a organizational layer that determines which variables are visible to other variables. Some scopes will exist for the length of your python session, while others will have a limited lifetime.</p>
+<p>Scopes are arranged in a heirarchy. At the top level of this heirarchy is the <strong>global scope</strong>. Most objects that we create in Python will exist in the global scope. The global scope will persist for the duration of our Python session, and variables define within it are accessible from anywhere within our program.</p>
+<p>When a function is called, it creates its own <strong>local scope</strong> that will exist only during the time it takes for the function to execute. Any parameters used in the function, or variables created in the body of the function, will exist only in this local scope, and will disappear after the function finishes executing. To see a demonstration of this, consider the example below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">temp</span>
+    
+<span class="n">result</span> <span class="o">=</span> <span class="n">addition</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell above, <code class="docutils literal notranslate"><span class="pre">addition()</span></code> and <code class="docutils literal notranslate"><span class="pre">result</span></code> were created in the global scope. These objects will be accessible anywhere within our program. However, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">temp</span></code> were created within a local scope. They are accessible from within the body of <code class="docutils literal notranslate"><span class="pre">addition</span></code>, but will dissappear once addition has finished executing. To verify this, uncomment each of the statements below, one at a time, and confirm that each statement produces and error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(x)</span>
+<span class="c1">#print(y)</span>
+<span class="c1">#print(temp)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="masking">
+<h2>Masking<a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h2>
+<p>Assume that we create a variable within a function body or as a function parameter, and this variable has the same name as a variable within the global scope. In this situation, the local variable <strong>masks</strong> the global variable. When the variable is referenced from within the local scope, it will use the locally defined value for the variable, as opposed to the value define within the global scope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">temp</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mi">73</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">addition</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+14 5 73
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we call a function from within another function, we get a sequence of nested local scopes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiplication</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">addition</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span> 
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplication</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplication</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+35
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-global-variables-from-within-local-scopes">
+<h2>Accessing Global Variables from within Local Scopes<a class="headerlink" href="#accessing-global-variables-from-within-local-scopes" title="Permalink to this headline">¶</a></h2>
+<p>A variable defined in the global scope is accessible from anywhere within your program, even from within local scopes. Let’s see an example of this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_a</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1">#print(square_a())</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">square_a</span><span class="p">())</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">square_a</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>256
+81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Whenever a variable is referenced from within a local scope, Python will search that local scope for a variable with that name. If none is found, then it will search for the variable within the global scope. If no variable with that name is found in the global scope, then an error will be generated.</p>
+<p>There are occasions when it is helpful to have a function access a global variable, but before doing so, you should always ask yourself if it would make more sense to simply define your function so that it can accept the global value as an argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raise_to_a</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_a</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_a</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_a</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+27
+64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raise_to_power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">raise_to_power</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+27
+64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="altering-global-variables-from-within-a-local-scope">
+<h2>Altering Global Variables from Within a Local Scope<a class="headerlink" href="#altering-global-variables-from-within-a-local-scope" title="Permalink to this headline">¶</a></h2>
+<p>Assume that we have a variable named <code class="docutils literal notranslate"><span class="pre">my_var</span></code> in the global scope, but do not currently have a variable with that name in body of a certain function.</p>
+<ul class="simple">
+<li><p>If we reference <code class="docutils literal notranslate"><span class="pre">my_var</span></code> from within the function, in an expression like <code class="docutils literal notranslate"><span class="pre">temp</span> <span class="pre">=</span> <span class="pre">my_var</span> <span class="pre">*</span> <span class="pre">2</span></code>, for example, then the value of my_var will be pulled from the global scope.</p></li>
+<li><p>If we include in our function a line such as <code class="docutils literal notranslate"><span class="pre">my_var</span> <span class="pre">=</span> <span class="pre">2</span></code>, then this will create a new local variable named <code class="docutils literal notranslate"><span class="pre">my_var</span></code>, masking the global variable with the same name. The value of <code class="docutils literal notranslate"><span class="pre">my_var</span></code> in the global scope will be unchanged.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setAto50</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">setAto50</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+50
+37
+</pre></div>
+</div>
+</div>
+</div>
+<p>But what if we do wish to change the value of a global variable from within a local scope? We can provide a function with permission to alter global variables using the <strong><code class="docutils literal notranslate"><span class="pre">global</span></code></strong> keyword. If we would like for a function to have write permission for a global variable, then at the beginning of the function, we can include a line containing the keyword <code class="docutils literal notranslate"><span class="pre">global</span></code> followed by the name of the variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setAto50</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">a</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">setAto50</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37
+50
+50
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\functions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

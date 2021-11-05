@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 10 - Conditional Statements &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../basics/arithmetic.html">
+   4. Arithmetic
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/addition.html">
+     Addition and Subtraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/multiplication.html">
+     Multiplication and Divison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/exponentiation.html">
+     Exponentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/order_of_operations.html">
+     Order of Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/modulus.html">
+     Modulus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/floor_division.html">
+     Floor Division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/rounding_issues.html">
+     Rounding Issues
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../basics/variables.html">
+   5. Variables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_values.html">
+     Variable Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_names.html">
+     Variable Names
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/variable_types.html">
+     Variable Types
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/numeric_data_types.html">
+   6. Numeric Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/integers.html">
+     Integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/floats.html">
+     Floats
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/strings.html">
+   7. Strings
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/quotes.html">
+     Single and Double Quotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/escape_seq.html">
+     Escape Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_ops.html">
+     String Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion_strings.html">
+     Coercion with Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/f-strings.html">
+     f-Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/text_files.html">
+     Working with Text Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/booleans.html">
+   8. Boolean Values
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparisons.html">
+     Comparison Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/boolean_arithmetic.html">
+     Boolean Arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/logical_operators.html">
+     Logical Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparison_examples.html">
+     Additional Comparison Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/addl_type_topics.html">
+   9. Additional Data Type Topics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion.html">
+     Coercion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/dynamic_typing.html">
+     Dynamic Typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/none_type.html">
+     None Type
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Collections
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/lists.html">
+   10. Lists
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/slicing.html">
+     List Slicing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/modifying_lists.html">
+     Modifying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_operations.html">
+     List Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_functions.html">
+     List Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/sorting_lists.html">
+     Sorting Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/index_method.html">
+     The index Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/copying_lists.html">
+     Copying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/parallel_lists.html">
+     Parallel Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/nested_lists.html">
+     Nested Lists
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/tuples.html">
+   11. Tuples
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/dictionaries.html">
+   12. Dictionaries
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/dict_methods.html">
+     Dictionary Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/lookup_tables.html">
+     Lookup Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/structured_data.html">
+     Structured Data
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/sets.html">
+   13. Sets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Control Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="for.html">
+   14. For Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="for_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nested_loops.html">
+     Nested Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nested_loops.html#example-matrix-addition">
+     Example: Matrix Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="enumerate.html">
+     The enumerate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="zip.html">
+     The zip Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Functions and Classes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page4.html">
+   Page 4
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Packages
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Math
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Time
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   OS
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   ZipFile
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   NumPy
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/control/10 - Conditional Statements.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/control/10 - Conditional Statements.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/control/10 - Conditional Statements.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements">
+   Conditional Statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-else-statements">
+   If-Else Statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-elif-else-statements">
+   If-Elif-Else Statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements-and-loops">
+   Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-determining-if-elements-of-a-list-are-odd-or-even">
+   Example: Determining if Elements of a List are Odd or Even
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-determining-if-elements-of-a-list-are-positive-negative-or-neither">
+   Example: Determining if Elements of a List are Positive, Negative, or Neither
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-classifying-credit-scores">
+   Example: Classifying Credit Scores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-exam-results">
+   Example: Exam Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-conditional-statements-to-avoid-errors">
+   Using Conditional Statements to Avoid Errors
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-10-conditional-statements">
+<h1>Lesson 10 - Conditional Statements<a class="headerlink" href="#lesson-10-conditional-statements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If statements</p></li>
+<li><p>If-Else statements</p></li>
+<li><p>If-Elif-Else statements</p></li>
+<li><p>If statements and loops</p></li>
+</ul>
+</div>
+<div class="section" id="conditional-statements">
+<h2>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h2>
+<p>We can use <strong>conditional statements</strong> to control how or if portions of our code will execute, based on logical criteria that we provide. The most basic type of conditional statement is an <strong>if statement</strong>. The syntax for an if statement is as follows:</p>
+<pre>
+if condition:
+    code to be executed if condition is true
+</pre><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">34</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You passed the exam.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Congratulations!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-else-statements">
+<h2>If-Else Statements<a class="headerlink" href="#if-else-statements" title="Permalink to this headline">¶</a></h2>
+<p>We can use an if statemnt to determine whether or not a particular set of actions will be satisfied. But we will occasionally want to use a condition to determine which of two sets of actions will be completed. This functionality is provided to us by an <strong>if-else</strong> statement. The syntax for an if-else statement is as follows:</p>
+<pre>
+if condition:
+    code to be executed if condition is true
+else:
+    code to be executed if condition is false
+</pre>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">34</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You passed the exam.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You failed the exam.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Better luck next time.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You failed the exam.
+Better luck next time.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-elif-else-statements">
+<h2>If-Elif-Else Statements<a class="headerlink" href="#if-elif-else-statements" title="Permalink to this headline">¶</a></h2>
+<p>If statements allow us to determine whether or not a single set of actions will be taken, and if-else statments allow us to determine which of two sets of actions will be taken. If we require our program to select from more than two options when making a decision, we can use an <strong>if-elif-else</strong> statment. The syntax for this sort of statement is as follows:</p>
+<pre>
+if condition1:
+    code to be executed if condition is true
+elif condition2:  
+    code to be executed if condition1 is false, but condition2 is true
+elif condition3:  
+    code to be executed if all above conditions are false, but condition3 is true
+elif condition4:  
+    code to be executed if all above conditions are false, but condition4 is true
+...
+else:
+    code to be executed if all above conditions are false. 
+</pre>
+<p>We can include as many conditions as we would like in an <strong>if-elif-else</strong> statement. However, It is important to note that only one portion of the code will be allowed to execute. It is possible that multiple conditions might potentially evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code>, but as soon as the <strong>if-elif-else</strong> statement encounters its first <code class="docutils literal notranslate"><span class="pre">True</span></code> condition, it will execute the code for that condition, and will then skip the rest of the statment.</p>
+<p>The example below provides an example with a single <code class="docutils literal notranslate"><span class="pre">elif</span></code> clause.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got an &#39;A&#39; on the exam.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got a &#39;B&#39; on the exam.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got a &#39;C&#39; on the exam.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got a &#39;D&#39; on the exam.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got an &#39;F&#39; on the exam.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You got a &#39;B&#39; on the exam.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-statements-and-loops">
+<h2>Conditional Statements and Loops<a class="headerlink" href="#conditional-statements-and-loops" title="Permalink to this headline">¶</a></h2>
+<p>We will often use if statements in conjunctions with loops. In the example below, we are provided with two lists, one that contains the names of several students, and one that contains the grades that these students got on an exam. We will loop over these lists, printing a different message for each student.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">,</span> <span class="s1">&#39;Chad&#39;</span><span class="p">,</span> <span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Elsa&#39;</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">]</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; got a grade of &#39;A&#39; on the exam.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; got a grade of &#39;B&#39; on the exam.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; got a grade of &#39;C&#39; on the exam.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; got a grade of &#39;D&#39; on the exam.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; got a grade of &#39;F&#39; on the exam.&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna got a grade of &#39;F&#39; on the exam.
+Beth got a grade of &#39;A&#39; on the exam.
+Chad got a grade of &#39;B&#39; on the exam.
+Drew got a grade of &#39;F&#39; on the exam.
+Elsa got a grade of &#39;C&#39; on the exam.
+Fred got a grade of &#39;D&#39; on the exam.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-determining-if-elements-of-a-list-are-odd-or-even">
+<h2>Example: Determining if Elements of a List are Odd or Even<a class="headerlink" href="#example-determining-if-elements-of-a-list-are-odd-or-even" title="Permalink to this headline">¶</a></h2>
+<p>The modulus <code class="docutils literal notranslate"><span class="pre">%</span></code> is a mathematical operator that can be used to test for divisibilitiy. The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> returns the remainder of <code class="docutils literal notranslate"><span class="pre">a</span></code> after division by <code class="docutils literal notranslate"><span class="pre">b</span></code>. If that remainder is 0, then that means that <code class="docutils literal notranslate"><span class="pre">a</span></code> is divisible by <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">27</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>One common use of the modulus operator is to check if a number is odd or even.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">19</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">16</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>A list of integers is provided below. The for loop shown will loop over all of the elements of this list, displaying one of the following messages for each element of the list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[x] is even.
+[x] is odd.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">74</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">,</span> <span class="o">-</span><span class="mi">77</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">91</span><span class="p">,</span> <span class="mi">61</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; is even.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; is odd.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74 is even.
+-55 is odd.
+-77 is odd.
+58 is even.
+0 is even.
+91 is odd.
+62 is even.
+0 is even.
+-91 is odd.
+61 is odd.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-determining-if-elements-of-a-list-are-positive-negative-or-neither">
+<h2>Example: Determining if Elements of a List are Positive, Negative, or Neither<a class="headerlink" href="#example-determining-if-elements-of-a-list-are-positive-negative-or-neither" title="Permalink to this headline">¶</a></h2>
+<p>The cell below contains a look that will print out one of the following messages for each item in <code class="docutils literal notranslate"><span class="pre">my_list</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[x] is positive.
+[x] is negative.
+[x] is neither positive nor negative.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+    
+    <span class="k">if</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; is negative.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; is positive.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; is neither positive nor negative.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74 is positive.
+-55 is negative.
+-77 is negative.
+58 is positive.
+0 is neither positive nor negative.
+91 is positive.
+62 is positive.
+0 is neither positive nor negative.
+-91 is negative.
+61 is positive.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-classifying-credit-scores">
+<h2>Example: Classifying Credit Scores<a class="headerlink" href="#example-classifying-credit-scores" title="Permalink to this headline">¶</a></h2>
+<p>Two lists are given below. One provides a list of names. The other provides a list of credit scores associated with each of the people in the first list. Assume that credit scores are classified as follows:</p>
+<ul class="simple">
+<li><p>0 - 599 is considered “bad”.</p></li>
+<li><p>600 - 649 is considered “poor”.</p></li>
+<li><p>650 - 699 is considered “fair”.</p></li>
+<li><p>700 - 749 is considered “good”.</p></li>
+<li><p>750 and up is considered “excellent”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">,</span> <span class="s1">&#39;Chad&#39;</span><span class="p">,</span> <span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Elsa&#39;</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">]</span>
+<span class="n">credit</span> <span class="o">=</span> <span class="p">[</span><span class="mi">683</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">752</span><span class="p">,</span> <span class="mi">607</span><span class="p">,</span> <span class="mi">615</span><span class="p">,</span> <span class="mi">703</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cell below contains a loop that prints a statement of the following form for each individuals:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[name] has a [bad/poor/fair/good/excellent] credit score. 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">599</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; has a bad credit score.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">649</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; has a poor credit score.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">699</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; has a fair credit score.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">749</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; has a good credit score.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; has a excellent credit score.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna has a fair credit score.
+Beth has a bad credit score.
+Chad has a excellent credit score.
+Drew has a poor credit score.
+Elsa has a poor credit score.
+Fred has a good credit score.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">credit_group</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    
+    <span class="k">if</span> <span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">750</span><span class="p">:</span>
+        <span class="n">credit_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">700</span><span class="p">:</span>
+        <span class="n">credit_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">650</span><span class="p">:</span>
+        <span class="n">credit_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">credit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">600</span><span class="p">:</span>
+        <span class="n">credit_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">credit_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">credit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">credit_group</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[683, 580, 752, 607, 615, 703]
+[2, 0, 4, 1, 1, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-exam-results">
+<h2>Example: Exam Results<a class="headerlink" href="#example-exam-results" title="Permalink to this headline">¶</a></h2>
+<p>In the cell below, we are provided with three lists. The list <code class="docutils literal notranslate"><span class="pre">names</span></code> contains the names of students, <code class="docutils literal notranslate"><span class="pre">grades1</span></code> contains scores for Exam 1, and <code class="docutils literal notranslate"><span class="pre">grades2</span></code> contains scores for Exam 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">,</span> <span class="s1">&#39;Chad&#39;</span><span class="p">,</span> <span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Elsa&#39;</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">]</span>
+<span class="n">grades1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">56</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
+<span class="n">grades2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">81</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assume that a grade of 60 or higher is a passing grade. The cell below contains a loop that prints one of the following messages for each student:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[name] passed both exams. 
+[name] passed exam 1, but not exam 2. 
+[name] passed exam 2, but not exam 1. 
+[name] failed both exams. 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;passed both exams.&#39;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="p">(</span><span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;passed exam 1, but not exam 2.&#39;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="p">(</span><span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;passed exam 2, but not exam 1.&#39;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="p">(</span><span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;failed both exams.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna passed exam 2, but not exam 1.
+Beth passed both exams.
+Chad passed both exams.
+Drew failed both exams.
+Elsa passed exam 1, but not exam 2.
+Fred passed both exams.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; passed both exams.&#39;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">grades1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; passed exam 1, but not exam 2.&#39;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">grades2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; passed exam 2, but not exam 1.&#39;</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; failed both exams.&#39;</span><span class="p">)</span>
+        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna passed exam 2, but not exam 1.
+Beth passed both exams.
+Chad passed both exams.
+Drew failed both exams.
+Elsa passed exam 1, but not exam 2.
+Fred passed both exams.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-conditional-statements-to-avoid-errors">
+<h2>Using Conditional Statements to Avoid Errors<a class="headerlink" href="#using-conditional-statements-to-avoid-errors" title="Permalink to this headline">¶</a></h2>
+<p>When Python encounters an error, it stops executing statements. We would like our code to be robust so that unexpected inputs do not cause our programs to stop executing prematurely. Conditional statements can help us to avoid situations that would result in errors, thus breaking our code.</p>
+<p>As an example, assume that we are given a list of item that we know contains a mix of strings, integers, and floats. We want to sum together all of the numerical elements of the list. If we simply pass the list to the <code class="docutils literal notranslate"><span class="pre">sum</span></code> function, we will get an error. However, we can calculate the desired sum by writing a loop that checks whether or not each element is an string before adding it to the running total. This is illustrated in the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.8</span><span class="p">,</span> <span class="s1">&#39;blah&#39;</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">]</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">listA</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">item</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36.1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

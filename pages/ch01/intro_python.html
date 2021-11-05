@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Python &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to Jupyter" href="intro_jupyter.html" />
+    <link rel="prev" title="Introduction to Programming" href="intro_programming.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Arithmetic and Variables
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html">
+   Arithmetic Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#addition-and-subtraction">
+   Addition and Subtraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#multiplication-and-division">
+   Multiplication and Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#exponentiation">
+   Exponentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#the-modulus-operator">
+   The Modulus Operator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#floor-division">
+   Floor Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#order-of-operations">
+   Order of Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/arithmetic.html#rounding-issues">
+   Rounding Issues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../p2/variables.html">
+   Introduction to Variables
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../p2/variables.html#todo">
+   ToDo
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../page6.html">
+       Page 6
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page4.html">
+   Page 4
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/ch01/intro_python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/ch01/intro_python.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/ch01/intro_python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#values-types-and-lists">
+   Values, Types, and Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expressions-and-statements">
+   Expressions and Statements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables">
+   Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objects">
+   Objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errors">
+   Errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   Comments
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-python">
+<h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Values, Types, and Lists</p></li>
+<li><p>Expressions and Statements</p></li>
+<li><p>Variables</p></li>
+<li><p>Function</p></li>
+<li><p>Objects</p></li>
+<li><p>Errors</p></li>
+<li><p>Comments</p></li>
+</ul>
+<p>This notebook is intended to provide you with a quick introduction to some of the concepts and terminology that you will encounter in this course. We will not explore any of these concepts in depth at this moment, but will discuss each of them more thoroughly in future lessons.</p>
+</div>
+<div class="section" id="values-types-and-lists">
+<h2>Values, Types, and Lists<a class="headerlink" href="#values-types-and-lists" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>value</strong> is anything that represents a piece of information. That information could be numerical, a piece of text, or something more complicated. The following are all values in Python:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7, 8.214, &#39;cat&#39;, &#39;dog&#39;, &#39;Hello world!&#39;
+</pre></div>
+</div>
+<p>We can ask Python to display a value to the screen using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. In the cell below, we print three of the values mentioned above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">8.214</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+8.214
+Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every value has a <strong>type</strong> that describes what kind of information is represented by the value. There are many different types that a value can have, but the three most basic types in Python are integers, floating-point numbers (or floats), and strings.</p>
+<ul class="simple">
+<li><p>An <strong>integer</strong> is value that represents a whole number.</p></li>
+<li><p>A <strong>float</strong> is a value that represents a decimal number.</p></li>
+<li><p>A <strong>string</strong> is a value that represents a piece of text.</p></li>
+</ul>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function to check the type of a value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The type of the value 7 is &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The type of the value 8.214 is &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="mf">8.214</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The type of the value &#39;Hello World!&#39; is &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The type of the value 7 is  &lt;class &#39;int&#39;&gt;
+The type of the value 8.214 is  &lt;class &#39;float&#39;&gt;
+The type of the value &#39;Hello World!&#39; is  &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that Python abbreviates the types as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<p>A <strong>list</strong> is a collection of values that have been grouped together and arranged in a specific order. A list is defined, and displayed, using brackets: <code class="docutils literal notranslate"><span class="pre">[]</span></code>. In the cell below, we create and display a list containing the integer values 1, 4, 6, and 3 (in that order).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 6, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="expressions-and-statements">
+<h2>Expressions and Statements<a class="headerlink" href="#expressions-and-statements" title="Permalink to this headline">¶</a></h2>
+<p>An <strong>expression</strong> is a sequence of characters that can be evaluated or reduced down to a single value. Here are three examples of Python expressions:</p>
+<p><code class="docutils literal notranslate"><span class="pre">2*(5</span> <span class="pre">+</span> <span class="pre">8)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum([1,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">3])</span></code>, <code class="docutils literal notranslate"><span class="pre">'Mary'</span> <span class="pre">+</span> <span class="pre">'ville'</span></code></p>
+<p>You might be able to guess what values each of these expressions will evaluate as. To check your intuition, we will print the value of each of these expressions below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mary&#39;</span> <span class="o">+</span> <span class="s1">&#39;ville&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26
+14
+Maryville
+</pre></div>
+</div>
+</div>
+</div>
+<p>If it wasn’t immediately clear to you how these expressions would be evaluated, don’t worry.  You’ll learn everything you need to understand these expressions early in this course.</p>
+<p>A <strong>statement</strong> is a unit of code containing an instruction. Statements often contain expressions. An example of a statement is shown below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(2*(5 + 8))
+</pre></div>
+</div>
+<p>This statement instructs Python to print the value of the expression <code class="docutils literal notranslate"><span class="pre">2*(5</span> <span class="pre">+</span> <span class="pre">8)</span></code>, which evaluates to the value 26.</p>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>variable</strong> can be thought of as a container or storage location for a piece of information. Every variable has two features: a value and a name.</p>
+<ul class="simple">
+<li><p>The <strong>value</strong> of a variable is the information that is stored within the variable. This could be a single number, a list of numbers, a string of characters, or some more complex type of information.</p></li>
+<li><p>The <strong>name</strong> of a variable is sequence of characters that is used to identify the variable. We use the name of a variable in statements to access its contents.</p></li>
+</ul>
+<p>We define variables using the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>. A statement used to define a variable is referred to as an <strong>assignment statement</strong>.</p>
+<p>In the cell below, we use two assignment statements to define variables named <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. We then include a statement to print the value of the expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code>. This will display the sum of the numerical values that we stored in the variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">37</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>function</strong> is a named collection of statements that (often, but not always) accepts some input, performs some set of instructions, and (often, but not always) returns some output.</p>
+<p>The inputs provided to a function (if it has any) are called <strong>arguments</strong>. The output that is provided by the function (if it has one) is called the <strong>return value</strong> of the function. When we use a function within a statement, we say that we are <strong>calling</strong> the function.</p>
+<p>We have seen two examples of functions already in this lesson: the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function and the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function. We will now use both of these in an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cell above consists of two statements. In the first statement, we provided the list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">3]</span></code> as an argument to the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function. The sum function ran several pre-written statements (that we do not see) to calculate the sum of the values stored in the list. It then returned (or output) the calculated sum as a value to be used in an assignment statement, storing it in a variable named <code class="docutils literal notranslate"><span class="pre">total</span></code>.</p>
+<p>In the second statement, the variable <code class="docutils literal notranslate"><span class="pre">total</span></code> was provided as an argument to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, which caused the value <code class="docutils literal notranslate"><span class="pre">14</span></code> to be displayed the to screen.</p>
+<p>In the cell below, we use a function named <code class="docutils literal notranslate"><span class="pre">len()</span></code> to determine the length, or number of characters, in a string value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python has many built-in functions such as <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code>, and <code class="docutils literal notranslate"><span class="pre">print()</span></code>. We also have the ability to create our own <strong>user-defined functions</strong>. We will discuss this in depth in a later lesson.</p>
+</div>
+<div class="section" id="objects">
+<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<p>You will occasionally see the term <strong>object</strong> used to refer to a value, variable, or function. We will discuss exactly what this term means later in the course, but for now you just just consider this as an umbrella term used to refer to values, variables, and functions.</p>
+</div>
+<div class="section" id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>There will be times when you write a line of code that Python does not understand, or that represents an instruction that Python is unable to complete. In this situations, Python will generate an <strong>error</strong>. When an error is encountered, Python will display an error message that intended to help you identify the cause of the error.</p>
+<p>We will now provide a couple examples of statements that produce errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">dfcedec16dfc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell above, we asked Python to display the value of 5 divided by 0. Division by zero is, of course, a calculate that Python is unable to perform, and the statement results in an error. The last line of an error message is often the most important. This line will let you know which of several possible error types was encountered, and will also give a description of the error. In this case, the error type was <strong><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></strong>.</p>
+<p>Notice on the third line of the error message, there is an arrow that points to the line where the error was encountered. This can be useful for helping you to debug your code.</p>
+<p>Let consider another example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python is cool!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python is cool!
+</pre></div>
+</div>
+</div>
+</div>
+<p>The type of the error we encountered is <strong><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code></strong>. A syntax error occurs when Python encounters a statement that it does not understand, or is not able to parse. The line in the cell above does not represent a valid Python statement, and Python does not know what to do with it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+28
+1.6
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>comment</strong> is a piece of text contained within a program that does not represent executable code, and is intended to be ignored by the interpreter. Comments in Python are created using the pound sign, <code class="docutils literal notranslate"><span class="pre">#</span></code>. Anything that appears on a line following this symbol will be treated as a comment, and will be ignored by the Python interpreter.</p>
+<p>Comments are primarily used to document code. They can provide descriptions of the intended purpose of a piece of code, making it easier for someone reading the code to understand.</p>
+<p>In the cell below, we have recreated a previous example, but have added comments to document the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example, we will define two variables</span>
+<span class="c1"># named x and y, and will display their sum. </span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>  <span class="c1"># Store the value 42 in the variable x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">37</span>  <span class="c1"># Store the value 37 in the variable y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># Print the sum of x and y. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comments are also often used to temporarily “turn off” a line of code that the programming does not want to execute, but does not wish to delete. This can be useful in debugging a program that produces an error. The code below contains three print statements, one of which produces an error. We have used a comment to disable the statement that results in an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">13</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">#print(5 / 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">27</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.5
+9.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\ch01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro_programming.html" title="previous page">Introduction to Programming</a>
+    <a class='right-next' id="next-link" href="intro_jupyter.html" title="next page">Introduction to Jupyter</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

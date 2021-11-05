@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 05 - Strings &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="arithmetic.html">
+   4. Arithmetic
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="addition.html">
+     Addition and Subtraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="multiplication.html">
+     Multiplication and Divison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exponentiation.html">
+     Exponentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="order_of_operations.html">
+     Order of Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modulus.html">
+     Modulus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="floor_division.html">
+     Floor Division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rounding_issues.html">
+     Rounding Issues
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="variables.html">
+   5. Variables
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Control Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../page6.html">
+       Page 6
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page4.html">
+   Page 4
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Functions and Classes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../page6.html">
+       Page 6
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page4.html">
+   Page 4
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/basics/05 - Strings.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/basics/05 - Strings.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/basics/05 - Strings.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-strings">
+   Introduction to Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#empty-strings">
+   Empty Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-quotes-versus-double-quotes">
+   Single Quotes versus Double Quotes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escape-sequences">
+   Escape Sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-involving-strings">
+   Operations Involving Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-involving-strings-and-numbers">
+   Operations Involving Strings and Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-coercion-with-strings">
+   Type Coercion with Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-len-function">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     len()
+    </span>
+   </code>
+   Function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#f-strings">
+   f-Strings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aligning-text-with-f-strings">
+     Aligning Text with f-Strings
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-05-strings">
+<h1>Lesson 05 - Strings<a class="headerlink" href="#lesson-05-strings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>An introduction to the string data type.</p></li>
+<li><p>Escape sequences.</p></li>
+<li><p>Operations on strings.</p></li>
+<li><p>String functions.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction-to-strings">
+<h2>Introduction to Strings<a class="headerlink" href="#introduction-to-strings" title="Permalink to this headline">¶</a></h2>
+<p>A string object is a piece of text, or in other words, a sequence of characters. When defining a string, we must put the characters that compose it inside either single or double quotes. These quotes are what allows Python to distinguish between a string and a command.</p>
+<p>In the cell below, we define a string variable, with the value <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code>, and we then print the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Hello world!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<p>The official name of the Python string type is <code class="docutils literal notranslate"><span class="pre">str</span></code>. We confirm this be calling <code class="docutils literal notranslate"><span class="pre">type()</span></code> on <code class="docutils literal notranslate"><span class="pre">my_string</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="empty-strings">
+<h2>Empty Strings<a class="headerlink" href="#empty-strings" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to define a string that contains no characters. Such a string is referred to as an <strong>empty string</strong>. We can define an empty string by placing two single or double quotes next to each other without any characters between them. We see an example of this in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will see a practical use of empty strings later in this lesson.</p>
+</div>
+<div class="section" id="single-quotes-versus-double-quotes">
+<h2>Single Quotes versus Double Quotes<a class="headerlink" href="#single-quotes-versus-double-quotes" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, we can also use single quotes when defining a string. The following definition of <code class="docutils literal notranslate"><span class="pre">my_string</span></code> is equivalent to the previous definition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;Hello world!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<p>One benefit of being able to use either single quotes or double quotes when creating strings is that it allows us a convenient way to create strings that themselves contain quotes as characters. For instance, assume that we want to create a variable containing the following string:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>He yelled, &quot;I have had enough!&quot; before storming out of the room.
+</pre></div>
+</div>
+<p>The following attempt at creating this string will give us an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;He yelled, &quot;</span><span class="n">I</span> <span class="n">have</span> <span class="n">had</span> <span class="n">enough</span><span class="o">!</span><span class="s2">&quot; before storming out of the room.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-5-4965ff137a3f&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;He yelled, &quot;</span><span class="n">I</span> <span class="n">have</span> <span class="n">had</span> <span class="n">enough</span><span class="o">!</span><span class="s2">&quot; before storming out of the room.&quot;</span>
+                            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above, Python got confused by the quotation marks in the middle of the string. When it encountered the second quotation mark, it believed that this was the end of the string, although this was intended to be part of the string.</p>
+<p>There are a few ways to fix this. The simplest is to use single quotes to define the string. When Python encounters the first single quote, it knows that a string is being defined. It won’t stop reading characters into the string until it hits another single quote. Any double quotes that it encounters along the way will be treated as inert characters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;He yelled, &quot;I have had enough!&quot; before storming out of the room.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="escape-sequences">
+<h2>Escape Sequences<a class="headerlink" href="#escape-sequences" title="Permalink to this headline">¶</a></h2>
+<p>An <strong>escape sequence</strong> is a sequence of characters that Python applies special meaning to when they are encountered in a string. Several common escape sequences are listed below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Escape Sequence</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><strong><code class="docutils literal notranslate"><span class="pre">\'</span></code></strong></p></td>
+<td><p>Prints a single quote.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><strong><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></strong></p></td>
+<td><p>Prints a double quote.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><strong><code class="docutils literal notranslate"><span class="pre">\n</span></code></strong></p></td>
+<td><p>Inserts a newline.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><strong><code class="docutils literal notranslate"><span class="pre">\t</span></code></strong></p></td>
+<td><p>Inserts a tab.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><strong><code class="docutils literal notranslate"><span class="pre">\\</span></code></strong></p></td>
+<td><p>Inserts a backslash.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For an example use case for escape sequences, assume that we want to define a variable containing the following string of characters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>He yelled, &quot;I&#39;ve had enough!&quot; before storming out of the room.
+</pre></div>
+</div>
+<p>As before, the presence of double quotes within the string prohibit us from being able to use double quotes to define the string. Furthermore, since the character for the apostrophe is the same as the character for a single quote, we are now no longer able to use single quotes to define our string. One solution is to use an escape sequence for the apostrophe so that Python knows to interpret it as text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;He yelled, &quot;I</span><span class="se">\&#39;</span><span class="s1">ve had enough!&quot; before storming out of the room.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Had we wished, we could have escaped the double quotes within the string as well as the apostrophe. In this case, we could have used either single or double quotes to define our string.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">\n</span></code> escape sequence to insert a newline inside of a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tale2cities</span> <span class="o">=</span> <span class="s2">&quot;It was the best of times.</span><span class="se">\n</span><span class="s2">It was the worst of times.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tale2cities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">\t</span></code> to insert tabs in our string. This can be used for indenting lines, or for aligning output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regular.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Indented.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Double indented.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The tab escape sequence can be used to align portions of multi-line output. The following example shows how we might use tabs to align columns in the printout of an employee database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ID</span><span class="se">\t</span><span class="s1">Employee Name</span><span class="se">\t</span><span class="s1">Salary&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;107</span><span class="se">\t</span><span class="s1">Jane Doe</span><span class="se">\t</span><span class="s1">$54,000&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;139</span><span class="se">\t</span><span class="s1">John Smith</span><span class="se">\t</span><span class="s1">$48,300&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;162</span><span class="se">\t</span><span class="s1">Pat Jones</span><span class="se">\t</span><span class="s1">$52,500&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-involving-strings">
+<h2>Operations Involving Strings<a class="headerlink" href="#operations-involving-strings" title="Permalink to this headline">¶</a></h2>
+<p>When appearing between numbers, the symbols <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and <code class="docutils literal notranslate"><span class="pre">**</span></code> perform the relevant arithmetic operations. However, these symbols can sometimes be used to combine instance of data types. We will see examples of this as we introduce new data types. The only one of these symbols that can be used between two strings is the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">+</span></code> is used between two strings, it combines, or <strong>concatenates</strong> the strings. The string that appears on the left side of <code class="docutils literal notranslate"><span class="pre">+</span></code> will come first, and the string on the right side will be appended to the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;star&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;wars&#39;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">+</span></code> to combine several strings at once. It is not necessary for all of the string values to be stored in variables. We see this in the next example, which places a space between the words “star” and “wars”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-involving-strings-and-numbers">
+<h2>Operations Involving Strings and Numbers<a class="headerlink" href="#operations-involving-strings-and-numbers" title="Permalink to this headline">¶</a></h2>
+<p>If we try to combine a string and a number with +, we will get an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that numbers enclosed with quotes are also considered strings. Python does not recongnize them as numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although we are not able to “add” strings to numbers, we are able to “multiply” a string by a number. The result will be a string that has concatenated with itself the specified number of times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blah &quot;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the product of a string and an integer produces another string, expressions of this type can be concatenated together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la &quot;</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="s2">&quot;doo &quot;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="type-coercion-with-strings">
+<h2>Type Coercion with Strings<a class="headerlink" href="#type-coercion-with-strings" title="Permalink to this headline">¶</a></h2>
+<p>We will now explore under what situations we are able to convert between <code class="docutils literal notranslate"><span class="pre">str</span></code> objects and <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> objects.</p>
+<p>We can convert a <code class="docutils literal notranslate"><span class="pre">str</span></code> object to an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">float</span></code> if the value contained within the string makes sense as the new data type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_str</span> <span class="o">=</span> <span class="s1">&#39;61&#39;</span>
+<span class="n">a_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_str</span><span class="p">)</span>
+<span class="n">a_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_str</span> <span class="o">=</span> <span class="s1">&#39;7.93&#39;</span>
+<span class="n">b_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b_float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the value of <code class="docutils literal notranslate"><span class="pre">b_str</span></code> is not interpretable as an integer, we will get an error if we attempt to coerce it to an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we are very insistent about coercing <code class="docutils literal notranslate"><span class="pre">b_int</span></code> to an integer, we can first coerce it into a float, and then an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">b_str</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b_int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can always convert an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">float</span></code> object to a <code class="docutils literal notranslate"><span class="pre">str</span></code> using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_float</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="n">x_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x_float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_int</span> <span class="o">=</span> <span class="mi">8675409</span>
+<span class="n">y_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">y_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Converting numerical values to strings can be very useful if we want to output a message that contains a mixture of predetermined text, as well as numeric values that are stored in variables. Converting the numeric portions of the message to strings allowed them to be concatenated with the rest of the text.</p>
+<p>Consider the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">3.56</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could have obtained the same result as above without using coercion by passing multiple arguments to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function and setting the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter equal to the empty string, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square of &#39;</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39; is &#39;</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-len-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">len()</span></code> Function<a class="headerlink" href="#the-len-function" title="Permalink to this headline">¶</a></h2>
+<p>Python provides several built-in functions for working with strings. The first such function we will discuss is <code class="docutils literal notranslate"><span class="pre">len()</span></code>. The <code class="docutils literal notranslate"><span class="pre">len()</span></code> function allows you to determine the length of a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;There are 39 characters in this string.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you might expect, an empty string has a length of zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">empty_string</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>The majority of the functions we will encounter when working with strings are <strong>methods</strong>. The difference between a method and other types of functions we will encounter is subtle, and will be discussed in greater detail later in the course. For now, we simply note the following points regarding methods:</p>
+<ol class="simple">
+<li><p>A method is a function that belongs to a specific object (such as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, or <code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p>To use a method on an object, you write the name of the object, followed by a dot, followed by the name of the method, followed by a set of parentheses.</p></li>
+</ol>
+<p>In the following example, we consider three string methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">upper()</span></code> converts the string to uppercase.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower()</span></code> converts the string to lowercase.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title()</span></code> capitalizes the first letter of each word in the string.</p></li>
+</ul>
+<p>Note that none of these methods actually change the contents of the string. They instead provide a new string as their output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myString</span> <span class="o">=</span> <span class="s2">&quot;There&#39;s a method in the madness.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myString</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myString</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myString</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some methods accept inputs (also called arguments). One example is the <code class="docutils literal notranslate"><span class="pre">count()</span></code> method. This method searches the string to see how many times the supplied input (also a string) appears within the original string. This is demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">myString</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">myString</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">replace()</span></code> method accepts two arguments. This method scans the source string, and replaces all occurences of the first argument with the second argument. Again, it does not actually change the contents of the original string. It instead returns a new string as output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;a &quot;</span>
+<span class="n">b</span> <span class="o">=</span>  <span class="s2">&quot;no &quot;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">myString</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-strings">
+<h2>f-Strings<a class="headerlink" href="#f-strings" title="Permalink to this headline">¶</a></h2>
+<p>Beginning with Version 3.6, Python has come equipped with a powerful tool for creating and formatting strings known as <strong>f-strings</strong>. We can define an f-string by simply placing an <code class="docutils literal notranslate"><span class="pre">f</span></code> character in front of the string, immediately before the initial quote.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boring_fstring</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;This is an example of an f-string.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boring_fstring</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example above illustrates the basic syntax for creating an f-string, but it is not particularly useful. We could have obtained the same result using an ordinary string. The benefits of f-strings arise from situation in which we would like to define a string that incorporates values stored in variables. If we place a set of brackets containing a variable name within an f-string, then the value of that variable will be inserted into the string at that location. This is illustrated in the next example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="s1">&#39;Robbie&#39;</span>
+<span class="n">last</span> <span class="o">=</span> <span class="s1">&#39;Beane&#39;</span>
+
+<span class="n">name_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Hello. My first name is </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s1"> and my last name is </span><span class="si">{</span><span class="n">last</span><span class="si">}</span><span class="s1">.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above, the values we inserted into the f-string were both strings themselves. However, we can place variables containing numerical values inside of the brackets as well. When doing so, it is NOT necessary to coerce the variable into a string.</p>
+<p>We are not restricted to using names of variables inside of brackets in an f-string. We can, in fact, place any expression that we would like inside of the brackets.</p>
+<p>These concepts are illustrated in the next example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">3.56</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The square of </span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aligning-text-with-f-strings">
+<h3>Aligning Text with f-Strings<a class="headerlink" href="#aligning-text-with-f-strings" title="Permalink to this headline">¶</a></h3>
+<p>Occasionally, we would like to insert a value into a string with additional spaces padding the value on the left or the right so that the printed value and the additional spaces together constitute a specific number of characters. We can accomplish this using f-strings by following the expression within the braces with a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>, one of the symbols <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, and then an integer value. The integer indicates the number of characters that should be set aside for the inserted value, and the selected arrow symbol controls whether the value should be left-justified (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>) or right-justified (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>).</p>
+<p>We illustrated this in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--</span><span class="si">{</span><span class="n">my_text</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--</span><span class="si">{</span><span class="n">my_text</span><span class="si">:</span><span class="s1">&lt;6</span><span class="si">}</span><span class="s1">--&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This feature of f-strings is particularly useful when we would like to display output in a tabular format, consisting of multiple rows and columns. We can use f-strings to make sure that each entry in a column takes the same amount of space, and is aligned on either the left or the right. This is illustrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fname1</span> <span class="o">=</span> <span class="s1">&#39;George&#39;</span>
+<span class="n">lname1</span> <span class="o">=</span> <span class="s1">&#39;Washington&#39;</span>
+
+<span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fname2</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span>
+<span class="n">lname2</span> <span class="o">=</span> <span class="s1">&#39;Adams&#39;</span>
+
+<span class="n">num3</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">fname3</span> <span class="o">=</span> <span class="s1">&#39;Abraham&#39;</span>
+<span class="n">lname3</span> <span class="o">=</span> <span class="s1">&#39;Lincoln&#39;</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First Name     Last Name      Number&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname1</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">lname1</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">num1</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname2</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">lname2</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">num2</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname3</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">lname3</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}{</span><span class="n">num3</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

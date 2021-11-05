@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 03 - Introduction to Jupyter &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_to_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   2. Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   3. Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   4. Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../page1.html">
+   Page 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../page4.html">
+       Page 4
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../page6.html">
+       Page 6
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page3.html">
+     Page 3
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page5.html">
+   Page 5
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/ch01/03 - Intro to Jupyter.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/ch01/03 - Intro to Jupyter.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/ch01/03 - Intro to Jupyter.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-jupyter-notebook-app">
+   The Jupyter Notebook App
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-notebook-format">
+   The Notebook Format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-cells">
+   Code Cells
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown-cells">
+   Markdown Cells
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cell-operations">
+   Cell Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernel-actions">
+   Kernel Actions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-linear-execution-in-jupyter">
+   Non-Linear Execution in Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magic-commands">
+   Magic Commands
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-03-introduction-to-jupyter">
+<h1>Lesson 03 - Introduction to Jupyter<a class="headerlink" href="#lesson-03-introduction-to-jupyter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The Notebook App and the Notebook Format</p></li>
+<li><p>Code Cells and Markdown Cells</p></li>
+<li><p>Cell Operations</p></li>
+<li><p>Kernel Actions</p></li>
+<li><p>Magic Commands</p></li>
+</ul>
+</div>
+<div class="section" id="the-jupyter-notebook-app">
+<h2>The Jupyter Notebook App<a class="headerlink" href="#the-jupyter-notebook-app" title="Permalink to this headline">¶</a></h2>
+<p><strong>Jupyter Notebook</strong> is an open source, browser-based, programming environment. It supports a number of of programming languages such as R, Python, and Julia, but is primarily used for writing Python code. Jupyter uses a <strong>notebook</strong> file format that supports the inclusion of formatted text, embedded media, and executable code all within the same document. The extension for notebook files is <strong>.ipynb</strong>, which stands for IPython Notebook (the original name of Jupyter Notebook).</p>
+<p>Jupyter notebook has two primary components: The dashboard and the kernel. The <strong>dashboard</strong> is a browser-based application that you will use to create, edit, and run your notebook documents. The <strong>kernel</strong> is a program that serves as a bridge between the dashboard and the Python interpreter.</p>
+</div>
+<div class="section" id="the-notebook-format">
+<h2>The Notebook Format<a class="headerlink" href="#the-notebook-format" title="Permalink to this headline">¶</a></h2>
+<p>Every notebook document created in Jupyter Notebook is a collection of <strong>cells</strong>. There are three types of cells that can be included in a notebook document: code cells, markdown cells, and raw cells.</p>
+<ul class="simple">
+<li><p>A <strong>code cell</strong> contains lines of executable Python code. The output of the cell is displayed directly beneath the cell.</p></li>
+<li><p>A <strong>markdown cell</strong> is used to create a section of formatted text. The formatting in a markdown cell is defined using the <strong>markdown</strong> language, which is a language designed specifically for formatting text.</p></li>
+<li><p>A <strong>raw</strong> cell contains unformatted, mono-type, non-executable text.</p></li>
+</ul>
+<p>We will work almost exclusively with code cells and markdown cells in this course. Let’s discuss these cell types more in more detail.</p>
+</div>
+<div class="section" id="code-cells">
+<h2>Code Cells<a class="headerlink" href="#code-cells" title="Permalink to this headline">¶</a></h2>
+<p>Code cells are used to contains sections of executable Python code. A code cell can contain as many lines of code as you would like. To execute the code contained in a code cell, you would select the cell by clicking inside of it or directly to the left of it, and then typing <code class="docutils literal notranslate"><span class="pre">[CTRL]</span> <span class="pre">+</span> <span class="pre">[ENTER]</span></code>. If the code inside the cell produces output, that output will be displayed directly beneath the cell.</p>
+<p>To the left of every code cell, you will find a sequence of characters similar to the following <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[</span> <span class="pre">]</span></code>. If the cell has previously been executed, the brackets will contain a number inside of them. This numbers that appear in the brackets next to code cells will indicate the order in which they were executed.</p>
+<p>An example of a code cell is provided below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The sum of x and y is:&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
+The sum of x and y is: 79
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="markdown-cells">
+<h2>Markdown Cells<a class="headerlink" href="#markdown-cells" title="Permalink to this headline">¶</a></h2>
+<p>A Markdown cell contains formatted text. Jupyter does not have tools that can be used to format text, as you would find in a word processing program. Instead, it uses <strong>Markdown</strong>. Markdown is a language developed specifically for formatting text.</p>
+<p>When creating a Markdown cell, you indicate the desired formatting for certain sections by using special sequences of characters. For example, if you want to indicate that a piece of text should appear in bold, then you would place two <code class="docutils literal notranslate"><span class="pre">*</span></code> symbols on each side of the text, as shown below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**This sentence would appear in bold.**
+</pre></div>
+</div>
+<p>After creating a markdown cell, you can put it into edit mode by double clicking on it. When you are done editing the cell, you can render it as formatted text by typing <code class="docutils literal notranslate"><span class="pre">[CTRL]</span> <span class="pre">+</span> <span class="pre">[ENTER]</span></code>.</p>
+<p>We will not be providing further examples of Markdown syntax here, but will provide you with two references for learning more about Markdown:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheat Sheet</a></p></li>
+<li><p><a class="reference external" href="https://www.markdownguide.org/basic-syntax/">Markdown: Basic Syntax</a></p></li>
+</ol>
+</div>
+<div class="section" id="cell-operations">
+<h2>Cell Operations<a class="headerlink" href="#cell-operations" title="Permalink to this headline">¶</a></h2>
+<p>When working with a notebook document, you will frequently need to create new cells, and delete existing cells. We will now describe how to perform several common cell operations.</p>
+<ul class="simple">
+<li><p><strong>Creating New Cells.</strong> You can create a new cell above or below a currently existing cell by clicking on the existing cell and typing <code class="docutils literal notranslate"><span class="pre">[a]</span></code> for above, and <code class="docutils literal notranslate"><span class="pre">[b]</span></code> for below. The new cell will be created as a code cell.</p></li>
+<li><p><strong>Deleting Cells.</strong> To delete a cell, simple select the cell by clicking to the left of it, and then type <code class="docutils literal notranslate"><span class="pre">[d]</span></code> twice.</p></li>
+<li><p><strong>Converting Cell Types.</strong> You can convert cells from code cells to Markdown cells, and vise-versa. To do so, select the cell by clicking to the left of it. You can then press <code class="docutils literal notranslate"><span class="pre">[M]</span></code> to convert the cell to a Markdown cell, or press <code class="docutils literal notranslate"><span class="pre">[Y]</span></code> to convert it to a code cell.</p></li>
+</ul>
+</div>
+<div class="section" id="kernel-actions">
+<h2>Kernel Actions<a class="headerlink" href="#kernel-actions" title="Permalink to this headline">¶</a></h2>
+<p>The kernel associated with a notebook document represents the Python session running behind the notebook. Any variables created by running a code cell will be stored within that Python session. The Python session will automatically be closed, and the variables within it cleared from memory, when the notebook is closed. However, there are often times when you would like to manually restart the Python session while you are actively working on it. This, and similar tasks, can be performed using commands found with the <strong>Kernel</strong> menu item in Jupyter Notebooks. We will describe the purpose of a few of these commands.</p>
+<ul class="simple">
+<li><p><strong>Interrupt</strong> will stop the kernel from processing commands. This can be useful if you have executed a code cell whose contents are taking longer to run that you had expected. The interrupt command will not reset your Python session, and will not clear any variables.</p></li>
+<li><p><strong>Restart</strong> will reset your Python session, clearing from memory any variables that were defined within that session. The Restart command will not clear any output from the notebook. Any cells that were previously executed will still show their results, but any variables created to generate those results will no longer exist in memory.</p></li>
+<li><p><strong>Restart &amp; Clear Output</strong> will reset the Python session, and will clear the output from any cells that have been previously executed. In general, any time you open a notebook document that you have worked on in the past, I recommend that you start by running this command. That way there will be no confusion about whether you have executed a certain cell in this session, or in a previous session.</p></li>
+<li><p><strong>Restart &amp; Run All</strong> will reset the Python session, clear the output from any cells, and then will run every code cell in the notebook from top-to-bottom. To make sure that your code is functioning properly, I recommend that you run this command periodically. You will be required to run this command as your last step before submitting any assignment.</p></li>
+</ul>
+</div>
+<div class="section" id="non-linear-execution-in-jupyter">
+<h2>Non-Linear Execution in Jupyter<a class="headerlink" href="#non-linear-execution-in-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>We are not required to execute the cells in a notebook document in order, from top to bottom. We can execute the cells in any order that we wish, and we can execute individual cells as many times as we like.</p>
+<p>This can cause some problems, however. It is possible that the output of our cells will depend on the order in which we execute them. If you do not execute them in order, from top-to-bottom, then it might be unclear to someone reading your notebook (for instance a professor) how you are getting the displayed results. The reader won’t have any way of knowing what order that you executed the cells in. For that reason, you will be required to run the command <strong>Restart &amp; Run All</strong> before submitting any assignment in this course.</p>
+</div>
+<div class="section" id="magic-commands">
+<h2>Magic Commands<a class="headerlink" href="#magic-commands" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>magic command</strong> is a command that can be given directly to the Python kernel from within a code cell. Magic commands are not written in Python code, but have their own syntax. Every magic command begins with one or two percent symbols.</p>
+<p>Magic commands can be used to perform a variety of tasks, such as calculating the execution time of a code cell, running an external script, or specify formatting options. We will not be working with magic commands frequently in this course. However, if you are interested in learning more about magic commands, you can find a list of available commands here: <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">Magic Commands</a></p>
+<p>As one example, in the cell below, we use the magic command <code class="docutils literal notranslate"><span class="pre">%%time</span></code> to calculate the execution time for a code cell. Don’t worry about that the code in the cell is actually doing at this moment. We will cover that later in the course.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wall time: 7.11 s
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\ch01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

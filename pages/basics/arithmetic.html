@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arithmetic Operations &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arithmetic.html">
+   1. Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../variables.html">
+   2. Variables
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   To Do
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/basics/arithmetic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/basics/arithmetic.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/basics/arithmetic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#addition-and-subtraction">
+   Addition and Subtraction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addition">
+     Addition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplication-and-division">
+   Multiplication and Division
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     Multiplication
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division">
+     Division
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division-by-zero">
+     Division by Zero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exponentiation-and-roots">
+   Exponentiation and Roots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponentiation">
+     Exponentiation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negative-exponents">
+     Negative Exponents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-roots">
+     Calculating Roots
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#order-of-operations">
+   Order of Operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pemdas">
+     PEMDAS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parentheses-and-roots">
+     Parentheses and Roots
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modulus-and-floor-division">
+   Modulus and Floor Division
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-modulus-operation">
+     The Modulus Operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#floor-division">
+     Floor Division
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floating-point-representation">
+   Floating-Point Representation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#floating-point-values">
+     Floating-Point Values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rounding-issues-in-floating-point-calculations">
+     Rounding Issues in Floating Point Calculations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-representation">
+     Binary Representation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-handle-such-errors">
+     How to Handle Such Errors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="arithmetic-operations">
+<h1>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h1>
+<p>Python can be used to perform calculations involving addition, subtraction, multiplication, and division, as well as other types of artihmetic operations. These are some of the most fundamental types of commands that Python is able to process. We will discuss several of these operations in this chapter.</p>
+<p>Within this chapter, you will find sections discussing how to perform each of the following arithmetic operations in Python.</p>
+<ul class="simple">
+<li><p><span class="xref myst">Addition and Subtraction</span></p></li>
+<li><p><span class="xref myst">Multiplication and Division</span></p></li>
+<li><p><span class="xref myst">Exponentiation</span></p></li>
+<li><p><span class="xref myst">Order of Operations</span></p></li>
+<li><p><span class="xref myst">Modulus and Floor Division</span></p></li>
+<li><p><span class="xref myst">Rounding</span></p></li>
+<li><p><span class="xref myst">Floating-Point Representation</span></p></li>
+</ul>
+<div class="tableofcontents-wrapper compound">
+</div>
+<div class="section" id="addition-and-subtraction">
+<h2>Addition and Subtraction<a class="headerlink" href="#addition-and-subtraction" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps unsurprisingly, our discussion of mathematical operation will begin with addition and subtraction.</p>
+<div class="section" id="addition">
+<h3>Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h3>
+<p>Addition in Python is performed by placing the plus symbol (<code class="docutils literal notranslate"><span class="pre">+</span></code>) between two numbers. In the cell below we provide an example of using Python to perfom addition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">4.2</span> <span class="o">+</span> <span class="mf">3.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.9
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font size=5>Subtraction</font></strong></p>
+<p>We can also perform subtraction in Python. This is accomplished by placing a hyphen character (<code class="docutils literal notranslate"><span class="pre">-</span></code>) between two numbers. An example is provided in the code cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-12
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="multiplication-and-division">
+<h2>Multiplication and Division<a class="headerlink" href="#multiplication-and-division" title="Permalink to this headline">¶</a></h2>
+<p>Moving on from addition and subtraction, we will now consider the multiplication and division operations.</p>
+<div class="section" id="multiplication">
+<h3>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h3>
+<p>Multiplication in Python is performed by placing an asterisk character (<code class="docutils literal notranslate"><span class="pre">*</span></code>) between two numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="division">
+<h3>Division<a class="headerlink" href="#division" title="Permalink to this headline">¶</a></h3>
+<p>Division is peformed by placing the forward slash character (<code class="docutils literal notranslate"><span class="pre">/</span></code>) between two numbers. The next three cells provide examples of division.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3333333333333335
+</pre></div>
+</div>
+</div>
+</div>
+<p>The operation <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">/</span> <span class="pre">3</span></code> in the preceding cell results in a repeating decimal. Python (like any other programming language) is not capable of storing real numbers to infinite precision. Numbers with non-terminating decimal expansions must be rounded to a specific finite precision.</p>
+<p>You may notice that there is something unusual about how Pyhon rounded the final digit of the result in the cell above. We will address this issue later in the section <span class="xref myst">Floating-Point Representation</span>.</p>
+</div>
+<div class="section" id="division-by-zero">
+<h3>Division by Zero<a class="headerlink" href="#division-by-zero" title="Permalink to this headline">¶</a></h3>
+<p>If we attempt to divide by zero, we get an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">52</span><span class="n">cebea8b64f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">42</span> <span class="o">/</span> <span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>Errors are an ever-present part of any programmer’s existence. Every error results in an error message that attempts to explain what caused the error. Note that the last line in the output above says:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ZeroDivisionError: division by zero
+</pre></div>
+</div>
+<p>This is Python’s way of telling us that we got an error because we attempted to commmit the mathematical sin of dividing by zero. Error messages are often cryptic and difficult to interpret, but it is important that you attempt to understand what any error messages you encounter are trying to tell you. Being able to read error messages can be a big help when attempting to debug your code.</p>
+</div>
+</div>
+<div class="section" id="exponentiation-and-roots">
+<h2>Exponentiation and Roots<a class="headerlink" href="#exponentiation-and-roots" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will discuss how to use Python to perform exponentiation. We will also consider a special case of exponentiation: calculating roots.</p>
+<div class="section" id="exponentiation">
+<h3>Exponentiation<a class="headerlink" href="#exponentiation" title="Permalink to this headline">¶</a></h3>
+<p>Python uses two asterisks (<code class="docutils literal notranslate"><span class="pre">**</span></code>) to indicate the operation of exponentiation. In the next cell, we will calculate 3 raised to the 5th power, or <span class="math notranslate nohighlight">\(3^5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>243
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note about Exponentiation Operator</p>
+<p>Many programming languages and computer algebra systems use the “carat” symbol (<code class="docutils literal notranslate"><span class="pre">^</span></code>) for exponentiation. Python is somewhat unusual in its use of <code class="docutils literal notranslate"><span class="pre">**</span></code> for exponentiation. However, even if you are familiar with using <code class="docutils literal notranslate"><span class="pre">^</span></code> to indicate exponents, you will likely get used to Python’s way of doing things quickly.</p>
+<p>Be careful, though. Python <em>does</em> use the carat operator, but to indicate a different operation called <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR">bitwise XOR</a> (which we won’t discuss here). This can be something of a pitfall because if you typed <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">^</span> <span class="pre">5</span></code> in an attempt to calculate <span class="math notranslate nohighlight">\(3^5\)</span>, you would NOT get an error, but you would get the incorrect answer (try this on your own). If you didn’t realize that your answer was wrong, that could cause some problems for you down the road.</p>
+</div>
+</div>
+<div class="section" id="negative-exponents">
+<h3>Negative Exponents<a class="headerlink" href="#negative-exponents" title="Permalink to this headline">¶</a></h3>
+<p>We can use negative exponenents when performing calculations in Python. Recall that the mathematical expression <span class="math notranslate nohighlight">\(x^{-n}\)</span> is defined by <span class="math notranslate nohighlight">\(x^{-n} = \frac{1}{x^n}\)</span>. In the next cell, we will calculate <span class="math notranslate nohighlight">\(5^{-2}\)</span>, which is equal to <span class="math notranslate nohighlight">\(1/25\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="mi">5</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-roots">
+<h3>Calculating Roots<a class="headerlink" href="#calculating-roots" title="Permalink to this headline">¶</a></h3>
+<p>We can also use exponents to calculate roots. Recall that the <span class="math notranslate nohighlight">\(n\)</span>th root of a number can be calculated by raising that number to the power <span class="math notranslate nohighlight">\(1/n\)</span>. In other words, <span class="math notranslate nohighlight">\(\sqrt[n]{x} = x^{1 / n}\)</span>.</p>
+<p>As an example, we will now calculate the square root of 81. Note that <span class="math notranslate nohighlight">\(\sqrt{81} = 81^{1/2} = 81^{0.5}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">81</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next cell, we will calculate the fourth root of 37.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">37</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4663257145596607
+</pre></div>
+</div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Warning About Parentheses</p>
+<p>Notice that we placed parentheses around the fraction <code class="docutils literal notranslate"><span class="pre">1/4</span></code> in the code cell above. It is important for us to do so. Python respects the standard mathematical <a class="reference external" href="https://mathworld.wolfram.com/PEMDAS.html">order of operations</a>. If we did not include the parentheses, then Python would have raised 37 to the power of 1 and then divided the result by 4. In summary:</p>
+<ul class="simple">
+<li><p>The Python expression <code class="docutils literal notranslate"><span class="pre">37</span> <span class="pre">**</span> <span class="pre">1/4</span></code> would calculate the value of <span class="math notranslate nohighlight">\(\frac{37^1}{4} = 9.25\)</span>.</p></li>
+<li><p>The Python expression <code class="docutils literal notranslate"><span class="pre">37</span> <span class="pre">**</span> <span class="pre">(1/4)</span></code> would calculate the value of <span class="math notranslate nohighlight">\(37^{1/4} = 2.4663257145596607\)</span>.</p></li>
+</ul>
+<p>We will discuss order of operations in more detail in the next section.</p>
+</div>
+<p>We can avoid the need for parentheses in the cell above by replacing the fractional exponent with its decimal representation. This is illustrated in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">37</span> <span class="o">**</span> <span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4663257145596607
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="order-of-operations">
+<h2>Order of Operations<a class="headerlink" href="#order-of-operations" title="Permalink to this headline">¶</a></h2>
+<p>The value of a mathematical expression can be dependent on the order in which you perform the operations that constitute that expression. To avoid ambiguity or the need for excessive use of parentheses, mathematicians have adopted a standard <a class="reference external" href="https://mathworld.wolfram.com/PEMDAS.html">order of operations</a> that should be followed when evaluating expressions. Python aheres to these same rules when evaluating expressions.</p>
+<div class="section" id="pemdas">
+<h3>PEMDAS<a class="headerlink" href="#pemdas" title="Permalink to this headline">¶</a></h3>
+<p>The order of operations is often summarizued using the acronym <strong>PEMDAS</strong>. The meaning of this acronym is explained below.</p>
+<ul class="simple">
+<li><p><strong>(P)arentheses.</strong> Calculate the value of any expression appearing within a set of parentheses before performing calculations that involve that expression.</p></li>
+<li><p><strong>(E)xponentiation.</strong> Perform calculations involving exponentiation before moving on to other operations.</p></li>
+<li><p><strong>(M)ultiplication and (D)ivision.</strong> Perform calculations involving multiplication and division before those involving addition or subtraction.</p></li>
+<li><p><strong>(A)ddition and (S)ubtraction.</strong> Perform calculations involving addition and subtraction last.</p></li>
+</ul>
+<p>In the next cell, we will demonstrate that Python does indeed perform multiplication prior to addition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wished for the addition to be performed before the multiplication in the expression above, then we could add parentheses to the expression. This is demonstrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can combine parentheses and operations to form complex arithmetic expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>245.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parentheses-and-roots">
+<h3>Parentheses and Roots<a class="headerlink" href="#parentheses-and-roots" title="Permalink to this headline">¶</a></h3>
+<p>As discussed in a previous section, we can calculate roots by raising values to fractional exponents, but we need to be careful about using exponents when we do so.</p>
+<p>Assume, for example, that we wish to calculate the third root of 216 (which is equal to 6). Consider the attempt in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">216</span> <span class="o">**</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since exponentiation is performed before division, Python processes this expression by first raising 216 to the power 1 (which gives 216), and then dividing the result by 3, yielding 72. We can correct this by placing parentheses around the fraction. This is demonstrated in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">216</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.999999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note on rounding</p>
+<p>Notice that there appears to be a (tiny) error in the value calculated above. The result should be exactly equal to 6, but we get something very slightly smaller than 6. We will discuss the cause of this error in a later section: <span class="xref myst">Rounding Issues</span>.</p>
+<p>This type of apparent “rounding error” is not uncommon in Python (or any programming language) and can disconcerting the first few times you encounter it, but be reassured that this tiny discrepency is extremely unlikely to have any practical significance, and should not typically be cause for concern.</p>
+</div>
+</div>
+</div>
+<div class="section" id="modulus-and-floor-division">
+<h2>Modulus and Floor Division<a class="headerlink" href="#modulus-and-floor-division" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will discuss the <strong>modulus</strong> and <strong>floor division</strong> operations. Both of these operations are related to the process of dividing one integer by another.</p>
+<div class="section" id="the-modulus-operation">
+<h3>The Modulus Operation<a class="headerlink" href="#the-modulus-operation" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>modulus operation</strong> yields the remainder obtained from dividing one integer by another. It is performed in Python by placing the percent character (<code class="docutils literal notranslate"><span class="pre">%</span></code>) between two integer values. The number on the left of the <code class="docutils literal notranslate"><span class="pre">%</span></code> symbol is divided by the one on the right, and Python reports back the remainder of this division.</p>
+<p>Let’s consider a few examples. We will start by calculating the remainder obtained when dividing 8 by 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next example, we will calculate the remainder of 25 divided by 7.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">25</span> <span class="o">%</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>As our last example of the modulus operation, we will calculate the remainder of 90 divided by 3. Note that since 90 is divisible by 3, we get a remainder of 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">90</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The modulus operator has many useful applications in programming, some of which we will explore in later sections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The symbol used to indicate the modulus operation varies from one programming language to another. Several programming languages use <code class="docutils literal notranslate"><span class="pre">%</span></code>, as Python does. But it is also common to see <code class="docutils literal notranslate"><span class="pre">%%</span></code> or <code class="docutils literal notranslate"><span class="pre">mod</span></code> used to indicate this operation.</p>
+</div>
+</div>
+<div class="section" id="floor-division">
+<h3>Floor Division<a class="headerlink" href="#floor-division" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>floor division</strong> operation is related to the modulus operation in that it is obtained through the process of integer division. However, floor division reports back the quotient of the division rather than the remainder. We use double slashes (<code class="docutils literal notranslate"><span class="pre">//</span></code>) to perform floor division in Python.</p>
+<p>We will illustration floor division using the same examples we considered for the modulus. We will start with 8 divided by 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will calculate the quotient resulting from dividing 25 by 7.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">25</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>We conclude the section by calculating the quotient of 90 divided by 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">90</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When writing code, there are often many different ways to obtain a particular result. We can also perform floor division using the <code class="docutils literal notranslate"><span class="pre">int()</span></code> function. This function returns the whole number (or integer) part of a decimal number. As a consequence, the following two expressions will generate the same value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>25 // 7
+int(25 / 7)
+</pre></div>
+</div>
+<p>Although the <code class="docutils literal notranslate"><span class="pre">int()</span></code> function can be used for floor division, it has additional uses that we will see in a later section.</p>
+</div>
+</div>
+</div>
+<div class="section" id="floating-point-representation">
+<h2>Floating-Point Representation<a class="headerlink" href="#floating-point-representation" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will discuss a commonly-occurring issue in which Python seemingly misrepresents the value of certain decimal numbers.</p>
+<div class="section" id="floating-point-values">
+<h3>Floating-Point Values<a class="headerlink" href="#floating-point-values" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>floating-point</strong> value is a numerical value that contains a decimal point. For example, each of the following values are floating-point values:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3.14159, 4.5, 2.3333333, 19.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="rounding-issues-in-floating-point-calculations">
+<h3>Rounding Issues in Floating Point Calculations<a class="headerlink" href="#rounding-issues-in-floating-point-calculations" title="Permalink to this headline">¶</a></h3>
+<p>We have seen examples in previous sections where Python seems to make very small rounding errors when providing the result of calculations involving floating-point values.</p>
+<p>For example, consider the result obtained from dividing 7 by 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3333333333333335
+</pre></div>
+</div>
+</div>
+</div>
+<p>The exact value of <span class="math notranslate nohighlight">\(7/3\)</span> is <span class="math notranslate nohighlight">\(2.3333...\)</span>, which the threes in the fractional part continuing on forever. Computers are not typically capable of storing decimal values with to infinite precision, and thus Python (and other programming languages) are forced to round values such as this. However, you would expect that the last digit of the rounded result would be a 3 rather than a 5. It would seem that Python is making a rounding error.</p>
+<p>This issue is perhaps demonstrated more strikingly in the next example, in which we add <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>You would obvsiously expect the result of the calculation above to be <code class="docutils literal notranslate"><span class="pre">0.3</span></code>, but Python reports a result that is very, very slightly larger. This is particularly strange considering that you would likely not expect this calculation to involve any rounding at all!</p>
+</div>
+<div class="section" id="binary-representation">
+<h3>Binary Representation<a class="headerlink" href="#binary-representation" title="Permalink to this headline">¶</a></h3>
+<p>These unexpected results stem from the fact that computers internally represent numbers in a base 2 (binary) number system rather than the base 10 (decimal) system that modern humans are familiar with. We will not delve into the details of exactly why binary representations sometimes yield unexpected results when working with floating point numbers, but suffice it to say that tiny rounding “errors” can occur when converting a number from base 10 (as it appears on the screen) to base 2 (as it is stored by the computer), and vice-versa. You can read more about this topic here: <a class="reference external" href="https://www.geeksforgeeks.org/floating-point-error-in-python/">Floating-Point Error in Python</a>.</p>
+</div>
+<div class="section" id="how-to-handle-such-errors">
+<h3>How to Handle Such Errors<a class="headerlink" href="#how-to-handle-such-errors" title="Permalink to this headline">¶</a></h3>
+<p>Understanding that operations involving float-point values might occasionally result in tiny rounding errors, the question remains: What do we do about it? In most cases, the answer is simple: Nothing. If you are using the result of such a calculation in another calculation, the discrepency between the actual value and the calculated value is so small that it is unlikely to be relevant.</p>
+<p>If you are displaying the value as a final result, and find the incorrectly rounded result to be displeasing, then you can simply rounded the displayed result to any precision that is less than what was used to store the number. To see an illustration of this, we will again perform the calculation <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.2</span></code>, but will this time round the result to 10 decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3
+</pre></div>
+</div>
+</div>
+</div>
+<p>The key point to take away from this discussion is that you should understand that there is always a chance that a floating-point operation might produce a result that is slightly different from (but very close to) the exact result.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 23 - Pandas DataFrames &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html">
+   Arithmetic Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#addition-and-subtraction">
+   Addition and Subtraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#multiplication-and-division">
+   Multiplication and Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#exponentiation-and-roots">
+   Exponentiation and Roots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#order-of-operations">
+   Order of Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#modulus-and-floor-division">
+   Modulus and Floor Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#id1">
+   Modulus and Floor Division
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/arithmetic.html#floating-point-representation">
+   Floating-Point Representation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/variables.html">
+   5. Variables
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/numeric_data_types.html">
+   6. Numeric Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/integers.html">
+     Integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/floats.html">
+     Floats
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/strings.html">
+   7. Strings
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/quotes.html">
+     Single and Double Quotes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/escape_seq.html">
+     Escape Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_ops.html">
+     String Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion_strings.html">
+     Coercion with Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/string_methods.html">
+     String Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/f-strings.html">
+     f-Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/text_files.html">
+     Working with Text Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/booleans.html">
+   8. Boolean Values
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparisons.html">
+     Comparison Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/boolean_arithmetic.html">
+     Boolean Arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/logical_operators.html">
+     Logical Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/comparison_examples.html">
+     Additional Comparison Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_types/addl_type_topics.html">
+   9. Additional Data Type Topics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/coercion.html">
+     Coercion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/dynamic_typing.html">
+     Dynamic Typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types/none_type.html">
+     None Type
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Collections
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/lists.html">
+   10. Lists
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/slicing.html">
+     List Slicing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/modifying_lists.html">
+     Modifying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_operations.html">
+     List Operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/list_functions.html">
+     List Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/sorting_lists.html">
+     Sorting Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/index_method.html">
+     The index Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/copying_lists.html">
+     Copying Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/parallel_lists.html">
+     Parallel Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/nested_lists.html">
+     Nested Lists
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/tuples.html">
+   11. Tuples
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../collections/dictionaries.html">
+   12. Dictionaries
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/dict_methods.html">
+     Dictionary Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/lookup_tables.html">
+     Lookup Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../collections/structured_data.html">
+     Structured Data
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../collections/sets.html">
+   13. Sets
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Control Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/for.html">
+   14. For Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/for_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html">
+     Nested Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/nested_loops.html#example-matrix-addition">
+     Example: Matrix Addition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/enumerate.html">
+     The enumerate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/zip.html">
+     The zip Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/break_cont_for.html">
+     Break and Continue
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/while.html">
+   15. While Loops
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_v_for.html">
+     While Loops vs For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/while_examples.html">
+     Examples of For Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/approximation.html">
+     While Loops and Approximation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/conditionals.html">
+   16. Conditional Statements
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/conditional_examples.html">
+     Examples of Conditional Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../control/if_comprehensions.html">
+     Conditionals in Comprehensions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../control/error_handling.html">
+   17. Error Handling
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page1.html">
+     Page 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../page2.html">
+     Page 2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Functions and Classes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../functions/functions.html">
+   18. Functions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/parameters.html">
+     Parameters and Arguments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/return_values.html">
+     Return Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/return_values.html#multiple-return-statements">
+     Multiple Return Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/default_params.html">
+     Default Parameter Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/returning_multiple.html">
+     Returning Multiple Values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/function_examples.html">
+     Function Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/scope.html">
+     Variable Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/global_variables.html">
+     Global Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/recursion.html">
+     Recurion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../functions/recursion_examples.html">
+     Recurion Examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Packages
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Time
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   OS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   ZipFile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../page1.html">
+   Pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   To Do
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/packages/23 - Pandas Dataframes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/packages/23 - Pandas Dataframes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/packages/23 - Pandas Dataframes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
+   The following topics are discussed in this notebook:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-dataframe-from-a-dictionary">
+   Creating a DataFrame from a Dictionary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-elements">
+   Accessing Elements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-rows">
+   Accessing Rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-columns">
+   Accessing Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-new-columns">
+   Adding New Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#column-operations">
+   Column Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values">
+   Missing Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering">
+   Filtering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-a-new-index">
+   Setting a New Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-records-to-a-data-frame">
+   Adding Records to a Data Frame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-dataframe-from-list-of-lists">
+   Creating DataFrame from List of Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-data-from-a-text-file">
+   Loading Data From a Text File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pima-diabetes-dataset">
+     Pima Diabetes Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#titanic-dataset">
+     Titanic Dataset
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lesson-23-pandas-dataframes">
+<h1>Lesson 23 - Pandas DataFrames<a class="headerlink" href="#lesson-23-pandas-dataframes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-following-topics-are-discussed-in-this-notebook">
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The dataframe data type from the pandas package.</p></li>
+</ul>
+</div>
+<div class="section" id="dataframes">
+<h2>DataFrames<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h2>
+<p>The pandas package provides us with the DataFrame data type for working with structured data, or in other words, data that is organized in a tabular format with defined rows and columns.</p>
+<p>We have previously seen two tools that can be used for working with structured data: 2D Numpy arrays and dictionaries. DataFrames provide the following advantages over these other data structures:</p>
+<ol class="simple">
+<li><p>The elements of a Numpy array must all be of the same data type. While individual columns of a pandas DataFrame must have a consistent data type, different columns can contain different types.</p></li>
+<li><p>Unlike a Numpy array, we can assign names to the columns and (less importantly) to the rows of a DataFrame.</p></li>
+<li><p>We have seen that we can use dictionaries to represent tabular data. For example, we can set the values in a dictionary to be lists representing columns, in which case the keys will represent column names. However, there would be no explicit concept of a row in such a setup. DataFrames explicitly define both rows and columns.</p></li>
+</ol>
+<p>It is a common convention to import pandas under the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="n">dd3504c366f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-dataframe-from-a-dictionary">
+<h2>Creating a DataFrame from a Dictionary<a class="headerlink" href="#creating-a-dataframe-from-a-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>We can create a pandas DataFrame from a dictionary in which the key-value pairs represent columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;eid&#39;</span><span class="p">:[</span><span class="mi">214</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">227</span><span class="p">,</span> <span class="mi">151</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">193</span><span class="p">,</span> <span class="mi">146</span><span class="p">],</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:[</span><span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Faye&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">,</span> <span class="s1">&#39;Chad&#39;</span><span class="p">,</span> <span class="s1">&#39;Hana&#39;</span><span class="p">,</span> <span class="s1">&#39;Gary&#39;</span><span class="p">,</span> <span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="s1">&#39;Emma&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s1">&#39;rate&#39;</span><span class="p">:[</span><span class="mf">11.50</span><span class="p">,</span> <span class="mf">12.30</span><span class="p">,</span> <span class="mf">14.60</span><span class="p">,</span> <span class="mf">12.50</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">15.60</span><span class="p">,</span> <span class="mf">13.50</span><span class="p">,</span> <span class="mf">14.30</span><span class="p">],</span>
+    <span class="s1">&#39;hours&#39;</span><span class="p">:[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">employee_dict</span><span class="p">)</span>
+<span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every DataFrame comes with a <code class="docutils literal notranslate"><span class="pre">head()</span></code> method that can be used to view the first few rows of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-elements">
+<h2>Accessing Elements<a class="headerlink" href="#accessing-elements" title="Permalink to this headline">¶</a></h2>
+<p>Every row and column in a pandas DataFrames has both a name, and a numerical index. We can use the <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> attribute to access DataFrame elements using column and row indices, and we can use <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to access elements using column and row names.</p>
+<p>Note that for the DataFrame we have created above, the numerical indices for the rows are the same as their names. This is common, but not required. We will see an example later where the row names are different from the numerical indices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-rows">
+<h2>Accessing Rows<a class="headerlink" href="#accessing-rows" title="Permalink to this headline">¶</a></h2>
+<p>We can extract entire rows from a DataFrame using slicing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,:]</span>
+<span class="c1">#employee_df.loc[4]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-columns">
+<h2>Accessing Columns<a class="headerlink" href="#accessing-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can also use slicing to extract entire columns from a DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="c1">#employee_df[&#39;name&#39;]</span>
+<span class="c1">#employee_df.name</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> indexing attributes support fancy indexing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;rate&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since columns and rows have a well-defined order in a DataFrame, we can also use slicing with the <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexer to slice a range of columns using their column names.</p>
+<p>Notice that when performing this type of slicing, the column appearing after the colon IS included in the slice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;eid&#39;</span><span class="p">:</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-new-columns">
+<h2>Adding New Columns<a class="headerlink" href="#adding-new-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">loc</span></code> to add new columns to a DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;pay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;hours&#39;</span><span class="p">]</span>
+<span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="column-operations">
+<h2>Column Operations<a class="headerlink" href="#column-operations" title="Permalink to this headline">¶</a></h2>
+<p>DataFrames come equipped with several methods such as <code class="docutils literal notranslate"><span class="pre">sum()</span></code> and <code class="docutils literal notranslate"><span class="pre">mean()</span></code> for performing operations on columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;hours&#39;</span><span class="p">,</span> <span class="s1">&#39;pay&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="missing-values">
+<h2>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
+<p>A common headache for anyone who works with data is encountering data sets with missing values. Pandas provides us with several tools for identifying and working with missing values. We will discuss some of those here.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> method returns a DataFrame consisting of Boolean values that indicate the location of missing values within the original DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can combine the <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> and <code class="docutils literal notranslate"><span class="pre">sum()</span></code> methods to count the number of missing values in each row of a DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> method removes from a DataFrame any rows that contain missing values. By default, this method returns a new DataFrame, leaving the original object untouched. However, if we set the parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>, then the operation is performed on the original DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<p>We can use Boolean masking to filter DataFrames, just as with Numpy arrays.</p>
+<p>The code in the cell below filters <code class="docutils literal notranslate"><span class="pre">employee_df</span></code>, keeping only records for employees who worked more than 30 hours.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;hours&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span>
+<span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We call above that the average age for employees in the data set was 28.25. In the cell below, we determine the average age of employees older than 25.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">25</span>
+<span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just like with Numpy arrays, we can use &amp; and | to filter on multiple criteria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;hours&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sel</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-a-new-index">
+<h2>Setting a New Index<a class="headerlink" href="#setting-a-new-index" title="Permalink to this headline">¶</a></h2>
+<p>DataFrames refer to the collection of row names (somewhat confusingly) as the <strong>index</strong> of the DataFrame. In most cases, these row names will be set to be equal to the numerical indices of the rows. However, it is possible to set the “index” of a DataFrame to a column within a DataFrame</p>
+<p>In the cell below, we set <code class="docutils literal notranslate"><span class="pre">eid</span></code> to be the index of <code class="docutils literal notranslate"><span class="pre">employee_df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;eid&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can still use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to index rows and columns according to their numerical indices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, we must use the correct row names when using <code class="docutils literal notranslate"><span class="pre">loc</span></code> to subset the DataFrame. Notice that the rows are kept in their original order, and are not reordered according to the new row names that we have set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">227</span><span class="p">,</span> <span class="p">:</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-records-to-a-data-frame">
+<h2>Adding Records to a Data Frame<a class="headerlink" href="#adding-records-to-a-data-frame" title="Permalink to this headline">¶</a></h2>
+<p>We will now see how to add new records to a DataFrame. First, lets recall what <code class="docutils literal notranslate"><span class="pre">employee_df</span></code> DataFrame currently contains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">loc</span></code> to add a new records with a specific row name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">232</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Iris&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">11.2</span> <span class="o">*</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">employee_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also create a DataFrame of new records with the same structure as our original DataFrame, and then combine the two using the <code class="docutils literal notranslate"><span class="pre">append()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_records</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:[</span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Kate&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+    <span class="s1">&#39;rate&#39;</span><span class="p">:[</span><span class="mf">11.7</span><span class="p">,</span> <span class="mf">12.4</span><span class="p">],</span>
+    <span class="s1">&#39;hours&#39;</span><span class="p">:[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span>
+<span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">251</span><span class="p">,</span> <span class="mi">368</span><span class="p">])</span>
+
+<span class="n">new_records</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;pay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_records</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">new_records</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;hours&#39;</span><span class="p">]</span>
+
+<span class="n">new_records</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_records</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It should be noted that <code class="docutils literal notranslate"><span class="pre">append()</span></code> returns a new DataFrame. It does not change either of the DataFrames being combined.</p>
+</div>
+<div class="section" id="creating-dataframe-from-list-of-lists">
+<h2>Creating DataFrame from List of Lists<a class="headerlink" href="#creating-dataframe-from-list-of-lists" title="Permalink to this headline">¶</a></h2>
+<p>There are many ways to create DataFrames. At the beginning of this lesson, we saw how to create DataFrames from dictionaries. DataFrames can also be created from lists of lists. In this case, row and column names must be provided, or they will be set to be the same as the numerical indices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LoL</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="s1">&#39;Ant&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> 
+       <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="s1">&#39;Bird&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> 
+       <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="s1">&#39;Cat&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> 
+       <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="s1">&#39;Dog&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]]</span>
+
+<span class="n">unnamed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">LoL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unnamed_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">named_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">LoL</span><span class="p">,</span>
+                        <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Row1&#39;</span><span class="p">,</span> <span class="s1">&#39;Row2&#39;</span><span class="p">,</span> <span class="s1">&#39;Row3&#39;</span><span class="p">,</span> <span class="s1">&#39;Row4&#39;</span><span class="p">],</span>
+                        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Col1&#39;</span><span class="p">,</span> <span class="s1">&#39;Col2&#39;</span><span class="p">,</span> <span class="s1">&#39;Col3&#39;</span><span class="p">,</span> <span class="s1">&#39;Col4&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">named_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-data-from-a-text-file">
+<h2>Loading Data From a Text File<a class="headerlink" href="#loading-data-from-a-text-file" title="Permalink to this headline">¶</a></h2>
+<p>Tabular data is often stored in the form of text files. When a text file is used to store tabular data, each record (row) in the data set is recorded on a separate line of the text file. Elements belonging to different columns are separated by a specific sequence of one or more characters. This sequence is referred to as a <strong>separator</strong> or <strong>delimiter</strong>. Common choices for a <strong>delimiter</strong> are tabs, commas, and spaces. A data file using tabs as delimiters is often referred to as being <strong>tab-separated</strong> or <strong>tab-delimited</strong>. Similarly, a data file using commas for delimiters is often referred to as being <strong>comma-separated</strong> or <strong>comma-delimited</strong>. The extension used for a text file storing data can be essentially anything, but it is common to see <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files used. When the file is comma-delimited, the file will often have the extension <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which stands for “comma-separated values”.</p>
+<p>Pandas provides several tools for reading data from text files into DataFrames. Two common functions used for this task are <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. These functions have several parameters that control how the data is imported, but for many use-cases, it sufficient to use just two parameters: <code class="docutils literal notranslate"><span class="pre">filepath_or_buffer</span></code> and <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">filepath_or_buffer</span></code> parameter expects a string that states the path to the data file. The path can be an absolute path that states exactly where the file lives on your system, or a relative path that explains where the file is stored in relation to the directory containing the notebook or script you are using. Relative paths tend to be more flexible, as they allow the directory containing the notebook and data file to be moved without having to update the path in the code.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter specify the separator or delimiter used in the data file. The default value of <code class="docutils literal notranslate"><span class="pre">sep</span></code> is <code class="docutils literal notranslate"><span class="pre">'\t'</span></code> for <code class="docutils literal notranslate"><span class="pre">pd.read_table()</span></code>, and is <code class="docutils literal notranslate"><span class="pre">','</span></code> for <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p></li>
+</ul>
+<p>These two functions can be used interchangeably, as long as you are careful to specify the correct separator for your data file.</p>
+<p>We will now provide two examples of loading data into a Pandas DataFrame.</p>
+<div class="section" id="pima-diabetes-dataset">
+<h3>Pima Diabetes Dataset<a class="headerlink" href="#pima-diabetes-dataset" title="Permalink to this headline">¶</a></h3>
+<p>We will start by loading the Pima Indian Diabetes dataset. This data set contains information collected in a study on the prevalence of type 2 diabetes in a Native American community in Arizona. You can find more information about this dataset here: <a class="reference external" href="https://www.andreagrandi.it/2018/04/14/machine-learning-pima-indians-diabetes/">Pima Indian Diabetes</a>.</p>
+<p>The data is stored in a comma-separated file named <code class="docutils literal notranslate"><span class="pre">diabetes.csv</span></code> stored within the <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory. In the cell below, we load this dataset into a DataFrame and then view its first few rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diabetes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/diabetes.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">diabetes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="titanic-dataset">
+<h3>Titanic Dataset<a class="headerlink" href="#titanic-dataset" title="Permalink to this headline">¶</a></h3>
+<p>In the next example, we will load the Titanic dataset. This dataset contains information about the 887 passengers on the first and only voyage of the HMS Titanic. You can read more about this dataset here: <a class="reference external" href="https://www.kaggle.com/c/titanic">Titanic Dataset</a>.</p>
+<p>The data is store in the tab-delimited file <code class="docutils literal notranslate"><span class="pre">titanic.txt</span></code> stored within the <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory. In the cell below, we load this dataset into a DataFrame and then view its first few rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;data/titanic.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\packages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. Introduction to Scikit-Learn &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. Classification Metrics" href="classification_metrics.html" />
+    <link rel="prev" title="10. Introduction to Machine Learning" href="intro_to_ml.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NumPy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrays.html">
+   1. Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_random.html">
+   2. Random Number Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_2d.html">
+   3. 2D Arrays
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataframes.html">
+   4. DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grouping.html">
+   5. Grouping and Aggregation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="joins.html">
+   6. Joins
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  MatPlotLib
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   7. Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Seaborn
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.html">
+   8. Seaborn
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plotly
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plotly.html">
+   9. Plotly
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Sklearn
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_to_ml.html">
+   10. Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Introduction to Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification_metrics.html">
+   12. Classification Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loss_functions.html">
+   13. Loss Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_regression.html">
+   14. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logistic_regression.html">
+   15. Logistic Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decision_trees.html">
+   16. Decision Tree Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_forests.html">
+   17. Random Forests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="one_hot_encoding.html">
+   18. One-Hot Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cross_validation.html">
+   19. Cross-Validation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grid_search.html">
+   20. Grid Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="titanic.html">
+   21. Titanic Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="breast_cancer.html">
+   22. Diagnosing Breast Cancer
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/pages/sklearn.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/sklearn.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/sklearn.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scikit-learn">
+   11.1. Scikit-Learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   11.2. Load Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iris-dataset">
+   11.3. Iris Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-and-explore-data">
+   11.4. Load and Explore Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-goal">
+   11.5. The Goal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-the-data">
+   11.6. Prepare the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#splitting-the-data-into-training-validation-and-test-sets">
+   11.7. Splitting the Data into Training, Validation, and Test Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#size-of-training-validation-and-test-sets">
+   11.8. Size of Training, Validation, and Test Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-scikit-learn-to-split-data">
+   11.9. Using Scikit-Learn to Split Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-models-in-scikit-learn">
+   11.10. Creating Models in Scikit-Learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-building-logistic-regression">
+   11.11. Model Building: Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-building-decision-trees">
+   11.12. Model Building: Decision Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-building-random-forests">
+   11.13. Model Building: Random Forests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-models">
+   11.14. Comparing Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scoring-models-using-accuracy">
+   11.15. Scoring Models Using Accuracy
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-scikit-learn">
+<h1><span class="section-number">11. </span>Introduction to Scikit-Learn<a class="headerlink" href="#introduction-to-scikit-learn" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scikit-learn">
+<h2><span class="section-number">11.1. </span>Scikit-Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h2>
+<p>The most popular Python library for machine learning is the Scikit-Learn (<code class="docutils literal notranslate"><span class="pre">sklearn</span></code>) package. This package provides functions for creating supervised learning models, as well as for performing unsupervised learning tasks. Scikit-Learn also provides tools for working with and preparing data for use in creating models.</p>
+<p>The tools provided by Scikit-Learn are arranged into various modules. We will typically not import the entire package, but will instead import the required tools as needed.</p>
+<p>We will illustrate the use of Scikit-Learn, as well as some general concepts relating to supervised learning, by walking through a simple example of a classification task. In this example, we will be working with three different classification algorithms: <strong>logistic regression</strong>, <strong>decision trees</strong>, and <strong>random forests</strong>. We will discuss how to use Scikit-Learn to create models of each of these types, but we will not be going deep into exactly how each of these algorithms work in this lesson. We will discuss the details of these algorithms in later lessons.</p>
+</div>
+<div class="section" id="load-packages">
+<h2><span class="section-number">11.2. </span>Load Packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
+<p>We will begin by loading three packages: Numpy, Pandas, and Matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>               
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>              
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a3a4ee143f68</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iris-dataset">
+<h2><span class="section-number">11.3. </span>Iris Dataset<a class="headerlink" href="#iris-dataset" title="Permalink to this headline">¶</a></h2>
+<p>For this example, we will be working with the Iris Dataset. This data set is a real-world “toy” dataset that is often used to demonstrate concepts in data science. The iris dataset contains information about several flowers selected from three different species of iris: versicolor, setosa, and virginica.</p>
+<p>For each flower, we have five pieces of information:</p>
+<ul class="simple">
+<li><p>The sepal length of the flower.</p></li>
+<li><p>The sepal width of the flower.</p></li>
+<li><p>The petal length of the flower.</p></li>
+<li><p>The petal width of the flower.</p></li>
+<li><p>The species of the flower.</p></li>
+</ul>
+<p>The original iris dataset contains 150 observations. We will be working with a modified version of this dataset that contains 600 observations. The extra 450 observations were randomly generated to be similar to existing observations.</p>
+<p><img alt="" src="pages\images/iris.png" /></p>
+</div>
+<div class="section" id="load-and-explore-data">
+<h2><span class="section-number">11.4. </span>Load and Explore Data<a class="headerlink" href="#load-and-explore-data" title="Permalink to this headline">¶</a></h2>
+<p>The data is stored in the tab-separated file <code class="docutils literal notranslate"><span class="pre">data/iris_mod.txt</span></code>. We will use Pandas to load the data into a DataFrame called <code class="docutils literal notranslate"><span class="pre">iris</span></code>. We will then look at the first 10 observations in the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/iris_mod.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the Seaborn package to create a pairs plot of the the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-goal">
+<h2><span class="section-number">11.5. </span>The Goal<a class="headerlink" href="#the-goal" title="Permalink to this headline">¶</a></h2>
+<p>Our goal is to build a model that will allow us to predict the species of a newly observed flower for which we have measurements for sepal length, sepal width, petal length, and petal width. In the language of supervised learning, this means that we will be treating the flower species as the label on our model, while the other four variables will serve as our features.</p>
+<p>We will consider three different models: a logistic regression model, a decision tree model, and a random forest model. We will use the package Scikit-Learn to construct, assess, and apply both of these models. Before building any models, we need to put our data into a format that is ready to be used by the Scikit-Learn API.</p>
+</div>
+<div class="section" id="prepare-the-data">
+<h2><span class="section-number">11.6. </span>Prepare the Data<a class="headerlink" href="#prepare-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The Scikit-Learn model-building API requires our data to be in a specific format. In particular, the features should be represented numerically, and contained in a DataFrame or 2D Numpy Array, while the labels should be contained in a list, series, or 1D Numpy array.</p>
+<p>In the next cell, we create a feature array called <code class="docutils literal notranslate"><span class="pre">X</span></code>, as well as a label array called <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of X: &#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Type of y: &#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of X:&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of y:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="splitting-the-data-into-training-validation-and-test-sets">
+<h2><span class="section-number">11.7. </span>Splitting the Data into Training, Validation, and Test Sets<a class="headerlink" href="#splitting-the-data-into-training-validation-and-test-sets" title="Permalink to this headline">¶</a></h2>
+<p>When creating a supervised learning model, it is important to evaluate the model’s performance. For a classification model, for example, we might want to measure the model’s <strong>accuracy</strong>, or in other words, the proportion of observations for which the model makes correct predictions.</p>
+<p>Some supervised learning models are very good at “remembering” the data on which they are trained. Such a model might perform very well when evaluated on this data, while performing very poorly on new data that it did not see during training. This phenomenon is called <strong>overfitting</strong>. An overfit model performs unreasonably well on the training data, but will not generalize well to new observations.</p>
+<p>For this reason, it is important to evaluate your model using <strong>out-of-sample data</strong>, or in other words, using data that your model did not see during training. One common method for estimating a model’s out-of-sample performance is to split the data into three sets: the <strong>training set</strong>, the <strong>validation set</strong>, and the <strong>testing set</strong>. The purpose of each of these sets are described below:</p>
+<ul class="simple">
+<li><p>The <strong>training set</strong> is used to train any models that we create. We will provide the training set to a machine learning algorithm as input, and the algorithm will generate a model as its output.</p></li>
+<li><p>The <strong>validation set</strong> is out-of-sample data used to compare the models we have created. We will often wish to consider multiple different learning algorithms in a supervised learning task. Each algorithm will produce a single model that has been trained on the training set, and we will then compare the performance of the resulting models on the (previously unseen) validation set to help us select our final model.</p></li>
+<li><p>The <strong>testing set</strong> is out-of-sample data that is used to assess the performance of our final model. This set is used only once, at the very end of the model building process.</p></li>
+</ul>
+</div>
+<div class="section" id="size-of-training-validation-and-test-sets">
+<h2><span class="section-number">11.8. </span>Size of Training, Validation, and Test Sets<a class="headerlink" href="#size-of-training-validation-and-test-sets" title="Permalink to this headline">¶</a></h2>
+<p>There is no set rule for how many observations should go into each of these sets, but there are two guiding principles to follow: You want to include as many observations as possible in the training set, but you don’t want the validation or testing sets to be too small to give you reasonable estimates of the out-of-sample performance. If the data set is fairly large, you might use 80% of it for training, 10% for validation, and 10% for testing. This is referred to as an 80/10/10 split. In a small dataset, an 80/10/10 split might create validation and testing sets that are too small. In these cases, you might consider a 60/20/20 split, or a 40/30/30 split.</p>
+</div>
+<div class="section" id="using-scikit-learn-to-split-data">
+<h2><span class="section-number">11.9. </span>Using Scikit-Learn to Split Data<a class="headerlink" href="#using-scikit-learn-to-split-data" title="Permalink to this headline">¶</a></h2>
+<p>When splitting your data into training, validation, and testing sets, it is import to first randomly shuffle the observations in your data. We could do this manually, but fortunately Scikit-Learn provides a function called <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> for splitting datasets. This function is found in the module <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each call to <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> will split a dataset into two subsets, which we will nominally refer to as the training and test sets. There are 5 parameters that we will typically provide when calling <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - This should be a 2D NumPy array containing the feature values.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">y</span></code></strong> - This should be a 1D NumPy array containing the label values.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">test_size</span></code></strong> - This is the desired size of the test set, expressed as a proportion.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">random_state</span></code></strong> - This is a seed for the random number generator. Setting this parameter allows to to recreate a specific split later.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">stratify</span></code></strong> - In classification problems, it is often desireable for the distribution of the label values to be roughly the same in the training and test sets as in the original set. This can be accomplished by providing the label array <code class="docutils literal notranslate"><span class="pre">y</span></code> as an argument for the <code class="docutils literal notranslate"><span class="pre">stratify</span></code> parameter. In regression problems, we will not typically use this parameter.</p></li>
+</ul>
+<p>The function <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> will return four arrays, containing the following: The feature values for the training set, the feature values for the test set, the label values for the training set, and the label values for the test set.</p>
+<p>When splitting our data into training, validation, and test sets, we will have to call <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> twice. The first call will split the data into a training set, and a holdout set. The second call will further divide the holdout set into a validation set and a test set.</p>
+<p>We use this function in the cell below to perform an 80/10/10 split on our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_hold</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_hold</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="n">X_valid</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_hold</span><span class="p">,</span> <span class="n">y_hold</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_hold</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training features:  &#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation features:&#39;</span><span class="p">,</span> <span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Testing features:   &#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training labels:    &#39;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation labels:  &#39;</span><span class="p">,</span> <span class="n">y_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Testing labels:     &#39;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we set the <code class="docutils literal notranslate"><span class="pre">stratify</span></code> parameter in our calls to <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>, the resulting label sets <code class="docutils literal notranslate"><span class="pre">y_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_valid</span></code>, and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> should have roughly the same distribution of flower species. Let’s chec this using <code class="docutils literal notranslate"><span class="pre">np.unique</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">train_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">valid_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">test_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training label dist:  &#39;</span><span class="p">,</span> <span class="n">train_dist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation label dist:&#39;</span><span class="p">,</span> <span class="n">valid_dist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test label dist:      &#39;</span><span class="p">,</span> <span class="n">test_dist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It should be mentioned that although the training/validation/test set approach is the most straight-forward method of estimating a model’s out-of-sample performance, more sophisticated methods exist. In particular, there is a more advanced method called <strong>K-Fold Cross-Validation</strong> that will produce better estimates of a model’s performance, at the cost of being more computationally expensive. This is somewhat advanced topic that we are not ready to formally introduce at this point.</p>
+</div>
+<div class="section" id="creating-models-in-scikit-learn">
+<h2><span class="section-number">11.10. </span>Creating Models in Scikit-Learn<a class="headerlink" href="#creating-models-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-Learn includes implementations for several machine learning algorithms. All models in Scikit-Learn are created and applied with a similar syntax, regardless of the type of the model.</p>
+<p>To build a machine learning model in Scikit-Learn, you must first select a specific model type, or model algorithm that we wish to use. This will determine the general structure of the model being built, but not any of the details about how it will generate its predictions.</p>
+<p>Each algorithm will have a special class associated with it. Assume that <code class="docutils literal notranslate"><span class="pre">ModelType</span></code> is such a class. We start the modeling process by creating an instance of this class. Some algorithms require us to specify certain model options, or <strong>hyperparameters</strong> at this step.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_model = ModelType(arg1, arg2, ...)
+</pre></div>
+</div>
+<p>You should think of <code class="docutils literal notranslate"><span class="pre">my_model</span></code> as being a blank model at this point. It has not yet seen our dataset, and has not yet learned how to generate predictions. Every <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> model comes with a <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method that we can use train it.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_model.fit(X_train, y_train)
+</pre></div>
+</div>
+<p>That’s it! We now have a working model. If we want to use the model to generate predictions based on a particular set of feature values, we can use the model’s <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>predictions = my_model.predict(X_values)
+</pre></div>
+</div>
+</div>
+<div class="section" id="model-building-logistic-regression">
+<h2><span class="section-number">11.11. </span>Model Building: Logistic Regression<a class="headerlink" href="#model-building-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p><strong>Logistic regression</strong> is a classification algorithm that is designed to create linear boundaries between the different classes. It is one of the simplest types of machine learning algorithms that can be applied to a classification problem. We will discuss the details of this model in a later lecture.</p>
+<p>We will now use Scikit-Learn to create and train (or fit) a logistic regression model. We will then use the model to predict the species of a newly observed iris flower. To build a logistic regression classifier in Scikit-Learn, we first need to import the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> class from the <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next cell, we will create an instance of the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> class, and we will then call its <code class="docutils literal notranslate"><span class="pre">fit</span></code> method on the training set. At this point, you should not worry about understanding the arguments we supply when creating our instance of <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>. We will discuss the meaning of these in a later lesson.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_1</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a trained logistic regression model stored in the variable <code class="docutils literal notranslate"><span class="pre">model_1</span></code>. In the next cell, we will use this model’s <code class="docutils literal notranslate"><span class="pre">predict</span></code> method to predict the species of an iris flower based on its sepal and petal measurements. The measurements of the new flower are stored in a variable called <code class="docutils literal notranslate"><span class="pre">x0</span></code>. Notice that <code class="docutils literal notranslate"><span class="pre">x0</span></code> is created as a list of lists. The <code class="docutils literal notranslate"><span class="pre">predict</span></code> method of a Scikit-Learn model expects the new feature values to be provided in a 2-dimensional structure, such as a list of lists or a 2D array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]]</span>
+
+<span class="n">pred_0_m1</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pred_0_m1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our model has predicted that the species of the new observation is setosa. But how confident is it in that prediction? Most classification models in Scikit-Learn also come equipped with a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method that will provide an estimated probability distribution over the possible classes. We will call this function on our observation whose feature values are stored in <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_0_m1</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">prob_0_m1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our logistic regression model estimates a probability of 65.34% that the observation is a setosa, a probability of 34.66% that it is a versicolor, and a probability of 0% that it is a virginica. Being able to view this estimated probability distributions provides us with more information the the class prediction alone.</p>
+</div>
+<div class="section" id="model-building-decision-trees">
+<h2><span class="section-number">11.12. </span>Model Building: Decision Trees<a class="headerlink" href="#model-building-decision-trees" title="Permalink to this headline">¶</a></h2>
+<p>We will now build a <strong>decision tree</strong> algorithm for performing classification on the iris dataset. A decision tree algorithm employs a “divide and conquer” strategy to create a rules-based model for making classifications. The result model applies several logical if-else tests to the feature values of observations. Based on the results of these tests, the model will generate a prediction for the label.</p>
+<p>To use Scikit-Learn to create a decision tree model for the purposes of performing classification, we must import the  <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> class from the module <code class="docutils literal notranslate"><span class="pre">sklearn.tree</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now create an instance of the <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> and then train the model on the training data. Notice that we set a seed prior to creating our model. Scikit-Learn’s implementation of the decision tree algorithm involves some random processes. In order to ensure the reproducability of our model, we need to set a seed before creating it. Also note that we set the parameter <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> to 10 when creating our model. This parameter determines that maximum number of if-else rules the model will apply along the way toward making a classification. Generally speaking, setting <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> to a larger value results in a more complex tree. We will discuss how to select an appropriate value for this parameter in a later lesson.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use our trained decision tree model to predict a class for the observation whose feature values are stored in <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_0_m2</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pred_0_m2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The decision tree model also predicts that the observation is a setosa. We will use the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method to see the decision tree’s estimate for the probability distribution over the three possible classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_0_m2</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">prob_0_m2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The decision tree estimates a 100% probability that the observation is a setosa. That seems to indicate that the decision tree model is significantly more confident in its prediction that the logistic regression model. However, it should be pointed out that way in which a decision tree generates these probability estimates is a bit less refined than that of a logistic regression model.</p>
+</div>
+<div class="section" id="model-building-random-forests">
+<h2><span class="section-number">11.13. </span>Model Building: Random Forests<a class="headerlink" href="#model-building-random-forests" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>random forests</strong> is an ensemble method that consists of several individual decision trees. Each tree is build using a different random sample taken from the training set. This ensures that each tree will be slightly different. A random forest generates a prediction for an observation by first determining the prediction according to each individual tree, and then having these trees vote on the final classification.</p>
+<p>To create a random forest classifier using Scikit-Learn, we first need to import the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> class from the module <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, we create an instance of the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> and fit it to the training data. When creating a random forest, we can select the number of trees to be included in the forest, as well as the maximum depth for each tree. In this case, we will create a forest consisting of 200 trees, each with a maximum depth of 10. We will discuss how to select appropriate values for these hyperparameters in a later lesson.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_3</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">model_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use our trained random forest model to predict a class for the observation whose feature values are stored in <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_0_m3</span> <span class="o">=</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pred_0_m3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with the previous two two models, the random forest model predicts that the observation is a setosa. We will use the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method to see the forest’s estimate for the probability distribution over the three possible classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_0_m3</span> <span class="o">=</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">prob_0_m3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The random forest estimates a 99.5% probability that the observation is a setosa and a 0.5% probability that the observation is a virginica. But, as was the case with decision trees, the way random forests generate their probability estimates is less sophisticated than that of a logistic regression model.</p>
+</div>
+<div class="section" id="comparing-models">
+<h2><span class="section-number">11.14. </span>Comparing Models<a class="headerlink" href="#comparing-models" title="Permalink to this headline">¶</a></h2>
+<p>For the single iris that we considered above, the three models we created all agreed on the predicted species of the flower. It will not always be the case that models agree in their predictions. Consider the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">obs1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]</span>
+<span class="n">obs2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">obs3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">]</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="p">[</span><span class="n">obs0</span><span class="p">,</span> <span class="n">obs1</span><span class="p">,</span> <span class="n">obs2</span><span class="p">,</span> <span class="n">obs3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model 1 Predictions:&#39;</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model 2 Predictions:&#39;</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model 3 Predictions:&#39;</span><span class="p">,</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use DataFrames to dispaly these predictions in a more readable format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">),</span> 
+    <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">),</span> 
+    <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">predictions</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;obs0&#39;</span><span class="p">,</span> <span class="s1">&#39;obs1&#39;</span><span class="p">,</span> <span class="s1">&#39;obs2&#39;</span><span class="p">,</span> <span class="s1">&#39;obs3&#39;</span><span class="p">]</span>
+<span class="n">predictions</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Model 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 3&#39;</span><span class="p">]</span>
+<span class="n">predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scoring-models-using-accuracy">
+<h2><span class="section-number">11.15. </span>Scoring Models Using Accuracy<a class="headerlink" href="#scoring-models-using-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>The three models above disagree in their prediction for the three of the flowers. So which model should we use?</p>
+<p>It would perhaps be instructive to see how well the models actually performed on the training data. To that end, we will calculate each model’s <strong>accuracy</strong> on the training set. We will start with <code class="docutils literal notranslate"><span class="pre">model_1</span></code>, the logistic regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod1_pred_train</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mod1_train_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mod1_pred_train</span> <span class="o">==</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mod1_train_acc</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now calculate the training accuracy for the decision tree model, <code class="docutils literal notranslate"><span class="pre">model_2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod2_pred_train</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mod2_train_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mod2_pred_train</span> <span class="o">==</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mod2_train_acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we calculate the training accuracy for the random forest model, <code class="docutils literal notranslate"><span class="pre">model_3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod3_pred_train</span> <span class="o">=</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mod3_train_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mod3_pred_train</span> <span class="o">==</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mod3_train_acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The logistic regression model achieved a 98.5% accuracy on the training set, while the two tree-based models each obtained a perfect 100% training accuracy. That might seem to indicate that either the decision tree or random forest models are the best of the three. However, as mentioned before, we are more interested in a model’s out-of-sample performance than in its performance on the training data. For this reason, we use the validation set to compare models. So, we need to calculate the <strong>validation accuracy</strong> for each of the three models.</p>
+<p>We could calculate the validation accuracies in the same way that we calculated the training accuracies above. However, our models each come equipped with a <code class="docutils literal notranslate"><span class="pre">score()</span></code> method that will do this work for us. In the cell below, we will use the <code class="docutils literal notranslate"><span class="pre">score()</span></code> method to calculate training and validation accuracies for all three of our models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 1 Training Accuracy:  &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 1 Validation Accuracy:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 2 Training Accuracy:  &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 2 Validation Accuracy:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 3 Training Accuracy:  &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 3 Validation Accuracy:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">model_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, note that Model 2 performed the worst on the validation set. Despite getting 100% accuracy on the training set, it achieved only 91.7% accuracy on the previously unseen data contained in the validation set. The phenomenon is known as <strong>overfitting</strong>. The algorithm learned the nuances of the training set very well. Too well, in fact. It created a model that performs very well on the data it was trained on, but does not generalize well to new observations. Decision tree models are prone to overfitting, although there are methods to mitigate this.</p>
+<p>Models 1 and 3 tie for the best performance on the validation set, both obtaining a 96.7% validation accuracy. It would be reasonable for us to select either model as our final model. However, logistic regression models are quite a bit simpler to implement than random forest models. It is also easier to understand and explain how they make generate their predictions. For these reasons, we will select the logistic regression model as our final model.</p>
+<p>After selecting our final model, we will score it one last time on the test set to get an unbiased estimate of the model’s performance on out-of-sample observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model 1 Testing Accuracy:&quot;</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro_to_ml.html" title="previous page"><span class="section-number">10. </span>Introduction to Machine Learning</a>
+    <a class='right-next' id="next-link" href="classification_metrics.html" title="next page"><span class="section-number">12. </span>Classification Metrics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

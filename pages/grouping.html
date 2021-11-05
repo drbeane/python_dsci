@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Grouping and Aggregation &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Joins" href="joins.html" />
+    <link rel="prev" title="4. DataFrames" href="dataframes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  NumPy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="arrays.html">
+   1. Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_random.html">
+   2. Random Number Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_2d.html">
+   3. 2D Arrays
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataframes.html">
+   4. DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Grouping and Aggregation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="joins.html">
+   6. Joins
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  MatPlotLib
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   7. Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Seaborn
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.html">
+   8. Seaborn
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plotly
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plotly.html">
+   9. Plotly
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Sklearn
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_to_ml.html">
+   10. Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn.html">
+   11. Introduction to Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification_metrics.html">
+   12. Classification Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loss_functions.html">
+   13. Loss Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_regression.html">
+   14. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logistic_regression.html">
+   15. Logistic Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decision_trees.html">
+   16. Decision Tree Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_forests.html">
+   17. Random Forests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="one_hot_encoding.html">
+   18. One-Hot Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cross_validation.html">
+   19. Cross-Validation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grid_search.html">
+   20. Grid Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="titanic.html">
+   21. Titanic Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="breast_cancer.html">
+   22. Diagnosing Breast Cancer
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/pages/grouping.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/grouping.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/grouping.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-grouping-and-aggregating-in-pandas">
+   5.1. Sorting, Grouping, and Aggregating in Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gapminder-dataset">
+   5.2. Gapminder Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-new-columns">
+   5.3. Add new columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-2018-data">
+   5.4. Filtering 2018 Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting">
+   5.5. Sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relationship-between-life-expectancy-and-income-inequality">
+   5.6. Relationship Between Life Expectancy and Income Inequality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-per-capita-gdp-in-2018">
+   5.7. Global Per Capita GDP in 2018
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grouping-per-capita-gdp-and-life-expectancy-by-continent">
+   5.8. Grouping: Per Capita GDP and Life Expectancy By Continent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grouping-by-multiple-columns">
+   5.9. Grouping by Multiple Columns
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="grouping-and-aggregation">
+<h1><span class="section-number">5. </span>Grouping and Aggregation<a class="headerlink" href="#grouping-and-aggregation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sorting-grouping-and-aggregating-in-pandas">
+<h2><span class="section-number">5.1. </span>Sorting, Grouping, and Aggregating in Pandas<a class="headerlink" href="#sorting-grouping-and-aggregating-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>In the previous lesson, we learned how to create Pandas DataFrames, how to access information stored within a DataFrame, and how to perform filtering operations on the rows of a DataFrame. In this lesson we will learn how to sort rows of a DataFrame according to specific columns, as well as how to performing grouping and aggregation operations.</p>
+<p>We begin by importing a few packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">fa18575525b6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gapminder-dataset">
+<h2><span class="section-number">5.2. </span>Gapminder Dataset<a class="headerlink" href="#gapminder-dataset" title="Permalink to this headline">¶</a></h2>
+<p>To illustrate the concepts covered in this lesson, we will make use of the Gapminder Dataset. This dataset contains socioeconomic information for 184 countries for each year since 1800. We have 219 years worth of information for each of the 184 countries, and so the dataset contains 40,296 rows. The dataset contains the following seven columns:</p>
+<ul class="simple">
+<li><p><strong>country</strong> - This column contains the names of the countries.</p></li>
+<li><p><strong>year</strong> - Entries in this column provide the the year during which that particular record was collected.</p></li>
+<li><p><strong>continent</strong> - The provides the name of one of four continental regions to which the country has been assigned. The regions are <code class="docutils literal notranslate"><span class="pre">africa</span></code>, <code class="docutils literal notranslate"><span class="pre">americas</span></code>, <code class="docutils literal notranslate"><span class="pre">asia</span></code>, and <code class="docutils literal notranslate"><span class="pre">europe</span></code>.</p></li>
+<li><p><strong>population</strong> - Each entry in this column provides the population of the associated country in the relevant year.</p></li>
+<li><p><strong>life_exp</strong> - This column provides the average life expectancy in a given country in a given year.</p></li>
+<li><p><strong>gdp_per_cap</strong> - This column provides the per capita GDP of a given country in a given year, measured in US Dollars. GDP is a measure of the economic output of a country. The per capita GDP is the total GDP of the country divided by the population.</p></li>
+<li><p><strong>gini</strong> - Each entry in this column provides the Gini index for a particular country in a particular year. The Gini index is a measure of economic inequality. The scale ranges from 0 to 100, which larger values indicating a higher level of inequality.</p></li>
+</ul>
+<p>In the cell below, we load the dataset into a DataFrame, and view 10 randomly selected rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gapminder_data.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">gm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> method to get obtain statistical summaries of each of the numerical columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-new-columns">
+<h2><span class="section-number">5.3. </span>Add new columns<a class="headerlink" href="#add-new-columns" title="Permalink to this headline">¶</a></h2>
+<p>We will start by adding two new columns, <code class="docutils literal notranslate"><span class="pre">total_gdp</span></code>, and <code class="docutils literal notranslate"><span class="pre">total_life_exp</span></code>. Entries in the column <code class="docutils literal notranslate"><span class="pre">total_gdp</span></code> will record the total GDP of a specific country in a given year, and will be calculated by multiplying <code class="docutils literal notranslate"><span class="pre">population</span></code> and <code class="docutils literal notranslate"><span class="pre">gdp_per_cap</span></code>. Similarly, entries in <code class="docutils literal notranslate"><span class="pre">total_life_exp</span></code> will be calculated by multiplying <code class="docutils literal notranslate"><span class="pre">population</span></code> by <code class="docutils literal notranslate"><span class="pre">life_exp</span></code>. This column can be viewed as an estimate of the total number of years that people living in the country at that time would be collectively expected to live.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;total_gdp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;gdp_per_cap&#39;</span><span class="p">]</span>
+<span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;total_life_exp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">]</span>
+<span class="n">gm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-2018-data">
+<h2><span class="section-number">5.4. </span>Filtering 2018 Data<a class="headerlink" href="#filtering-2018-data" title="Permalink to this headline">¶</a></h2>
+<p>For now, we will focus only on 2018 data. We will apply a filtering operation to extra only the 184 rows associated with 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_2018</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">,</span> <span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gm_2018</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sorting">
+<h2><span class="section-number">5.5. </span>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h2>
+<p>We can use the DataFrame method <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> to sort the records in a DataFrame according to a particular column. This method has one required parameter named <code class="docutils literal notranslate"><span class="pre">by</span></code>, which is used to specify the column by which the sorting is to be performed.</p>
+<p>We will sort by Gini index to find the 10 countries with the least amount of income inequality in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_2018</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can set the optional parameter <code class="docutils literal notranslate"><span class="pre">ascending</span></code> to be equal to <code class="docutils literal notranslate"><span class="pre">False</span></code> to sort a DataFrame in descending order according to a column. By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>. In the cell below, we will sort by Gini index in descending order to identify the 10 countries with the greatest levels of income inequality in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_2018</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now use a sorting operation to find the 10 countries with the lowest life expectancy in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_2018</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;life_exp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, we use sorting to find the 10 countries with the highest life expectancy in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_2018</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;life_exp&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="relationship-between-life-expectancy-and-income-inequality">
+<h2><span class="section-number">5.6. </span>Relationship Between Life Expectancy and Income Inequality<a class="headerlink" href="#relationship-between-life-expectancy-and-income-inequality" title="Permalink to this headline">¶</a></h2>
+<p>In the cell below, we create a scatter plot to explore the relationship between life expectancy and income inequality, as measured by the Gini index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">continent_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span> <span class="s1">&#39;americas&#39;</span><span class="p">,</span> <span class="s1">&#39;asia&#39;</span><span class="p">,</span> <span class="s1">&#39;europe&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">,</span> <span class="s1">&#39;crimson&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">continent_list</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">continent</span> <span class="o">==</span> <span class="n">c</span><span class="p">,</span><span class="s1">&#39;gini&#39;</span><span class="p">],</span> 
+                <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">continent</span> <span class="o">==</span> <span class="n">c</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span>
+                <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Gini Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy and Income Inequality (2018)&#39;</span><span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>It does appear as though there is some relationship between life expectancy and Gini index. Countries with lower levels of income inequality tend to also have a higher life expectancy.</p>
+<p>In the cell below, we separate the plot above into four subplots. Each subplot will provide information for countries within a single continental region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">continent_list</span><span class="p">):</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">continent</span> <span class="o">==</span> <span class="n">c</span><span class="p">,</span><span class="s1">&#39;gini&#39;</span><span class="p">],</span> 
+                <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm_2018</span><span class="o">.</span><span class="n">continent</span> <span class="o">==</span> <span class="n">c</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span>
+                <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">70</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">45</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Gini Index&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Life Expectancy&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Life Expectancy and Income Inequality by Continent (2018)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.94</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="global-per-capita-gdp-in-2018">
+<h2><span class="section-number">5.7. </span>Global Per Capita GDP in 2018<a class="headerlink" href="#global-per-capita-gdp-in-2018" title="Permalink to this headline">¶</a></h2>
+<p>We will now calculate the global per capita GDP in 2018. We wil do this by first using the <code class="docutils literal notranslate"><span class="pre">sum()</span></code> method to calculate the global population and global GDP in 2018. We will then divide the GDP by the population to obtain the per capita GDP.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_pop_2018</span> <span class="o">=</span> <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_pop_2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_gdp_2018</span> <span class="o">=</span> <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;total_gdp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_gdp_2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcgdp_2018</span> <span class="o">=</span> <span class="n">total_gdp_2018</span> <span class="o">/</span> <span class="n">total_pop_2018</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pcgdp_2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we see, the global per capita GDP in 2018 is around $15,566 per person.</p>
+</div>
+<div class="section" id="grouping-per-capita-gdp-and-life-expectancy-by-continent">
+<h2><span class="section-number">5.8. </span>Grouping: Per Capita GDP and Life Expectancy By Continent<a class="headerlink" href="#grouping-per-capita-gdp-and-life-expectancy-by-continent" title="Permalink to this headline">¶</a></h2>
+<p>We can combine the steps above with a filter opperation to calculate the per capita GDP of Africa in 2018.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">africa_gdp_2018</span> <span class="o">=</span> <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;continent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;africa&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;total_gdp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">africa_pop_2018</span> <span class="o">=</span> <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;continent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;africa&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">africa_pcgdp_2018</span> <span class="o">=</span> <span class="n">africa_gdp_2018</span> <span class="o">/</span> <span class="n">africa_pop_2018</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">africa_pcgdp_2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could repeat this process for each of the four continental regions. However, Pandas DataFrames come equipped with a <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method that can be used to calculate aggregate results for groups determined by the values in a particular column. Each call to <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> must specific one or more columns by which to group, and must be immediately followed by an aggregation that is to be performed on the individual groups.</p>
+<p>In the cells that follow, we will now use grouping operations to calcuate the per capita GDP and life expectancy for each continental region in 2018. We will start by finding the total population, total GDP, and population weighted life expectancy of each continent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">gm_2018</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span><span class="s1">&#39;population&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;total_gdp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_life_exp&#39;</span><span class="p">]</span>
+                     <span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now caluclate per capita GDP and life expectancy of each continent, adding these columns to the <code class="docutils literal notranslate"><span class="pre">grouped</span></code> DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;pc_gdp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;total_gdp&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;total_life_exp&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;pc_gdp&#39;</span><span class="p">,</span> <span class="s1">&#39;life_exp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could perform the calculate above by starting with the original DataFrame, and chaining together operations without storing any intermediate DataFrames to variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gm</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">,</span> 
+       <span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;total_gdp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_life_exp&#39;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">assign</span><span class="p">(</span><span class="n">pcgdp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span> <span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">total_gdp</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">assign</span><span class="p">(</span><span class="n">life_exp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span> <span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">total_life_exp</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="grouping-by-multiple-columns">
+<h2><span class="section-number">5.9. </span>Grouping by Multiple Columns<a class="headerlink" href="#grouping-by-multiple-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can group DataFrames by more than one column. In the cell below, we group by both <code class="docutils literal notranslate"><span class="pre">continent</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> to create a DataFrame that reports the total population and total gdp for each continental region in each year. We display 10 randomly selected rows from this DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;total_gdp&#39;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get build off the the code in the previous cell to calculate the per capita gdp and life expectancy of each contintal region during each year. This code uses the <code class="docutils literal notranslate"><span class="pre">assign()</span></code> DataFrame method to add the columns <code class="docutils literal notranslate"><span class="pre">pcgdp</span></code> and <code class="docutils literal notranslate"><span class="pre">life_exp</span></code> to the DataFrame. You can read more about that method here: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.assign.html">pandas.DataFrame.assign()</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm_yc</span> <span class="o">=</span>\
+    <span class="n">gm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;total_gdp&#39;</span><span class="p">,</span> <span class="s1">&#39;total_life_exp&#39;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;continent&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">assign</span><span class="p">(</span><span class="n">pcgdp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span> <span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">total_gdp</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">assign</span><span class="p">(</span><span class="n">life_exp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span> <span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">total_life_exp</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">population</span><span class="p">)</span><span class="o">.</span>\
+    <span class="nb">filter</span><span class="p">([</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;life_exp&#39;</span><span class="p">])</span>
+
+<span class="n">gm_yc</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now create plots to show how the per capita gdp and life expectancy have changed over time in each continental region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;americas&#39;</span><span class="p">,</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Americas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;asia&#39;</span><span class="p">,</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Asia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;europe&#39;</span><span class="p">,</span><span class="s1">&#39;pcgdp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Europe&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Years&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Per Capita GDP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Per Capita GDP by Continent and Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;africa&#39;</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;americas&#39;</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Americas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;asia&#39;</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Asia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gm_yc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;europe&#39;</span><span class="p">,</span><span class="s1">&#39;life_exp&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Europe&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Years&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Life Expectancy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life Expectancy by Continent and Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="dataframes.html" title="previous page"><span class="section-number">4. </span>DataFrames</a>
+    <a class='right-next' id="next-link" href="joins.html" title="next page"><span class="section-number">6. </span>Joins</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

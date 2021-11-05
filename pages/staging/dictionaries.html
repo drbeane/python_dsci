@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionaries &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about.html">
+   Welcome to Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_programming.html">
+   1. Introduction to Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro_jupyter.html">
+   3. Introduction to Jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Basics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arithmetic.html">
+   1. Arithmetic Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../variables.html">
+   2. Variables
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic Data Types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numeric_data_types.html">
+   1. Numeric Data Types
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../strings.html">
+   2. Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../booleans.html">
+   3. Boolean Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../booleans.html#comparison-operators">
+   4. Comparison Operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../addl_type_topics.html">
+   5. Additional Data Type Topics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  JB Junk
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../todo.html">
+   To Do
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/staging/dictionaries.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/staging/dictionaries.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/staging/dictionaries.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-dictionary-operations">
+   Basic Dictionary Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionary-methods">
+   Dictionary Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lookup-tables">
+   Lookup Tables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-dictionaries-to-store-structured-data">
+   Using Dictionaries to Store Structured Data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h1>
+<p>Like a list, a <strong>dictionary</strong>, or <code class="docutils literal notranslate"><span class="pre">dict</span></code>, is a collection of values. Dictionaries consist of several <strong>key-value</strong> pairs. Each pair has a <strong>key</strong> which is used to access the <strong>value</strong> associated with it. The key in a dictionary is much like an index in a list, but whereas an index must be an integer, a key can be of many different data types.</p>
+<p>Dictionaries are created using the following syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_dict = {key1:value1, key2:value2, ..., keyN:valueN}
+</pre></div>
+</div>
+<div class="section" id="basic-dictionary-operations">
+<h2>Basic Dictionary Operations<a class="headerlink" href="#basic-dictionary-operations" title="Permalink to this headline">¶</a></h2>
+<p>The cell below defines a simple dictionary that is used to store salary information for employees.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Anna&#39;</span><span class="p">:</span><span class="mi">43700</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">:</span> <span class="mi">50250</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Anna&#39;: 43700, &#39;Beth&#39;: 50250}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can access individual values of the dictionary using the associated keys.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Anna&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Beth&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43700
+50250
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can add new key-value pairs to a dictionary as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Craig&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">47600</span>
+<span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Drew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">37400</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Anna&#39;: 43700, &#39;Beth&#39;: 50250, &#39;Craig&#39;: 47600, &#39;Drew&#39;: 37400}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also update values in a dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Drew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">39800</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Anna&#39;: 43700, &#39;Beth&#39;: 50250, &#39;Craig&#39;: 47600, &#39;Drew&#39;: 39800}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can delete entries from a dictionary using the <strong>del</strong> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">salary_dict</span><span class="p">[</span><span class="s1">&#39;Craig&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Anna&#39;: 43700, &#39;Beth&#39;: 50250, &#39;Drew&#39;: 39800}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function on dictionaries to determine the number of values that they contain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionary-methods">
+<h2>Dictionary Methods<a class="headerlink" href="#dictionary-methods" title="Permalink to this headline">¶</a></h2>
+<p>Each dictionary come equipped with methods that can be used to access its keys, its values, or both. We will now explore each of the following methods:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">keys()</span></code> method of a dictionary returns a collection of the keys for items that dictionary.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">values()</span></code> method of a dictionary returns a collection of the values for items in that dictionary.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">items()</span></code> method of a dictionary returns a collection of the key/value tuples for items in that dictionary.</p></li>
+</ul>
+<p>We will illustrate the use of these methods in the cell below.</p>
+<p>Dictionary elements are not ordered, and so dictionaries don’t allow for slicing. You can, however, loop over the elements of a dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">salary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Anna&#39;, &#39;Beth&#39;, &#39;Drew&#39;])
+dict_values([43700, 50250, 39800])
+dict_items([(&#39;Anna&#39;, 43700), (&#39;Beth&#39;, 50250), (&#39;Drew&#39;, 39800)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The objects returned by the <code class="docutils literal notranslate"><span class="pre">keys()</span></code>, <code class="docutils literal notranslate"><span class="pre">values()</span></code>, and <code class="docutils literal notranslate"><span class="pre">items()</span></code> methods are not lists. Each method instead returns an object with a type specific to that function (<code class="docutils literal notranslate"><span class="pre">dict_keys</span></code>, <code class="docutils literal notranslate"><span class="pre">dict_values</span></code>, and <code class="docutils literal notranslate"><span class="pre">dict_items</span></code>). We can convert these objects to list using the <code class="docutils literal notranslate"><span class="pre">list()</span></code> function, if necessary. We can also use a for loop to iterate over these objects without first converting them to lists.</p>
+<p>In the cell below, the <code class="docutils literal notranslate"><span class="pre">values()</span></code> in a loop to display the values stored in our dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">salary_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43700
+50250
+39800
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">values()</span></code> method gives us no way of accessing the keys associated with individual values. If we want to display both keys and values, we can use <code class="docutils literal notranslate"><span class="pre">keys()</span></code>  in a loop to iterate over the keys, displaying each key along with the value associated with it. We display the results using an f-string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">salary_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">salary_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna: 43700
+Beth: 50250
+Drew: 39800
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can obtain the same results as above by instead using the <code class="docutils literal notranslate"><span class="pre">items()</span></code> method. When iterate over the dictionary items, we are provided a tuple of key values pairs at each step. We can unpack this tuple into separate variables. This saves us from having to use the keys to look up the associated values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">salary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anna: 43700
+Beth: 50250
+Drew: 39800
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lookup-tables">
+<h2>Lookup Tables<a class="headerlink" href="#lookup-tables" title="Permalink to this headline">¶</a></h2>
+<p>One common application of dictionaries is to create lookup tables. Let’s say that you have several objects, and each one has a unique identifier assigned to it. Assume that your code has to frequently look up characteristics of the objects based on their identifier. This can be easily done with a dictionary.</p>
+<p>The code below illustrates how you might use a dictionary to store ID-Name pairs in a student database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">student_lookup</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">601814</span><span class="p">:</span> <span class="s1">&#39;Brown, Mary&#39;</span><span class="p">,</span>
+    <span class="mi">716978</span><span class="p">:</span> <span class="s1">&#39;Green, John&#39;</span><span class="p">,</span>
+    <span class="mi">617945</span><span class="p">:</span> <span class="s1">&#39;Jones, Lana&#39;</span><span class="p">,</span>
+    <span class="mi">863794</span><span class="p">:</span> <span class="s1">&#39;Smith, Hank&#39;</span><span class="p">,</span>
+    <span class="mi">816773</span><span class="p">:</span> <span class="s1">&#39;Green, John&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now use the lookup table to find the names of two students based on their student ID numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">student_lookup</span><span class="p">[</span><span class="mi">617945</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_lookup</span><span class="p">[</span><span class="mi">816773</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jones, Lana
+Green, John
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-dictionaries-to-store-structured-data">
+<h2>Using Dictionaries to Store Structured Data<a class="headerlink" href="#using-dictionaries-to-store-structured-data" title="Permalink to this headline">¶</a></h2>
+<p>The values in a dictionary can be lists. This is convenient if we would like use a dictionary to store records of some type. In this case, we can imagine the keys of the dictionary as indicating columns in a table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employee_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;EID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">103</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">108</span><span class="p">],</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">,</span> <span class="s1">&#39;Craig&#39;</span><span class="p">,</span> <span class="s1">&#39;Drew&#39;</span><span class="p">,</span> <span class="s1">&#39;Emma&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">43700</span><span class="p">,</span> <span class="mi">50250</span><span class="p">,</span> <span class="mi">47600</span><span class="p">,</span> <span class="mi">39800</span><span class="p">,</span> <span class="mi">38750</span><span class="p">],</span>
+    <span class="s1">&#39;Rank&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each key in the dictionary represents a particular type of information. The associated value is a list that represents this piece of information for each record (row) in our table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Anna&#39;, &#39;Beth&#39;, &#39;Craig&#39;, &#39;Drew&#39;, &#39;Emma&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want to see the information for a specific entry in the table, we can provide the same index to each of the lists stored within the dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EID   Name    Salary  Rank&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;EID&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> 
+    <span class="n">s</span> <span class="o">=</span> <span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">employee_dict</span><span class="p">[</span><span class="s1">&#39;Rank&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">e</span><span class="si">:</span><span class="s1">&lt;6</span><span class="si">}{</span><span class="n">n</span><span class="si">:</span><span class="s1">&lt;8</span><span class="si">}{</span><span class="n">s</span><span class="si">:</span><span class="s1">&lt;8</span><span class="si">}{</span><span class="n">r</span><span class="si">:</span><span class="s1">&gt;4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EID   Name    Salary  Rank
+---------------------------------
+103   Anna    43700      2
+105   Beth    50250      1
+101   Craig   47600      1
+106   Drew    39800      2
+108   Emma    38750      3
+</pre></div>
+</div>
+</div>
+</div>
+<p>One limitation of using a dictionary in this way is that there is no convenient way to extract all of the information related to a single individual at once.</p>
+<p>As an alternate approach to using dictionaries to store structured data, we can store individual records in dictionaries, and then collect them together into a list (or another dictionary). In the setup, we could imaging the dictionaries as representing rows in a table rather than columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_cats</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Luna&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;birthplace&#39;</span><span class="p">:</span><span class="s1">&#39;State College, PA&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="mf">14.3</span><span class="p">,</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> 
+        <span class="s1">&#39;characteristics&#39;</span><span class="p">:[</span><span class="s1">&#39;lazy&#39;</span><span class="p">,</span> <span class="s1">&#39;hungry&#39;</span><span class="p">,</span> <span class="s1">&#39;cranky&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Garbanzo&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;birthplace&#39;</span><span class="p">:</span><span class="s1">&#39;State College, PA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="mf">8.9</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span>
+        <span class="s1">&#39;characteristics&#39;</span><span class="p">:[</span><span class="s1">&#39;talkative&#39;</span><span class="p">,</span> <span class="s1">&#39;friendly&#39;</span><span class="p">,</span> <span class="s1">&#39;skittish&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Cauchy&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;birthplace&#39;</span><span class="p">:</span><span class="s1">&#39;St. Louis, MO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span><span class="mf">10.6</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="s1">&#39;characteristics&#39;</span><span class="p">:[</span><span class="s1">&#39;insane&#39;</span><span class="p">,</span> <span class="s1">&#39;destructive&#39;</span><span class="p">,</span> <span class="s1">&#39;scoundrel&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will display the contents of the list above by looping over the dictionaries contained inside of it. We will use an f-string to print the values stored in each of the dictionaries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Name&quot;</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}{</span><span class="s2">&quot;Birthplace&quot;</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}{</span><span class="s2">&quot;Weight&quot;</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}{</span><span class="s2">&quot;Age&quot;</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">   </span><span class="si">{</span><span class="s2">&quot;Characteristics&quot;</span><span class="si">:</span><span class="s1">&lt;10</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">85</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">my_cats</span><span class="p">:</span>
+        
+    <span class="n">n</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> 
+    <span class="n">b</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;birthplace&#39;</span><span class="p">]</span> 
+    <span class="n">w</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> 
+    <span class="n">c</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="s1">&#39;characteristics&#39;</span><span class="p">]</span> 
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">&lt;12</span><span class="si">}{</span><span class="n">b</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}{</span><span class="n">w</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;6</span><span class="si">}</span><span class="s1">   </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="si">:</span><span class="s1">&lt;10</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name        Birthplace          Weight   Age   Characteristics
+-------------------------------------------------------------------------------------
+Luna        State College, PA     14.3    11   [&#39;lazy&#39;, &#39;hungry&#39;, &#39;cranky&#39;]
+Garbanzo    State College, PA      8.9    11   [&#39;talkative&#39;, &#39;friendly&#39;, &#39;skittish&#39;]
+Cauchy      St. Louis, MO         10.6     4   [&#39;insane&#39;, &#39;destructive&#39;, &#39;scoundrel&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages\staging"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
