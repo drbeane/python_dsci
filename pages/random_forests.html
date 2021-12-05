@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>18. Random Forests &#8212; Python for Data Science</title>
+    <title>12. Random Forests &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="19. One-Hot Encoding" href="one_hot_encoding.html" />
-    <link rel="prev" title="17. Decision Tree Classifiers" href="decision_trees.html" />
+    <link rel="next" title="13. One-Hot Encoding" href="one_hot_encoding.html" />
+    <link rel="prev" title="11. Decision Tree Classifiers" href="decision_trees.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,52 +91,102 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../about.html">
-   Welcome to Python for Data Science
+   Python for Data Science
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  NumPy
+  Content
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="arrays.html">
-   1. Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="numpy.html">
+   🔹 NumPy
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_functions.html">
+     Array Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_comparisons.html">
+     Array Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_masking.html">
+     Boolean Masking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_2d.html">
+     2-Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_nd.html">
+     Higher Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_examples.html">
+     NumPy Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_topics.html">
+     Additional NumPy Topics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="numpy_random.html">
-   2. Random Number Generation
+   🔸 Random Number Generation
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_choice.html">
+     The Choice Function
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numpy_2d.html">
-   3. 2D Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="pandas.html">
+   🔹 Pandas
   </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="dataframes.html">
-   4. DataFrames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="grouping.html">
-   5. Grouping and Aggregation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="joins.html">
-   6. Joins
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataframes.html">
+     DataFrames
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grouping.html">
+     Grouping and Aggregation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="joins.html">
+     Joins
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -147,12 +197,12 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   7. Matplotlib
+   1. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subplots.html">
-   8. Seaborn
+   2. Seaborn
   </a>
  </li>
 </ul>
@@ -164,7 +214,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   9. Seaborn
+   3. Seaborn
   </a>
  </li>
 </ul>
@@ -176,7 +226,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   10. Plotly
+   4. Plotly
   </a>
  </li>
 </ul>
@@ -188,67 +238,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   11. Introduction to Machine Learning
+   5. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   12. Introduction to Scikit-Learn
+   6. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   13. Classification Metrics
+   7. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="loss_functions.html">
-   14. Loss Functions
+   8. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   15. Linear Regression
+   9. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   16. Logistic Regression
+   10. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="decision_trees.html">
-   17. Decision Tree Classifiers
+   11. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   18. Random Forests
+   12. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   19. One-Hot Encoding
+   13. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cross_validation.html">
-   20. Cross-Validation
+   14. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="grid_search.html">
-   21. Grid Search
+   15. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   22. Titanic Dataset
+   16. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="breast_cancer.html">
-   23. Diagnosing Breast Cancer
+   17. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -368,27 +418,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-following-topics-are-discussed-in-this-notebook">
-   18.1. The following topics are discussed in this notebook:
+   The following topics are discussed in this notebook:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   18.2. Random Forests
+   Random Forests
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#random-forest-classifiers-in-scikit-learn">
-   18.3. Random Forest Classifiers in Scikit-Learn
+   Random Forest Classifiers in Scikit-Learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-synthetic-data-with-two-features">
-   18.4. Example 1: Synthetic Data with Two Features
+   Example 1: Synthetic Data with Two Features
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-the-iris-dataset">
-   18.5. Example: The Iris Dataset
+   Example: The Iris Dataset
   </a>
  </li>
 </ul>
@@ -403,23 +453,23 @@
               <div>
                 
   <div class="section" id="random-forests">
-<h1><span class="section-number">18. </span>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">12. </span>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="the-following-topics-are-discussed-in-this-notebook">
-<h2><span class="section-number">18.1. </span>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2>The following topics are discussed in this notebook:<a class="headerlink" href="#the-following-topics-are-discussed-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Overview of random forest classifiers.</p></li>
 <li><p>Building random forest models in Scikit-Learn.</p></li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">18.2. </span>Random Forests<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Random Forests<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>ensemble</strong> model is one that generates its predictions by combining the predictions from several simpler models. There are two voting schemes that can be using a classification ensemble. When using <strong>hard voting</strong>, the individual models will use their predictions for a given observation to vote for the class to be assigned to the observation by the ensemble. In a <strong>soft-voting</strong> scheme, the individual models will each produce an estimated probability distribution over the possible classes, and these will then be averaged across all of the models to generate the ensemble’s estimate for the probability distribution.</p>
 <p>It is often the case that the ensemble model will have better predictive performance than any of the individual models from which it is built.</p>
 <p>A <strong>random forest</strong> is an ensemble of many decision trees. To ensure that the trees are different from one another, each tree is trained on a different subset of the training set. Assume that our training set contains <code class="docutils literal notranslate"><span class="pre">n</span></code> observations. When building a tree model to be used in a random forest, a sample of size <code class="docutils literal notranslate"><span class="pre">n</span></code> is drawn from the training set, with replacement. This sort of sampling is referred to as <strong>bootstrap</strong> sampling.</p>
 <p>Since the sampling is done with replacement, each sample will likely be different from every other sample, which will encourage differences in the trees making up the random forest. The random forest implementation in Scikit-Learn further encourages diversity among the trees in a forest by randomly selecting the feature on which to split at each stage in the construction of a tree in the forest.</p>
 </div>
 <div class="section" id="random-forest-classifiers-in-scikit-learn">
-<h2><span class="section-number">18.3. </span>Random Forest Classifiers in Scikit-Learn<a class="headerlink" href="#random-forest-classifiers-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2>Random Forest Classifiers in Scikit-Learn<a class="headerlink" href="#random-forest-classifiers-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p>Random forest models are created in Scikit-Learn as instances of the <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> class, which is found in the <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble</span></code> module. We will import that now, along with some other Scikit-Learn tools that we will need in this lesson.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -439,20 +489,20 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d0fdae463871</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="example-1-synthetic-data-with-two-features">
-<h2><span class="section-number">18.4. </span>Example 1: Synthetic Data with Two Features<a class="headerlink" href="#example-1-synthetic-data-with-two-features" title="Permalink to this headline">¶</a></h2>
+<h2>Example 1: Synthetic Data with Two Features<a class="headerlink" href="#example-1-synthetic-data-with-two-features" title="Permalink to this headline">¶</a></h2>
 <p>We will use a synthetic dataset in our first example of a random forest. The dataset is generated in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,7 +637,7 @@
 </div>
 </div>
 <div class="section" id="example-the-iris-dataset">
-<h2><span class="section-number">18.5. </span>Example: The Iris Dataset<a class="headerlink" href="#example-the-iris-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>Example: The Iris Dataset<a class="headerlink" href="#example-the-iris-dataset" title="Permalink to this headline">¶</a></h2>
 <p>We will now build a random forest classifier to apply to the iris dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -662,8 +712,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="decision_trees.html" title="previous page"><span class="section-number">17. </span>Decision Tree Classifiers</a>
-    <a class='right-next' id="next-link" href="one_hot_encoding.html" title="next page"><span class="section-number">19. </span>One-Hot Encoding</a>
+    <a class='left-prev' id="prev-link" href="decision_trees.html" title="previous page"><span class="section-number">11. </span>Decision Tree Classifiers</a>
+    <a class='right-next' id="next-link" href="one_hot_encoding.html" title="next page"><span class="section-number">13. </span>One-Hot Encoding</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

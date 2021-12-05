@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>20. Cross-Validation &#8212; Python for Data Science</title>
+    <title>14. Cross-Validation &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="21. Grid Search" href="grid_search.html" />
-    <link rel="prev" title="19. One-Hot Encoding" href="one_hot_encoding.html" />
+    <link rel="next" title="15. Grid Search" href="grid_search.html" />
+    <link rel="prev" title="13. One-Hot Encoding" href="one_hot_encoding.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,52 +91,102 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../about.html">
-   Welcome to Python for Data Science
+   Python for Data Science
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  NumPy
+  Content
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="arrays.html">
-   1. Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="numpy.html">
+   🔹 NumPy
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_functions.html">
+     Array Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_comparisons.html">
+     Array Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_masking.html">
+     Boolean Masking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_2d.html">
+     2-Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_nd.html">
+     Higher Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_examples.html">
+     NumPy Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_topics.html">
+     Additional NumPy Topics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="numpy_random.html">
-   2. Random Number Generation
+   🔸 Random Number Generation
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_choice.html">
+     The Choice Function
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numpy_2d.html">
-   3. 2D Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="pandas.html">
+   🔹 Pandas
   </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="dataframes.html">
-   4. DataFrames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="grouping.html">
-   5. Grouping and Aggregation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="joins.html">
-   6. Joins
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataframes.html">
+     DataFrames
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grouping.html">
+     Grouping and Aggregation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="joins.html">
+     Joins
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -147,12 +197,12 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   7. Matplotlib
+   1. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subplots.html">
-   8. Seaborn
+   2. Seaborn
   </a>
  </li>
 </ul>
@@ -164,7 +214,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   9. Seaborn
+   3. Seaborn
   </a>
  </li>
 </ul>
@@ -176,7 +226,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   10. Plotly
+   4. Plotly
   </a>
  </li>
 </ul>
@@ -188,67 +238,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   11. Introduction to Machine Learning
+   5. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   12. Introduction to Scikit-Learn
+   6. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   13. Classification Metrics
+   7. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="loss_functions.html">
-   14. Loss Functions
+   8. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   15. Linear Regression
+   9. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   16. Logistic Regression
+   10. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="decision_trees.html">
-   17. Decision Tree Classifiers
+   11. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="random_forests.html">
-   18. Random Forests
+   12. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   19. One-Hot Encoding
+   13. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   20. Cross-Validation
+   14. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="grid_search.html">
-   21. Grid Search
+   15. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   22. Titanic Dataset
+   16. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="breast_cancer.html">
-   23. Diagnosing Breast Cancer
+   17. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -368,32 +418,32 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#k-fold-cross-validation">
-   20.1. K-Fold Cross Validation
+   K-Fold Cross Validation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#import-packages">
-   20.2. Import Packages
+   Import Packages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generate-data">
-   20.3. Generate Data
+   Generate Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cross-validation-in-scikit-learn">
-   20.4. Cross-Validation in Scikit-Learn
+   Cross-Validation in Scikit-Learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fitting-the-model-on-the-full-dataset">
-   20.5. Fitting the Model on the Full Dataset
+   Fitting the Model on the Full Dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-cross-validation-scores-to-compare-models">
-   20.6. Using Cross-Validation Scores to Compare Models
+   Using Cross-Validation Scores to Compare Models
   </a>
  </li>
 </ul>
@@ -408,9 +458,9 @@
               <div>
                 
   <div class="section" id="cross-validation">
-<h1><span class="section-number">20. </span>Cross-Validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">14. </span>Cross-Validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="k-fold-cross-validation">
-<h2><span class="section-number">20.1. </span>K-Fold Cross Validation<a class="headerlink" href="#k-fold-cross-validation" title="Permalink to this headline">¶</a></h2>
+<h2>K-Fold Cross Validation<a class="headerlink" href="#k-fold-cross-validation" title="Permalink to this headline">¶</a></h2>
 <p>K-fold cross-validation is a popular technique for estimating a model’s out-of-sample estimation error. It is similar to, but more sophisticated than, the validation set approach that we have considered in examples so far. The process for scoring a model using K-fold cross validation is detailed below.</p>
 <ol class="simple">
 <li><p>We start by randomly splitting the labeled data into <em>K</em> roughly-equal-sized pieces called folds.</p></li>
@@ -426,7 +476,7 @@
 <p>Scikit-Learn provides us with multiple tools for performing cross-validation. We will explore one of those in this lesson.</p>
 </div>
 <div class="section" id="import-packages">
-<h2><span class="section-number">20.2. </span>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Import Packages<a class="headerlink" href="#import-packages" title="Permalink to this headline">¶</a></h2>
 <p>We will begin by importing a few of the packages we will need in this lesson. The import statements for tools directly related to Cross-Validation will be imported below, near where they are first used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -443,20 +493,20 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="n">feb8ed3a21d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="generate-data">
-<h2><span class="section-number">20.3. </span>Generate Data<a class="headerlink" href="#generate-data" title="Permalink to this headline">¶</a></h2>
+<h2>Generate Data<a class="headerlink" href="#generate-data" title="Permalink to this headline">¶</a></h2>
 <p>We will illustrate K-fold cross-validation using a synthetic dataset created for a classification problem. The dataset contains 250 observations, each of which will have 6 features, and will be assigned one of 10 possible classes. The features are stored in an array named <code class="docutils literal notranslate"><span class="pre">X</span></code>, while the labels are stored in an array named <code class="docutils literal notranslate"><span class="pre">y</span></code>. We start by viewing the contents of <code class="docutils literal notranslate"><span class="pre">X</span></code> in a DataFrame format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,7 +529,7 @@
 </div>
 </div>
 <div class="section" id="cross-validation-in-scikit-learn">
-<h2><span class="section-number">20.4. </span>Cross-Validation in Scikit-Learn<a class="headerlink" href="#cross-validation-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2>Cross-Validation in Scikit-Learn<a class="headerlink" href="#cross-validation-in-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p>Scikit-Learn provides many tools for performing cross-validation. One of the most useful is the <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> function. We can import that from the <code class="docutils literal notranslate"><span class="pre">model_selection</span></code> module in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -508,7 +558,7 @@
 <p>The greater the number of folds we use, the more reliable our estimate will be. However, using a large number of folds can be computationally expensive. As mentioned above, 5-fold and 10-fold cross-validation are commonly used.</p>
 </div>
 <div class="section" id="fitting-the-model-on-the-full-dataset">
-<h2><span class="section-number">20.5. </span>Fitting the Model on the Full Dataset<a class="headerlink" href="#fitting-the-model-on-the-full-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>Fitting the Model on the Full Dataset<a class="headerlink" href="#fitting-the-model-on-the-full-dataset" title="Permalink to this headline">¶</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> fits N version of the model, each of which is trained on a slightly different subset of the training data. It does not, however, automatically retrain the model on the entire training set. We will have to do that ourselves. In the cell below, we train the model and then print the model’s training accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -521,7 +571,7 @@
 <p>Notice that the training accuracy we obtain here (58.8%) is higher than the cross-validation estimate we obtained above (50.33%). This is because the cross validation estimate is an average of the model’s accuracy on out-of-sample data, and is thus a better measure of how well the model will perform when we apply it to new data.</p>
 </div>
 <div class="section" id="using-cross-validation-scores-to-compare-models">
-<h2><span class="section-number">20.6. </span>Using Cross-Validation Scores to Compare Models<a class="headerlink" href="#using-cross-validation-scores-to-compare-models" title="Permalink to this headline">¶</a></h2>
+<h2>Using Cross-Validation Scores to Compare Models<a class="headerlink" href="#using-cross-validation-scores-to-compare-models" title="Permalink to this headline">¶</a></h2>
 <p>Since the cross-validation score is an estimate of how well the model will perform when applied to new data, we should typically select the model with the highest cross validation-score when we are selecting between two or more different models.</p>
 <p>In the cell below, we use <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> to evaluate the performance of a decision tree model with <code class="docutils literal notranslate"><span class="pre">max_depth=32</span></code>.</p>
 <div class="cell docutils container">
@@ -577,8 +627,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="one_hot_encoding.html" title="previous page"><span class="section-number">19. </span>One-Hot Encoding</a>
-    <a class='right-next' id="next-link" href="grid_search.html" title="next page"><span class="section-number">21. </span>Grid Search</a>
+    <a class='left-prev' id="prev-link" href="one_hot_encoding.html" title="previous page"><span class="section-number">13. </span>One-Hot Encoding</a>
+    <a class='right-next' id="next-link" href="grid_search.html" title="next page"><span class="section-number">15. </span>Grid Search</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>14. Loss Functions &#8212; Python for Data Science</title>
+    <title>8. Loss Functions &#8212; Python for Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Linear Regression" href="linear_regression.html" />
-    <link rel="prev" title="13. Classification Metrics" href="classification_metrics.html" />
+    <link rel="next" title="9. Linear Regression" href="linear_regression.html" />
+    <link rel="prev" title="7. Classification Metrics" href="classification_metrics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,52 +91,102 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../about.html">
-   Welcome to Python for Data Science
+   Python for Data Science
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  NumPy
+  Content
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="arrays.html">
-   1. Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="numpy.html">
+   🔹 NumPy
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_functions.html">
+     Array Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_comparisons.html">
+     Array Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_masking.html">
+     Boolean Masking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_2d.html">
+     2-Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_nd.html">
+     Higher Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_examples.html">
+     NumPy Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_topics.html">
+     Additional NumPy Topics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="numpy_random.html">
-   2. Random Number Generation
+   🔸 Random Number Generation
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_choice.html">
+     The Choice Function
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numpy_2d.html">
-   3. 2D Arrays
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="pandas.html">
+   🔹 Pandas
   </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="dataframes.html">
-   4. DataFrames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="grouping.html">
-   5. Grouping and Aggregation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="joins.html">
-   6. Joins
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataframes.html">
+     DataFrames
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grouping.html">
+     Grouping and Aggregation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="joins.html">
+     Joins
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -147,12 +197,12 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib.html">
-   7. Matplotlib
+   1. Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subplots.html">
-   8. Seaborn
+   2. Seaborn
   </a>
  </li>
 </ul>
@@ -164,7 +214,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.html">
-   9. Seaborn
+   3. Seaborn
   </a>
  </li>
 </ul>
@@ -176,7 +226,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="plotly.html">
-   10. Plotly
+   4. Plotly
   </a>
  </li>
 </ul>
@@ -188,67 +238,67 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro_to_ml.html">
-   11. Introduction to Machine Learning
+   5. Introduction to Machine Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sklearn.html">
-   12. Introduction to Scikit-Learn
+   6. Introduction to Scikit-Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="classification_metrics.html">
-   13. Classification Metrics
+   7. Classification Metrics
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   14. Loss Functions
+   8. Loss Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linear_regression.html">
-   15. Linear Regression
+   9. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="logistic_regression.html">
-   16. Logistic Regression
+   10. Logistic Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="decision_trees.html">
-   17. Decision Tree Classifiers
+   11. Decision Tree Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="random_forests.html">
-   18. Random Forests
+   12. Random Forests
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="one_hot_encoding.html">
-   19. One-Hot Encoding
+   13. One-Hot Encoding
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cross_validation.html">
-   20. Cross-Validation
+   14. Cross-Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="grid_search.html">
-   21. Grid Search
+   15. Grid Search
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="titanic.html">
-   22. Titanic Dataset
+   16. Titanic Dataset
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="breast_cancer.html">
-   23. Diagnosing Breast Cancer
+   17. Diagnosing Breast Cancer
   </a>
  </li>
 </ul>
@@ -368,7 +418,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#supervised-learning-and-loss-functions">
-   14.1. Supervised Learning and Loss Functions
+   Supervised Learning and Loss Functions
   </a>
  </li>
 </ul>
@@ -383,9 +433,9 @@
               <div>
                 
   <div class="section" id="loss-functions">
-<h1><span class="section-number">14. </span>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="supervised-learning-and-loss-functions">
-<h2><span class="section-number">14.1. </span>Supervised Learning and Loss Functions<a class="headerlink" href="#supervised-learning-and-loss-functions" title="Permalink to this headline">¶</a></h2>
+<h2>Supervised Learning and Loss Functions<a class="headerlink" href="#supervised-learning-and-loss-functions" title="Permalink to this headline">¶</a></h2>
 <p>The goal in a supervised learning task is to produce a <strong>model</strong> that we can use to predict the value of a label (or response) <span class="math notranslate nohighlight">\(Y\)</span> given values for a set of features (or predictors), <span class="math notranslate nohighlight">\(X^{(1)}, X^{(2)}, ..., X^{(m)}\)</span>. This model is typically represented by a <strong><code class="docutils literal notranslate"><span class="pre">predict()</span></code></strong> function. We denote the predicted label as <span class="math notranslate nohighlight">\(\hat Y\)</span>.</p>
 <p>When we select a learning algorithm, we are effectively selecting a class of models that we will be considering for our particular task. This set of allowed models is called our <strong>hypothesis space</strong>. Our learning algorithm will search through the hypothesis space to find the model that performs the best on our training data. To determine what model from the hypothesis space is the “best”, we need to provide the learning algorithm with a method of scoring the different models that it considers. Such a scoring method is called an <strong>objective function</strong>. An objective function takes a model and a dataset as inputs, and produces a numerical score as its output. If an objective function is defined in such a way that lower scores are better, then we call it a <strong>loss</strong> function. The goal of a learning algorithm is to find the model that minimizes the loss on the training data.</p>
 <p>In the next two lessons, we will discuss the <strong>linear regression</strong> algorithm for performing regression tasks, and the <strong>logistic regression</strong> algorithm for performing classification tasks. As we will see, the linear regression algorithm works by minimizing the <strong>sum of squared errors</strong> loss on its training set, while the logistic regression algorithm minimizes the <strong>negative log-likelihood</strong> loss function.</p>
@@ -420,8 +470,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="classification_metrics.html" title="previous page"><span class="section-number">13. </span>Classification Metrics</a>
-    <a class='right-next' id="next-link" href="linear_regression.html" title="next page"><span class="section-number">15. </span>Linear Regression</a>
+    <a class='left-prev' id="prev-link" href="classification_metrics.html" title="previous page"><span class="section-number">7. </span>Classification Metrics</a>
+    <a class='right-next' id="next-link" href="linear_regression.html" title="next page"><span class="section-number">9. </span>Linear Regression</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

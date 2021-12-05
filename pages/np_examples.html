@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NumPy Examples &#8212; Python for Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Additional NumPy Topics" href="np_topics.html" />
+    <link rel="prev" title="Higher Dimensional Arrays" href="array_nd.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python for Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   Python for Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="numpy.html">
+   🔹 NumPy
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_functions.html">
+     Array Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_comparisons.html">
+     Array Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_masking.html">
+     Boolean Masking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_2d.html">
+     2-Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="array_nd.html">
+     Higher Dimensional Arrays
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     NumPy Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="np_topics.html">
+     Additional NumPy Topics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="numpy_random.html">
+   🔸 Random Number Generation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_choice.html">
+     The Choice Function
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="pandas.html">
+   🔹 Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataframes.html">
+     DataFrames
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grouping.html">
+     Grouping and Aggregation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="joins.html">
+     Joins
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  MatPlotLib
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   1. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="subplots.html">
+   2. Seaborn
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Seaborn
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.html">
+   3. Seaborn
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Plotly
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plotly.html">
+   4. Plotly
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Sklearn
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_to_ml.html">
+   5. Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn.html">
+   6. Introduction to Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification_metrics.html">
+   7. Classification Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loss_functions.html">
+   8. Loss Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_regression.html">
+   9. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logistic_regression.html">
+   10. Logistic Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decision_trees.html">
+   11. Decision Tree Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_forests.html">
+   12. Random Forests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="one_hot_encoding.html">
+   13. One-Hot Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cross_validation.html">
+   14. Cross-Validation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="grid_search.html">
+   15. Grid Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="titanic.html">
+   16. Titanic Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="breast_cancer.html">
+   17. Diagnosing Breast Cancer
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/pages/np_examples.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpages/np_examples.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/pages/np_examples.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-employee-data">
+   Example: Employee Data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numpy-examples">
+<h1>NumPy Examples<a class="headerlink" href="#numpy-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-employee-data">
+<h2>Example: Employee Data<a class="headerlink" href="#example-employee-data" title="Permalink to this headline">¶</a></h2>
+<p>Several arrays are defined in the cell below. These arrays are meant to contain records for the salespersons working at a certain company.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EID</span></code>, <code class="docutils literal notranslate"><span class="pre">fname</span></code>, and <code class="docutils literal notranslate"><span class="pre">lname</span></code> store the employee ID and name of the salespeople. The array <code class="docutils literal notranslate"><span class="pre">salary</span></code> contains the monthly salaries of the employees.</p>
+<p>The arrays <code class="docutils literal notranslate"><span class="pre">sales_month</span></code>, <code class="docutils literal notranslate"><span class="pre">sales_EID</span></code>, <code class="docutils literal notranslate"><span class="pre">sales_rev</span></code>, and <code class="docutils literal notranslate"><span class="pre">sales_exp</span></code> represent entries in a table of sales data. Each particular index in these lists refers to a month, and employee, and the total revenues and expenses for that employee during that month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">EID</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">103</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">115</span><span class="p">])</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="s1">&#39;Cory&#39;</span><span class="p">,</span> <span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="s1">&#39;Emma&#39;</span><span class="p">])</span>
+<span class="n">lname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Jones&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span> <span class="s1">&#39;Davis&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">])</span>
+<span class="n">salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5620</span><span class="p">,</span> <span class="mi">6250</span><span class="p">,</span> <span class="mi">5480</span><span class="p">,</span> <span class="mi">4350</span><span class="p">,</span> <span class="mi">4640</span><span class="p">])</span>
+
+
+<span class="n">sales_month</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Jan&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Feb&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Mar&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Apr&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;May&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Jun&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span>
+                       <span class="p">[</span><span class="s1">&#39;Jul&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Aug&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Sep&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Oct&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Nov&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+    
+<span class="n">sales_EID</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">103</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">115</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">sales_rev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">16887</span><span class="p">,</span> <span class="mi">36296</span><span class="p">,</span> <span class="mi">10219</span><span class="p">,</span> <span class="mi">22377</span><span class="p">,</span> <span class="mi">43366</span><span class="p">,</span> <span class="mi">20087</span><span class="p">,</span> <span class="mi">25643</span><span class="p">,</span> <span class="mi">29853</span><span class="p">,</span> <span class="mi">19925</span><span class="p">,</span> <span class="mi">45259</span><span class="p">,</span> <span class="mi">30953</span><span class="p">,</span> <span class="mi">27038</span><span class="p">,</span> 
+                      <span class="mi">23563</span><span class="p">,</span> <span class="mi">14986</span><span class="p">,</span> <span class="mi">32105</span><span class="p">,</span> <span class="mi">29042</span><span class="p">,</span> <span class="mi">26106</span><span class="p">,</span> <span class="mi">47848</span><span class="p">,</span> <span class="mi">30160</span><span class="p">,</span> <span class="mi">21224</span><span class="p">,</span> <span class="mi">37301</span><span class="p">,</span> <span class="mi">38803</span><span class="p">,</span> <span class="mi">16794</span><span class="p">,</span> <span class="mi">36425</span><span class="p">,</span>
+                      <span class="mi">29011</span><span class="p">,</span> <span class="mi">19220</span><span class="p">,</span> <span class="mi">41406</span><span class="p">,</span> <span class="mi">24551</span><span class="p">,</span> <span class="mi">29567</span><span class="p">,</span> <span class="mi">29522</span><span class="p">,</span> <span class="mi">20435</span><span class="p">,</span> <span class="mi">16094</span><span class="p">,</span> <span class="mi">17346</span><span class="p">,</span> <span class="mi">21056</span><span class="p">,</span> <span class="mi">25443</span><span class="p">,</span> <span class="mi">29500</span><span class="p">,</span> 
+                      <span class="mi">25748</span><span class="p">,</span> <span class="mi">16914</span><span class="p">,</span> <span class="mi">10973</span><span class="p">,</span> <span class="mi">23193</span><span class="p">,</span> <span class="mi">19599</span><span class="p">,</span> <span class="mi">27395</span><span class="p">,</span> <span class="mi">31450</span><span class="p">,</span> <span class="mi">21705</span><span class="p">,</span> <span class="mi">22856</span><span class="p">,</span> <span class="mi">39687</span><span class="p">,</span>  <span class="mi">8435</span><span class="p">,</span> <span class="mi">14932</span><span class="p">,</span>
+                      <span class="mi">24479</span><span class="p">,</span> <span class="mi">32870</span><span class="p">,</span> <span class="mi">32042</span><span class="p">,</span> <span class="mi">30693</span><span class="p">,</span> <span class="mi">12245</span><span class="p">,</span> <span class="mi">15057</span><span class="p">,</span> <span class="mi">13041</span><span class="p">,</span> <span class="mi">43451</span><span class="p">,</span> <span class="mi">27246</span><span class="p">,</span> <span class="mi">21278</span><span class="p">,</span> <span class="mi">36200</span><span class="p">,</span> <span class="mi">15107</span><span class="p">])</span>
+
+<span class="n">sales_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">724</span><span class="p">,</span> <span class="mi">2138</span><span class="p">,</span> <span class="mi">2978</span><span class="p">,</span> <span class="mi">1351</span><span class="p">,</span> <span class="mi">1542</span><span class="p">,</span> <span class="mi">1667</span><span class="p">,</span> <span class="mi">1954</span><span class="p">,</span> <span class="mi">1192</span><span class="p">,</span> <span class="mi">1454</span><span class="p">,</span> <span class="mi">1741</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">1882</span><span class="p">,</span> 
+                      <span class="mi">1681</span><span class="p">,</span> <span class="mi">1894</span><span class="p">,</span> <span class="mi">1068</span><span class="p">,</span> <span class="mi">1442</span><span class="p">,</span> <span class="mi">1382</span><span class="p">,</span> <span class="mi">3075</span><span class="p">,</span>  <span class="mi">665</span><span class="p">,</span>  <span class="mi">990</span><span class="p">,</span> <span class="mi">1426</span><span class="p">,</span> <span class="mi">1654</span><span class="p">,</span> <span class="mi">1649</span><span class="p">,</span> <span class="mi">1325</span><span class="p">,</span>  
+                       <span class="mi">958</span><span class="p">,</span> <span class="mi">4082</span><span class="p">,</span> <span class="mi">1713</span><span class="p">,</span> <span class="mi">2127</span><span class="p">,</span> <span class="mi">3086</span><span class="p">,</span> <span class="mi">1481</span><span class="p">,</span> <span class="mi">3309</span><span class="p">,</span> <span class="mi">1313</span><span class="p">,</span> <span class="mi">1823</span><span class="p">,</span> <span class="mi">1635</span><span class="p">,</span> <span class="mi">1632</span><span class="p">,</span> <span class="mi">2378</span><span class="p">,</span> 
+                      <span class="mi">2551</span><span class="p">,</span> <span class="mi">1715</span><span class="p">,</span> <span class="mi">2290</span><span class="p">,</span> <span class="mi">1782</span><span class="p">,</span> <span class="mi">2126</span><span class="p">,</span> <span class="mi">1356</span><span class="p">,</span> <span class="mi">2630</span><span class="p">,</span> <span class="mi">2316</span><span class="p">,</span> <span class="mi">1644</span><span class="p">,</span> <span class="mi">2003</span><span class="p">,</span>  <span class="mi">769</span><span class="p">,</span> <span class="mi">2402</span><span class="p">,</span> 
+                      <span class="mi">1628</span><span class="p">,</span> <span class="mi">1155</span><span class="p">,</span> <span class="mi">2274</span><span class="p">,</span> <span class="mi">2538</span><span class="p">,</span> <span class="mi">2090</span><span class="p">,</span> <span class="mi">2652</span><span class="p">,</span> <span class="mi">2909</span><span class="p">,</span> <span class="mi">2281</span><span class="p">,</span> <span class="mi">2238</span><span class="p">,</span> <span class="mi">2844</span><span class="p">,</span>  <span class="mi">789</span><span class="p">,</span> <span class="mi">1528</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2161592</span><span class="n">c269c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">EID</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">103</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">115</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Anna&#39;</span><span class="p">,</span> <span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="s1">&#39;Cory&#39;</span><span class="p">,</span> <span class="s1">&#39;Brad&#39;</span><span class="p">,</span> <span class="s1">&#39;Emma&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">lname</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Jones&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span> <span class="s1">&#39;Davis&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5620</span><span class="p">,</span> <span class="mi">6250</span><span class="p">,</span> <span class="mi">5480</span><span class="p">,</span> <span class="mi">4350</span><span class="p">,</span> <span class="mi">4640</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, we use numpy operations to calculate the total annual revenue, expenses, and profit generated by each employee.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rev_by_employee</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="n">exp_by_employee</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">EID</span><span class="p">)):</span>
+    <span class="n">rev_by_employee</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sales_rev</span><span class="p">[</span><span class="n">sales_EID</span> <span class="o">==</span> <span class="n">EID</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="n">exp_by_employee</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sales_exp</span><span class="p">[</span><span class="n">sales_EID</span> <span class="o">==</span> <span class="n">EID</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+<span class="n">profit_by_employee</span> <span class="o">=</span> <span class="n">rev_by_employee</span> <span class="o">-</span> <span class="n">exp_by_employee</span> <span class="o">-</span> <span class="n">salary</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Revenue: &#39;</span><span class="p">,</span> <span class="n">rev_by_employee</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Expenses:&#39;</span><span class="p">,</span> <span class="n">exp_by_employee</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Profit:  &#39;</span><span class="p">,</span> <span class="n">profit_by_employee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now identify the employee who generated the greatest total annual revenue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">rev_by_employee</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EID:    &#39;</span><span class="p">,</span> <span class="n">EID</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Name:   &#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">lname</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Revenue:&#39;</span><span class="p">,</span> <span class="n">rev_by_employee</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s identify the employee who generated the greatest total annual profit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">profit_by_employee</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EID:   &#39;</span><span class="p">,</span> <span class="n">EID</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Name:  &#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">lname</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Profit:&#39;</span><span class="p">,</span> <span class="n">profit_by_employee</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s determine the month during which the company generated the most revenue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sales_month</span><span class="p">)</span>
+<span class="n">total_monthly_sales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">total_monthly_sales</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sales_rev</span><span class="p">[</span><span class="n">sales_month</span> <span class="o">==</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">total_monthly_sales</span><span class="p">)</span>    
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Month:  &#39;</span><span class="p">,</span> <span class="n">months</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Revenue:&#39;</span><span class="p">,</span> <span class="n">total_monthly_sales</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="array_nd.html" title="previous page">Higher Dimensional Arrays</a>
+    <a class='right-next' id="next-link" href="np_topics.html" title="next page">Additional NumPy Topics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Robbie Beane<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

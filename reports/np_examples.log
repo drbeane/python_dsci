@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\users\justb\anaconda3\envs\python37\lib\asyncio\base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\users\justb\anaconda3\envs\python37\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+EID = np.array([103, 106, 107, 111, 115])
+fname = np.array(['Anna', 'Brad', 'Cory', 'Brad', 'Emma'])
+lname = np.array(['Jones', 'Green', 'Brown', 'Davis', 'Green'])
+salary = np.array([5620, 6250, 5480, 4350, 4640])
+
+
+sales_month = np.array(['Jan']*5 + ['Feb']*5 + ['Mar']*5 + ['Apr']*5 + ['May']*5 + ['Jun']*5 +
+                       ['Jul']*5 + ['Aug']*5 + ['Sep']*5 + ['Oct']*5 + ['Nov']*5 + ['Dec']*5)
+    
+sales_EID = np.array([103, 106, 107, 111, 115]*12)
+
+sales_rev = np.array([16887, 36296, 10219, 22377, 43366, 20087, 25643, 29853, 19925, 45259, 30953, 27038, 
+                      23563, 14986, 32105, 29042, 26106, 47848, 30160, 21224, 37301, 38803, 16794, 36425,
+                      29011, 19220, 41406, 24551, 29567, 29522, 20435, 16094, 17346, 21056, 25443, 29500, 
+                      25748, 16914, 10973, 23193, 19599, 27395, 31450, 21705, 22856, 39687,  8435, 14932,
+                      24479, 32870, 32042, 30693, 12245, 15057, 13041, 43451, 27246, 21278, 36200, 15107])
+
+sales_exp = np.array([ 724, 2138, 2978, 1351, 1542, 1667, 1954, 1192, 1454, 1741, 2019, 1882, 
+                      1681, 1894, 1068, 1442, 1382, 3075,  665,  990, 1426, 1654, 1649, 1325,  
+                       958, 4082, 1713, 2127, 3086, 1481, 3309, 1313, 1823, 1635, 1632, 2378, 
+                      2551, 1715, 2290, 1782, 2126, 1356, 2630, 2316, 1644, 2003,  769, 2402, 
+                      1628, 1155, 2274, 2538, 2090, 2652, 2909, 2281, 2238, 2844,  789, 1528])
+
+
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+[1;32m<ipython-input-1-2161592c269c>[0m in [0;36m<module>[1;34m[0m
+[1;32m----> 1[1;33m [0mEID[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0marray[0m[1;33m([0m[1;33m[[0m[1;36m103[0m[1;33m,[0m [1;36m106[0m[1;33m,[0m [1;36m107[0m[1;33m,[0m [1;36m111[0m[1;33m,[0m [1;36m115[0m[1;33m][0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m      2[0m [0mfname[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0marray[0m[1;33m([0m[1;33m[[0m[1;34m'Anna'[0m[1;33m,[0m [1;34m'Brad'[0m[1;33m,[0m [1;34m'Cory'[0m[1;33m,[0m [1;34m'Brad'[0m[1;33m,[0m [1;34m'Emma'[0m[1;33m][0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      3[0m [0mlname[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0marray[0m[1;33m([0m[1;33m[[0m[1;34m'Jones'[0m[1;33m,[0m [1;34m'Green'[0m[1;33m,[0m [1;34m'Brown'[0m[1;33m,[0m [1;34m'Davis'[0m[1;33m,[0m [1;34m'Green'[0m[1;33m][0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      4[0m [0msalary[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0marray[0m[1;33m([0m[1;33m[[0m[1;36m5620[0m[1;33m,[0m [1;36m6250[0m[1;33m,[0m [1;36m5480[0m[1;33m,[0m [1;36m4350[0m[1;33m,[0m [1;36m4640[0m[1;33m][0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      5[0m [1;33m[0m[0m
+
+[1;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
